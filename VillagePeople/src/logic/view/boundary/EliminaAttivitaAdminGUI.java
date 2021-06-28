@@ -180,12 +180,12 @@ public class EliminaAttivitaAdminGUI implements Subject {
 				) {
 
 			private static final long serialVersionUID = 1L;
-			boolean[] columnEditables = new boolean[] {
+			boolean[] columnEditablesElemAtt = new boolean[] {
 				false, false, false, false
 			};
 			@Override
 			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
+				return columnEditablesElemAtt[column];
 			}
 		};
 		tableElemAtt.setModel(tTabellaElemAtt);
