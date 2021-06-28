@@ -26,20 +26,20 @@ public class PrenotazioneAttivitaController extends AttivitaController {
 	
 	/*verificaAttivita cerca le attivita singole della categoria e giorno scelti dall'utente*/
 	public void verificaAttivita(AttivitaBean ab, List<Object> l, UtenteBean ub, Connection con) throws SQLException {
-		String categoriaAtt = ab.getCategoria();
+
 		String giornoAtt= ab.getGiorno();
 		double budget = ub.getBudget();
 		if (categoriaAtt.equals(sport)) {
-			ad.cercaAttivitaCliente(1, giornoAtt, budget , l, categoriaAtt, con);		    
+			ad.cercaAttivitaCliente(1, giornoAtt, budget , l, con);		    
 		}
 		else if (categoriaAtt.equals(svagoRelax)) {
-			ad.cercaAttivitaCliente(3, giornoAtt, budget , l, categoriaAtt, con);
+			ad.cercaAttivitaCliente(3, giornoAtt, budget , l, con);
 		}
 		else if (categoriaAtt.equals(saluteBenessere)) {
-			ad.cercaAttivitaCliente(2, giornoAtt, budget , l, categoriaAtt, con);
+			ad.cercaAttivitaCliente(2, giornoAtt, budget , l, con);
         }
 		else if (categoriaAtt.equals(bambini)) {
-			ad.cercaAttivitaCliente(4, giornoAtt, budget , l, categoriaAtt, con);
+			ad.cercaAttivitaCliente(4, giornoAtt, budget , l, con);
 	    }
 	}
 	

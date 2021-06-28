@@ -74,7 +74,7 @@ public class AttivitaDao {
 		
 	}
 	
-	public void cercaAttivitaCliente(int numCat, String giornoAtt, double budget, List<Object> l, String categoriaAtt, Connection con) throws SQLException {
+	public void cercaAttivitaCliente(int numCat, String giornoAtt, double budget, List<Object> l, Connection con) throws SQLException {
 		String query = qd.queryCercaAttivita(numCat, giornoAtt, budget);
 
 		ps = con.createStatement();
