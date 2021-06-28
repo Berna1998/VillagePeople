@@ -131,7 +131,7 @@ public class AggiungiNuovoClienteGUI {
 
 
 	public JFrame getFrame() {
-		return frame;
+		return frameAggCli;
 	}
 
 }

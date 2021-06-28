@@ -77,7 +77,7 @@ public class ElencoIntolleranza2GUI {
 		textAreaElenInt2 = new JTextArea();
 		textAreaElenInt2.setBackground(new Color(255, 218, 185));
 		textAreaElenInt2.setEditable(false);
-		scrollPaneElenInt2.setViewportView(textArea);
+		scrollPaneElenInt2.setViewportView(textAreaElenInt2);
 		
 		lblErrorElenInt2 = new JLabel("");
 		lblErrorElenInt2.setBounds(305, 11, 186, 27);
@@ -86,7 +86,7 @@ public class ElencoIntolleranza2GUI {
 	
 
 	public JFrame getFrame() {
-		return frame;
+		return frameElenInt2;
 	}
 
 }
