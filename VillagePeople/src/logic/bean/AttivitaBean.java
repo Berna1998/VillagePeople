@@ -2,86 +2,86 @@ package logic.bean;
 
 public class AttivitaBean {
 
-	private String categoria;
-	private String giorno;
-	private int codice;
-	private String nome;
-	private double prezzo;
-	private String orario;
-	private String tipologia;
-	private int partecipantiMax;
-	private int partecipantiAttuali;
+	private String categoriaBean;
+	private String giornoBean;
+	private int codiceBean;
+	private String nomeBean;
+	private double prezzoBean;
+	private String orarioBean;
+	private String tipologiaBean;
+	private int partecipantiMaxBean;
+	private int partecipantiAttualiBean;
 	
 	public int getPartecipantiAttuali() {
-		return partecipantiAttuali;
+		return partecipantiAttualiBean;
 	}
 
 	public void setPartecipantiAttuali(int partecipantiAttuali) {
-		this.partecipantiAttuali = partecipantiAttuali;
+		this.partecipantiAttualiBean = partecipantiAttuali;
 	}
 
 	public int getPartecipantiMax() {
-		return partecipantiMax;
+		return partecipantiMaxBean;
 	}
 
 	public void setPartecipantiMax(int partecipantiMax) {
-		this.partecipantiMax = partecipantiMax;
+		this.partecipantiMaxBean = partecipantiMax;
 	}
 
 	public String getTipologia() {
-		return tipologia;
+		return tipologiaBean;
 	}
 
 	public void setTipologia(String tipologia) {
-		this.tipologia = tipologia;
+		this.tipologiaBean = tipologia;
 	}
 
 	public int getCodice() {
-		return codice;
+		return codiceBean;
 	}
 
 	public void setCodice(int codice) {
-		this.codice = codice;
+		this.codiceBean = codice;
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeBean;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeBean = nome;
 	}
 
 	public double getPrezzo() {
-		return prezzo;
+		return prezzoBean;
 	}
 
 	public void setPrezzo(double prezzo) {
-		this.prezzo = prezzo;
+		this.prezzoBean = prezzo;
 	}
 
 	public String getOrario() {
-		return orario;
+		return orarioBean;
 	}
 
 	public void setOrario(String orario) {
-		this.orario = orario;
+		this.orarioBean = orario;
 	}
 
 	public String getCategoria() {
-		return categoria;
+		return categoriaBean;
 	}
 	
 	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+		this.categoriaBean = categoria;
 	}
 	
 	public String getGiorno() {
-		return giorno;
+		return giornoBean;
 	}
 
 	public void setGiorno(String giorno) {
-		this.giorno = giorno;
+		this.giornoBean = giorno;
 	}
 	
 
