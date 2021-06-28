@@ -117,7 +117,7 @@ public class EliminaPrenotazioneGUI implements Subject {
 		
 		errorLabelPren = new JLabel("");
 		errorLabelPren.setBounds(30, 517, 430, 51);
-		panel.add(errorLabelPren);
+		panelElemPren.add(errorLabelPren);
 		
 		JButton indietro = new JButton("Indietro");
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -128,11 +128,11 @@ public class EliminaPrenotazioneGUI implements Subject {
 	       StartApplication.c1.switchtoGestisciAttivitaClient();
 		indietro.setFont(new Font(font1, Font.BOLD, 15));
 		indietro.setBounds(131, 595, 229, 44);
-		panel.add(indietro);
+		panelElemPren.add(indietro);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 149, 430, 293);
-		panel.add(scrollPane);
+		panelElemPren.add(scrollPane);
 		
 		table = new JTable();
 		table.setBackground(new Color(255, 218, 185));
@@ -187,7 +187,7 @@ public class EliminaPrenotazioneGUI implements Subject {
 			
 		});
 		btnElimina.setBounds(285, 483, 175, 23);
-		panel.add(btnElimina);
+		panelElemPren.add(btnElimina);
 		
 
 		
@@ -198,17 +198,17 @@ public class EliminaPrenotazioneGUI implements Subject {
 			StartApplication.c1.ricercaPrenotazioni(categoria);
 		});
 		btnNewButton.setBounds(292, 49, 152, 33);
-		panel.add(btnNewButton);
+		panelElemPren.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Seleziona categoria attivit\u00E0:");
 		lblNewLabel.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
 		lblNewLabel.setBounds(39, 31, 229, 21);
-		panel.add(lblNewLabel);
+		panelElemPren.add(lblNewLabel);
 		
 		comboBox = new JComboBox<>();
 		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
 		comboBox.setBounds(79, 56, 122, 21);
-		panel.add(comboBox);
+		panelElemPren.add(comboBox);
 		
 	}
 	
