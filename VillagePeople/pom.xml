@@ -14,6 +14,12 @@
   <sonar.exclusions>src/logic/*,WebContent/immagini/**/*, ext, bin, immagini</sonar.exclusions>
   <sonar.test.exclusions>src/test/**/*</sonar.test.exclusions>
 </properties>
-  
+<dependencies>
+  <dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.0.2155</version>
+  </dependency>
+</dependencies> 
 
 </project>
