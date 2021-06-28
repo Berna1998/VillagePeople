@@ -32,10 +32,7 @@ public class AttivitaDao {
 	}
 	
 	public void cercaAttivita(int tipo, String giorno, List<Object> l, Connection con) throws SQLException{
-		int codice = 0;
-		String nome = "";
-		String orario = "";
-		double prezzo;
+
 		String query = qd.cercaAttivitaAdmin(tipo, giorno);
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
@@ -79,10 +76,7 @@ public class AttivitaDao {
 	
 	public void cercaAttivitaCliente(int numCat, String giornoAtt, double budget, List<Object> l, String categoriaAtt, Connection con) throws SQLException {
 		String query = qd.queryCercaAttivita(numCat, giornoAtt, budget);
-		int codice;
-		String nome;
-		String orario;
-		double prezzo;
+
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
 		riempiLista(rs,l);
@@ -234,6 +228,10 @@ public class AttivitaDao {
 	}
 	
 	public void riempiLista(ResultSet rs, List<Object> l) {
+		int codice = 0;
+		String nome = "";
+		String orario = "";
+		double prezzo;
 		while(rs.next()) {
 			codice = rs.getInt(1);
 			nome = rs.getString(2);
