@@ -1,17 +1,39 @@
-dist: trusty
-language: java
-jdk:
- - openjdk13
+name: Build
 
-before_install:
-  - wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-  - tar xzvf apache-maven-3.6.3-bin.tar.gz
-  - export PATH=`pwd`/apache-maven-3.6.3/bin:$PATH
-  - mvn -v
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-install: true
+jobs:
+  build:
 
-script:
- - cd villagepeople
- - mvn -Pcoverage sonar:sonar -Dsonar.organization=berna1998-1 -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=Berna1998_VillagePeople -Dsonar.host.url=https://sonarcloud.io
+    runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -f VillagePeople/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
