@@ -166,7 +166,7 @@ public class NotificheDao {
 		
 	}
 	
-	public String concatenaNot(ResultSet rs, String query2, int tipo ) {
+	public String concatenaNot(ResultSet rs, int tipo ) {
 		
 		String notifica = "";
 		String prendiNot = "";
