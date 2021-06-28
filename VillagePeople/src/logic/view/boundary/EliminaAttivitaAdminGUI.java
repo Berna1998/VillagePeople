@@ -29,66 +29,66 @@ import javax.swing.JTextField;
 
 public class EliminaAttivitaAdminGUI implements Subject {
 
-	private JFrame frame;
-	private JTable table;
-	private JComboBox<String> comboBox;
-	private JComboBox<String> comboBox1;
-	private DefaultTableModel tTabella;
-	private JTextField textFieldCodPren;
-	private JLabel errorLabelPren;
-	private List<Observer> ob = new ArrayList<>();
+	private JFrame frameElemAtt;
+	private JTable tableElemAtt;
+	private JComboBox<String> comboBoxElemAtt;
+	private JComboBox<String> comboBox1ElemAtt;
+	private DefaultTableModel tTabellaElemAtt;
+	private JTextField textFieldCodPrenElemAtt;
+	private JLabel errorLabelPrenElemAtt;
+	private List<Observer> obElemAtt = new ArrayList<>();
 	
 	
 	@Override
 	public void attach(Observer o) {
-		this.ob.add(o);
+		this.obElemAtt.add(o);
 	}
 		
 	@Override
 	public void notifica(String tipo) {
-			for (Observer oo: ob) {
+			for (Observer oo: obElemAtt) {
 				oo.update(tipo);
 			}
 	}
 	
 	@Override
 	public void notifica(String nome, int codice, String categoria) {
-			for (Observer oo: ob) {
+			for (Observer oo: obElemAtt) {
 				oo.update(nome, codice, categoria);
 			}
 	}
 	
 	@Override
 	public void detach(Observer o) {
-		if (this.ob.contains(o)) {
-			this.ob.remove(o);
+		if (this.obElemAtt.contains(o)) {
+			this.obElemAtt.remove(o);
 		}
 	}
 	
 
 	public JTable getTable() {
-		return table;
+		return tableElemAtt;
 	}
 
 
 
 	public JLabel getErrorLabelPren() {
-		return errorLabelPren;
+		return errorLabelPrenElemAtt;
 	}
 
 
 	public JTextField getTextFieldCodPren() {
-		return textFieldCodPren;
+		return textFieldCodPrenElemAtt;
 	}
 
 
 	public DefaultTableModel getTabella() {
-		return tTabella;
+		return tTabellaElemAtt;
 	}
 
 
 	public JComboBox<String> getComboBox() {
-		return comboBox;
+		return comboBoxElemAtt;
 	}
 
 
@@ -100,53 +100,53 @@ public class EliminaAttivitaAdminGUI implements Subject {
 		String font="Georgia Pro Semibold";
 		String font1="Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameElemAtt = new JFrame();
+		frameElemAtt.setBounds(100, 100, 450, 300);
+		frameElemAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElemAtt.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElemAtt = new JFrame();
+		frameElemAtt.setBounds(100, 100, 517, 700);
+		frameElemAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelElemAtt = new JPanel();
+		panelElemAtt.setBackground(new Color(255, 160, 122));
+		frameElemAtt.getContentPane().add(panelElemAtt, BorderLayout.CENTER);
+		panelElemAtt.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Seleziona l'attivit\u00E0 da eliminare: ");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(10, 31, 461, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblElemAtt = new JLabel("Seleziona l'attivit\u00E0 da eliminare: ");
+		lblElemAtt.setFont(new Font(font, Font.BOLD, 20));
+		lblElemAtt.setBounds(10, 31, 461, 33);
+		panelElemAtt.add(lblElemAtt);
 		
-		JButton indietro = new JButton("Indietro");
+		JButton indietroElemAtt = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		indietro.setIcon(new ImageIcon(img5));
-		indietro.addActionListener((ActionEvent e) -> {
+		indietroElemAtt.setIcon(new ImageIcon(img5));
+		indietroElemAtt.addActionListener((ActionEvent e) -> {
 		   detach(StartApplication.c1.getWindowNotifiche());
-		   errorLabelPren.setText(" ");
-		   errorLabelPren.setIcon(new ImageIcon());
-		   frame.setVisible(false);
+		   errorLabelPrenElemAtt.setText(" ");
+		   errorLabelPrenElemAtt.setIcon(new ImageIcon());
+		   frameElemAtt.setVisible(false);
 	       StartApplication.c2.switchtoGestisciAttivitaAdmin();
 		});
-		indietro.setFont(new Font(font1, Font.BOLD, 15));
-		indietro.setBounds(131, 595, 229, 44);
-		panel.add(indietro);
+		indietroElemAtt.setFont(new Font(font1, Font.BOLD, 15));
+		indietroElemAtt.setBounds(131, 595, 229, 44);
+		panelElemAtt.add(indietroElemAtt);
 		
-		comboBox = new JComboBox<>();
-		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
-		comboBox.setBounds(30, 94, 155, 21);
-		panel.add(comboBox);
+		comboBoxElemAtt = new JComboBox<>();
+		comboBoxElemAtt.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
+		comboBoxElemAtt.setBounds(30, 94, 155, 21);
+		panelElemAtt.add(comboBoxElemAtt);
 		
-		comboBox1 = new JComboBox<>();
-		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
-		comboBox1.setBounds(269, 93, 157, 22);
-		panel.add(comboBox1);
+		comboBox1ElemAtt = new JComboBox<>();
+		comboBox1ElemAtt.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
+		comboBox1ElemAtt.setBounds(269, 93, 157, 22);
+		panelElemAtt.add(comboBox1ElemAtt);
 		
-		JLabel lblNewLabel = new JLabel("Seleziona categoria attivit\u00E0:");
-		lblNewLabel.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
-		lblNewLabel.setBounds(20, 74, 196, 13);
-		panel.add(lblNewLabel);
+		JLabel lblElemAtt2 = new JLabel("Se2leziona categoria attivit\u00E0:");
+		lblElemAtt2.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
+		lblElemAtt2.setBounds(20, 74, 196, 13);
+		panelElemAtt.add(lblElemAtt);
 		
 		JLabel lblSelezionaGionoAttivita = new JLabel("Seleziona giorno attivit\u00E0:");
 		lblSelezionaGionoAttivita.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
@@ -154,24 +154,24 @@ public class EliminaAttivitaAdminGUI implements Subject {
 		panel.add(lblSelezionaGionoAttivita);
 		
 		
-		JButton btnNewButton = new JButton("Cerca");
+		JButton btnCercaElemAtt = new JButton("Cerca");
 		Image imgCerca=new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		btnNewButton.setIcon(new ImageIcon(imgCerca));
-		btnNewButton.addActionListener((ActionEvent e) -> {
+		btnCercaElemAtt.setIcon(new ImageIcon(imgCerca));
+		btnCercaElemAtt.addActionListener((ActionEvent e) -> {
 			String categoria = (comboBox.getSelectedItem().toString());
 			String giorno = (comboBox1.getSelectedItem().toString());
 			StartApplication.c2.controllaCategoriaAttivita(categoria, giorno,2);
 		});
-		btnNewButton.setBounds(171, 136, 96, 21);
-		panel.add(btnNewButton);
+		btnCercaElemAtt.setBounds(171, 136, 96, 21);
+		panelElemAtt.add(btnCercaElemAtt);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 201, 430, 278);
-		panel.add(scrollPane);
+		JScrollPane scrollPaneElemAtt = new JScrollPane();
+		scrollPaneElemAtt.setBounds(30, 201, 430, 278);
+		panelElemAtt.add(scrollPaneElemAtt);
 		
-		table = new JTable();
-		table.setBackground(new Color(255, 218, 185));
-		tTabella=new DefaultTableModel(
+		tableElemAtt = new JTable();
+		tableElemAtt.setBackground(new Color(255, 218, 185));
+		tTabellaElemAtt=new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -190,8 +190,8 @@ public class EliminaAttivitaAdminGUI implements Subject {
 				return columnEditables[column];
 			}
 		};
-		table.setModel(tTabella);
-		scrollPane.setViewportView(table);
+		tableElemAtt.setModel(tTabellaElemAtt);
+		scrollPaneElemAtt.setViewportView(tableElemAtt);
 		
 		
 		JButton btnElimina = new JButton("Elimina attivit\u00E0");
@@ -219,23 +219,23 @@ public class EliminaAttivitaAdminGUI implements Subject {
 			
 		});
 		btnElimina.setBounds(320, 483, 140, 23);
-		panel.add(btnElimina);
+		panelElemAtt.add(btnElimina);
 		
-		errorLabelPren = new JLabel("");
-		errorLabelPren.setBounds(30, 517, 430, 67);
-		panel.add(errorLabelPren);
+		errorLabelPrenElemAtt = new JLabel("");
+		errorLabelPrenElemAtt.setBounds(30, 517, 430, 67);
+		panelElemAtt.add(errorLabelPrenElemAtt);
 		
 	}
 	
 
 
 	public JComboBox<String> getComboBox1() {
-		return comboBox1;
+		return comboBox1ElemAtt;
 	}
 
 
 	public JFrame getFrame() {
-		return frame;
+		return frameElemAtt;
 	}
 
 
