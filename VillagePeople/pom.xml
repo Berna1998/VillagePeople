@@ -22,7 +22,7 @@
 		    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
 		    <dependency>
 			    <groupId>org.seleniumhq.selenium</groupId>
-			    #<artifactId>selenium-chrome-driver</artifactId>
+			    
 			    <artifactId>selenium-java</artifactId>
 			    <version>4.0.0-alpha-4</version>
 		    </dependency>
