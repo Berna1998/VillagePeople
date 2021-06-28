@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 public class AggiungiNuovoClienteGUI {
 
-	private JFrame frame;
+	private JFrame frameAggCli;
 	private JTextField textFieldCodice;
 	private JTextField textFieldNome;
 	private JTextField textFieldCognome;
@@ -50,24 +50,24 @@ public class AggiungiNuovoClienteGUI {
 		String font = "Georgia Pro Semibold";
 		String font1 = "Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameAggCli = new JFrame();
+		frameAggCli.setBounds(100, 100, 450, 300);
+		frameAggCli.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameAggCli.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 363);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameAggCli = new JFrame();
+		frameAggCli.setBounds(100, 100, 517, 363);
+		frameAggCli.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelAggCli = new JPanel();
+		panelAggCli.setBackground(new Color(255, 160, 122));
+		frameAggCli.getContentPane().add(panelAggCli, BorderLayout.CENTER);
+		panelAggCli.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Aggiungi un nuovo cliente\r\n");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(118, 11, 304, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblAggCli = new JLabel("Aggiungi un nuovo cliente\r\n");
+		lblAggCli.setFont(new Font(font, Font.BOLD, 20));
+		lblAggCli.setBounds(118, 11, 304, 33);
+		panelAggCli.add(lblAggCli);
 		
 		JButton btnIndietro = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -80,37 +80,37 @@ public class AggiungiNuovoClienteGUI {
 		});
 		btnIndietro.setFont(new Font(font1, Font.BOLD, 15));
 		btnIndietro.setBounds(39, 272, 159, 33);
-		panel.add(btnIndietro);
+		panelAggCli.add(btnIndietro);
 		
-		JLabel lblCodice = new JLabel("Codice:");
-		lblCodice.setFont(new Font(font, Font.BOLD, 20));
-		lblCodice.setBounds(61, 86, 200, 33);
-		panel.add(lblCodice);
+		JLabel lblCodiceAggCli = new JLabel("Codice:");
+		lblCodiceAggCli.setFont(new Font(font, Font.BOLD, 20));
+		lblCodiceAggCli.setBounds(61, 86, 200, 33);
+		panelAggCli.add(lblCodiceAggCli);
 		
-		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font(font, Font.BOLD, 20));
-		lblNome.setBounds(61, 134, 200, 33);
-		panel.add(lblNome);
+		JLabel lblNomeAggCli = new JLabel("Nome:");
+		lblNomeAggCli.setFont(new Font(font, Font.BOLD, 20));
+		lblNomeAggCli.setBounds(61, 134, 200, 33);
+		panelAggCli.add(lblNomeAggCli);
 		
 		JLabel lblOrario = new JLabel("Cognome:");
 		lblOrario.setFont(new Font(font, Font.BOLD, 20));
 		lblOrario.setBounds(38, 182, 200, 33);
-		panel.add(lblOrario);
+		panelAggCli.add(lblOrario);
 		
 		textFieldCodice = new JTextField();
 		textFieldCodice.setBounds(165, 82, 200, 33);
-		panel.add(textFieldCodice);
+		panelAggCli.add(textFieldCodice);
 		textFieldCodice.setColumns(10);
 		
 		textFieldNome = new JTextField();
 		textFieldNome.setColumns(10);
 		textFieldNome.setBounds(165, 134, 200, 33);
-		panel.add(textFieldNome);
+		panelAggCli.add(textFieldNome);
 		
 		textFieldCognome = new JTextField();
 		textFieldCognome.setColumns(10);
 		textFieldCognome.setBounds(165, 182, 200, 33);
-		panel.add(textFieldCognome);
+		panelAggCli.add(textFieldCognome);
 		
 		JButton btnAggiungiUtente = new JButton("Aggiungi utente");
 		btnAggiungiUtente.addActionListener((ActionEvent e) -> {
@@ -122,11 +122,11 @@ public class AggiungiNuovoClienteGUI {
 		});
 		btnAggiungiUtente.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnAggiungiUtente.setBounds(292, 272, 166, 33);
-		panel.add(btnAggiungiUtente);
+		panelAggCli.add(btnAggiungiUtente);
 		
 		labelErroreUt = new JLabel("");
 		labelErroreUt.setBounds(85, 235, 337, 27);
-		panel.add(labelErroreUt);
+		panelAggCli.add(labelErroreUt);
 	}
 
 
