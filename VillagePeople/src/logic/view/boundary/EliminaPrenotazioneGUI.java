@@ -30,7 +30,7 @@ import javax.swing.JComboBox;
 
 public class EliminaPrenotazioneGUI implements Subject {
 
-	private JFrame frame;
+	private JFrame frameElemPren;
 	private JTable table;
 	private DefaultTableModel tTabella;
 	private JTextField textFieldCodPren;
@@ -96,24 +96,24 @@ public class EliminaPrenotazioneGUI implements Subject {
 		String font = "Georgia Pro Semibold";
 		String font1 = "Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameElemPren = new JFrame();
+		frameElemPren.setBounds(100, 100, 450, 300);
+		frameElemPren.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElemPren.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElemPren = new JFrame();
+		frameElemPren.setBounds(100, 100, 517, 700);
+		frameElemPren.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelElemPren = new JPanel();
+		panelElemPren.setBackground(new Color(255, 160, 122));
+		frameElemPren.getContentPane().add(panelElemPren, BorderLayout.CENTER);
+		panelElemPren.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Seleziona la prenotazione da eliminare: ");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(10, 92, 461, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblElemPren = new JLabel("Seleziona la prenotazione da eliminare: ");
+		lblElemPren.setFont(new Font(font, Font.BOLD, 20));
+		lblElemPren.setBounds(10, 92, 461, 33);
+		panelElemPren.add(lblElemPren);
 		
 		errorLabelPren = new JLabel("");
 		errorLabelPren.setBounds(30, 517, 430, 51);
