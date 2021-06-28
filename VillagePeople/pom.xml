@@ -12,8 +12,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   <sonar.sources>src</sonar.sources>
-  <maven.compiler.source>8</maven.compiler.source>
-  <maven.compiler.target>8</maven.compiler.target>
+  <sonar.java.binaries>src</sonar.java.binaries>
 </properties>
 <dependencies>
 	
