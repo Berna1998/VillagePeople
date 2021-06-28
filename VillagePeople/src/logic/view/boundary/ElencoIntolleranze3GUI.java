@@ -21,16 +21,16 @@ import javax.swing.JTextArea;
 
 public class ElencoIntolleranze3GUI {
 
-	private JFrame frame;
-	private JTextArea textArea;
-	private JLabel lblError;
+	private JFrame frameElenInt3;
+	private JTextArea textAreaElenInt3;
+	private JLabel lblErrorElenInt3;
 
 	public JLabel getLblError() {
-		return lblError;
+		return lblErrorElenInt3;
 	}
 
 	public JTextArea getTextArea() {
-		return textArea;
+		return textAreaElenInt3;
 	}
 
 	/**
@@ -41,51 +41,51 @@ public class ElencoIntolleranze3GUI {
 		String font="Georgia Pro Semibold";
 		String font1="Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameElenInt3 = new JFrame();
+		frameElenInt3.setBounds(100, 100, 450, 300);
+		frameElenInt3.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElenInt3.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameElenInt3 = new JFrame();
+		frameElenInt3.setBounds(100, 100, 517, 700);
+		frameElenInt3.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelElenInt3 = new JPanel();
+		panelElenInt3.setBackground(new Color(255, 160, 122));
+		frame.getContentPane().add(panelElenInt3, BorderLayout.CENTER);
+		panelElenInt3.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Intolleranza relative al Men\u00F9 3");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(10, 11, 378, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblElenInt3 = new JLabel("Intolleranza relative al Men\u00F9 3");
+		lblElenInt3.setFont(new Font(font, Font.BOLD, 20));
+		lblElenInt3.setBounds(10, 11, 378, 33);
+		panelElenInt3.add(lblElenInt3);
 		
-		JButton indietro = new JButton("Indietro");
+		JButton indietroElenInt3 = new JButton("Indietro");
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		indietro.setIcon(new ImageIcon(img5));
-		indietro.addActionListener((ActionEvent e)->
-		   frame.setVisible(false));
-		indietro.setFont(new Font(font1, Font.BOLD, 20));
-		indietro.setBounds(135, 584, 229, 44);
-		panel.add(indietro);
+		indietroElenInt3.setIcon(new ImageIcon(img5));
+		indietroElenInt3.addActionListener((ActionEvent e)->
+		   frameElenInt3.setVisible(false));
+		indietroElenInt3.setFont(new Font(font1, Font.BOLD, 20));
+		indietroElenInt3.setBounds(135, 584, 229, 44);
+		panelElenInt3.add(indietroElenInt3);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 55, 481, 518);
-		panel.add(scrollPane);
+		JScrollPane scrollPaneElenInt3 = new JScrollPane();
+		scrollPaneElenInt3.setBounds(10, 55, 481, 518);
+		panelElenInt3.add(scrollPaneElenInt3);
 		
-		textArea = new JTextArea();
-		textArea.setBackground(new Color(255, 218, 185));
-		textArea.setEditable(false);
-		scrollPane.setViewportView(textArea);
+		textAreaElenInt3 = new JTextArea();
+		textAreaElenInt3.setBackground(new Color(255, 218, 185));
+		textAreaElenInt3.setEditable(false);
+		scrollPaneElenInt3.setViewportView(textAreaElenInt3);
 		
-		lblError = new JLabel("");
-		lblError.setBounds(305, 11, 186, 27);
-		panel.add(lblError);
+		lblErrorElenInt3 = new JLabel("");
+		lblErrorElenInt3.setBounds(305, 11, 186, 27);
+		panelElenInt3.add(lblErrorElenInt3);
    }
 	
 
 	public JFrame getFrame() {
-		return frame;
+		return frameElenInt3;
 	}
 
 }
