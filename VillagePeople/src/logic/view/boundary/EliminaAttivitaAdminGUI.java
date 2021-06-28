@@ -178,9 +178,7 @@ public class EliminaAttivitaAdminGUI implements Subject {
 				 "Codice", "Nome Attivit\u00E0", "Orario", "Prezzo"
 			}
 				) {
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 			boolean[] columnEditables = new boolean[] {
 				false, false, false, false
