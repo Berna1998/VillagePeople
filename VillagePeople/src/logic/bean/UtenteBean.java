@@ -9,7 +9,6 @@ public class UtenteBean {
 	private String cognomeBean;
 	private String emailBean;
 	private String passwordBean;
-	private int role; 
 	private double budgetBean;
 	private Date dataBean;
 	private int numeroUtentiBean;
@@ -43,12 +42,6 @@ public class UtenteBean {
 	}
 	public void setPassword(String password) {
 		this.passwordBean = password;
-	}
-	public int getRole() {
-		return roleBean;
-	}
-	public void setRole(int role) {
-		this.roleBean = role;
 	}
 	public double getBudget() {
 		return budgetBean;
