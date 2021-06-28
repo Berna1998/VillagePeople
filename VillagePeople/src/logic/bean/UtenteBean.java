@@ -4,69 +4,69 @@ import java.sql.Date;
 
 public class UtenteBean {
 	
-	private String codiceID;
-	private String nome;
-	private String cognome;
-	private String email;
-	private String password;
+	private String codiceIDBean;
+	private String nomeBean;
+	private String cognomeBean;
+	private String emailBean;
+	private String passwordBean;
 	private int role; 
-	private double budget;
-	private Date data;
-	private int numeroUtenti;
+	private double budgetBean;
+	private Date dataBean;
+	private int numeroUtentiBean;
 	
 	public String getCodiceID() {
-		return codiceID;
+		return codiceIDBean;
 	}
 	public void setCodiceID(String codiceID) {
-		this.codiceID = codiceID;
+		this.codiceIDBean = codiceID;
 	}
 	public String getNome() {
-		return nome;
+		return nomeBean;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeBean = nome;
 	}
 	public String getCognome() {
-		return cognome;
+		return cognomeBean;
 	}
 	public void setCognome(String cognome) {
-		this.cognome = cognome;
+		this.cognomeBean = cognome;
 	}
 	public String getEmail() {
-		return email;
+		return emailBean;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.emailBean = email;
 	}
 	public String getPassword() {
-		return password;
+		return passwordBean;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.passwordBean = password;
 	}
 	public int getRole() {
-		return role;
+		return roleBean;
 	}
 	public void setRole(int role) {
-		this.role = role;
+		this.roleBean = role;
 	}
 	public double getBudget() {
-		return budget;
+		return budgetBean;
 	}
 	public void setBudget(double budget) {
-		this.budget = budget;
+		this.budgetBean = budget;
 	}
 	public Date getData() {
-		return data;
+		return dataBean;
 	}
 	public void setData(Date data) {
-		this.data = data;
+		this.dataBean = data;
 	}
 	public int getNumeroUtenti() {
-		return numeroUtenti;
+		return numeroUtentiBean;
 	}
 	public void setNumeroUtenti(int numeroUtenti) {
-		this.numeroUtenti = numeroUtenti;
+		this.numeroUtentiBean = numeroUtenti;
 	}
 	
 	

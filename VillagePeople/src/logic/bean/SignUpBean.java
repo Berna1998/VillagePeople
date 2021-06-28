@@ -1,85 +1,85 @@
 package logic.bean;
 
 public class SignUpBean {
-	private String nome;
-	private String cognome;
-	private String email;
-	private String codiceID;
-	private String password;
-	private String confermaPassword;
-	private int giorni;
-	private boolean sport;
-	private boolean saluteBenessere;
-	private boolean svagoRelax;
-	private boolean bambini;
+	private String nomeBean;
+	private String cognomeBean;
+	private String emailBean;
+	private String codiceIDBean;
+	private String passwordBean;
+	private String confermaPasswordBean;
+	private int giorniBean;
+	private boolean sportBean;
+	private boolean saluteBenessereBean;
+	private boolean svagoRelaxBean;
+	private boolean bambiniBean;
 	
 	
 	public boolean isSport() {
-		return sport;
+		return sportBean;
 	}
 	public void setSport(boolean sport) {
-		this.sport = sport;
+		this.sportBean = sport;
 	}
 	public boolean isSaluteBenessere() {
-		return saluteBenessere;
+		return saluteBenessereBean;
 	}
 	public void setSaluteBenessere(boolean saluteBenessere) {
-		this.saluteBenessere = saluteBenessere;
+		this.saluteBenessereBean = saluteBenessere;
 	}
 	public boolean isSvagoRelax() {
-		return svagoRelax;
+		return svagoRelaxBean;
 	}
 	public void setSvagoRelax(boolean svagoRelax) {
-		this.svagoRelax = svagoRelax;
+		this.svagoRelaxBean = svagoRelax;
 	}
 	public boolean isBambini() {
-		return bambini;
+		return bambiniBean;
 	}
 	public void setBambini(boolean bambini) {
-		this.bambini = bambini;
+		this.bambiniBean = bambini;
 	}
 	public String getNome() {
-		return nome;
+		return nomeBean;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeBean = nome;
 	}
 	public String getCognome() {
-		return cognome;
+		return cognomeBean;
 	}
 	public void setCognome(String cognome) {
-		this.cognome = cognome;
+		this.cognomeBean = cognome;
 	}
 	public String getPassword() {
-		return password;
+		return passwordBean;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.passwordBean = password;
 	}
 	public String getConfermaPassword() {
-		return confermaPassword;
+		return confermaPasswordBean;
 	}
 	public void setConfermaPassword(String confermaPassword) {
-		this.confermaPassword = confermaPassword;
+		this.confermaPasswordBean = confermaPassword;
 	}
 	public String getEmail() {
-		return email;
+		return emailBean;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.emailBean = email;
 	}
 	public String getCodiceID() {
-		return codiceID;
+		return codiceIDBean;
 	}
 	public void setCodiceID(String codiceID) {
-		this.codiceID = codiceID;
+		this.codiceIDBean = codiceID;
 	}
 	public int getGiorni() {
-		return giorni;
+		return giorniBean;
 	}
 	public void setGiorni(int giorni) {
 		
-		this.giorni = giorni;
+		this.giorniBean = giorni;
 	}
 	
 	
