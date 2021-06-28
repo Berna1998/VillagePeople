@@ -12,7 +12,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   <sonar.sources>src</sonar.sources>
-  <sonar.java.binaries>src, WebContent</sonar.java.binaries>
+  <sonar.java.binaries>src,WebContent</sonar.java.binaries>
   <sonar.test.exclusions>src/test/**/*</sonar.test.exclusions>
 </properties>
 <dependencies>
