@@ -47,7 +47,7 @@ public class GestisciAttivitaAdminGUI {
 		lblGestAttAdm.setBounds(322, -2, 276, 58);
 		panelGestAttAdm.add(lblGestAttAdm);
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Notifiche");
+		JToggleButton tglbtnNewToggleButton= new JToggleButton("Notifiche");
 		tglbtnNewToggleButton.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoNotificheAdmin();
 			frame.setVisible(false);
@@ -63,23 +63,23 @@ public class GestisciAttivitaAdminGUI {
 		tglbtnPrenotaAttivit.setBounds(624, 175, 159, 33);
 		panelGestAttAdm.add(tglbtnPrenotaAttivit);
 		
-		JToggleButton tglbtnMenDelGiorno = new JToggleButton("Men\u00F9");
-		tglbtnMenDelGiorno.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnMenDelGiornoGestAttAdm = new JToggleButton("Men\u00F9");
+		tglbtnMenDelGiornoGestAttAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoMenu();
 			frame.setVisible(false);
 		});
-		tglbtnMenDelGiorno.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnMenDelGiorno.setBounds(479, 175, 149, 33);
-		panel.add(tglbtnMenDelGiorno);
+		tglbtnMenDelGiornoGestAttAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnMenDelGiornoGestAttAdm.setBounds(479, 175, 149, 33);
+		panelGestAttAdm.add(tglbtnMenDelGiornoGestAttAdm);
 		
-		JToggleButton tglbtnNotifiche = new JToggleButton("Profilo Personale");
-		tglbtnNotifiche.addActionListener((ActionEvent e) -> { 
+		JToggleButton tglbtnNotificheGestAttAdm = new JToggleButton("Profilo Personale");
+		tglbtnNotificheGestAttAdm.addActionListener((ActionEvent e) -> { 
 			StartApplication.c2.switchtoHomepage();
 			frame.setVisible(false);
 		});
-		tglbtnNotifiche.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNotifiche.setBounds(322, 175, 159, 33);
-		panelGestAttAdm.add(tglbtnNotifiche);
+		tglbtnNotificheGestAttAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnNotificheGestAttAdm.setBounds(322, 175, 159, 33);
+		panelGestAttAdm.add(tglbtnNotificheGestAttAdm);
 		
 		JButton btnLogOutGestAttAdm = new JButton("Log out");
 		Image imgLogOut=new ImageIcon(this.getClass().getResource("/logout.png")).getImage().getScaledInstance(17, 17, Image.SCALE_SMOOTH);
