@@ -39,21 +39,8 @@ public class AttivitaDao {
 		String query = qd.cercaAttivitaAdmin(tipo, giorno);
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
-		while(rs.next()) {
-			codice = rs.getInt(1);
-			nome = rs.getString(2);
-			orario = rs.getString(3);
-			prezzo = rs.getDouble(4);
-		    ae.setCodice(codice);
-		    ae.setNome(nome);
-		    ae.setOrario(orario);
-		    ae.setPrezzo(prezzo);
-			l.add(ae.getCodice());
-			l.add(ae.getNome());
-			l.add(ae.getOrario());
-			l.add(ae.getPrezzo());
+		riempiLista(rs,l);
 
-		}
 		
 		rs.close();
         ps.close();
@@ -98,22 +85,8 @@ public class AttivitaDao {
 		double prezzo;
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
-		while (rs.next()) {
-			codice = rs.getInt(1);
-			nome = rs.getString(2);
-			orario = rs.getString(3);
-			prezzo = rs.getDouble(4);
-			ae.setCategoria(categoriaAtt);
-		    ae.setCodice(codice);
-		    ae.setNome(nome);
-		    ae.setOrario(orario);
-		    ae.setPrezzo(prezzo);
-		    l.add(ae.getCodice());
-		    l.add(ae.getNome());
-		    l.add(ae.getOrario());
-		    l.add(ae.getPrezzo());			
-		}
-		
+		riempiLista(rs,l);
+
 		rs.close();
         ps.close();
 	}
@@ -258,6 +231,24 @@ public class AttivitaDao {
 		ps.close();
 		
 		return  budget;
+	}
+	
+	public void riempiLista(ResultSet rs, List<Object> l) {
+		while(rs.next()) {
+			codice = rs.getInt(1);
+			nome = rs.getString(2);
+			orario = rs.getString(3);
+			prezzo = rs.getDouble(4);
+		    ae.setCodice(codice);
+		    ae.setNome(nome);
+		    ae.setOrario(orario);
+		    ae.setPrezzo(prezzo);
+			l.add(ae.getCodice());
+			l.add(ae.getNome());
+			l.add(ae.getOrario());
+			l.add(ae.getPrezzo());
+
+		}
 	}
 
 
