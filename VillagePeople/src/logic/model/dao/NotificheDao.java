@@ -22,17 +22,8 @@ public class NotificheDao {
 		String query = qd.prelevaNotificaModificaAttivita(s);
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
-		String prendiNot;
-		String prendiCod;
-		while(rs.next()) {	
-			prendiNot = rs.getString(1);
-			prendiCod = String.valueOf(rs.getInt(2));
-			notifica = notifica.concat(prendiNot);
-			notifica = notifica.concat(" - ");
-			notifica = notifica.concat(" Codice attivita: ");
-			notifica = notifica.concat(prendiCod);
-			notifica = notifica.concat("\n ");
-	    }
+
+		notifica = concatenaNot(rs,2);
 		rs.close();
         ps.close();
         return notifica;
@@ -62,17 +53,8 @@ public class NotificheDao {
 		String notifica = "";
 		String query = qd.prelevaNotificaEliminaAttivita(s);
 		ResultSet rs = ps.executeQuery(query);
-		String prendiNot;
-		String prendiCod;
-		while(rs.next()) {	
-			prendiNot = rs.getString(1);
-			prendiCod = String.valueOf(rs.getInt(2));
-			notifica = notifica.concat(prendiNot);
-			notifica = notifica.concat(" - ");
-			notifica = notifica.concat(" Codice attivita: ");
-			notifica = notifica.concat(prendiCod);
-			notifica = notifica.concat("\n ");
-	    }
+		notifica = concatenaNot(rs,2);
+
 		rs.close();
         ps.close();
 	    return notifica;
@@ -91,30 +73,10 @@ public class NotificheDao {
 		String notifica = "";
 		String query = qd.queryPrelevaNotificaAttivitaGruppo(s);
 		ResultSet rs = ps.executeQuery(query);
-		String prendiNot = "";
-		String prendiCod = "";
-		int numPart;
-		ps1 = con.createStatement();
-		while(rs.next()) {	
-			prendiNot = rs.getString(1);
-			prendiCod = String.valueOf(rs.getInt(2));
-			String query2 = qd.queryPrelevaNumPrenotati(prendiCod);
-			ResultSet rs1 = ps1.executeQuery(query2);	
-			rs1.next();
-			numPart = rs1.getInt(1);
-			if(numPart>=2) {
-				notifica = notifica.concat(prendiNot);
-				notifica = notifica.concat(" - ");
-				notifica = notifica.concat(prendiCod);
-				notifica = notifica.concat(" - Numero Partecipanti: ");
-				notifica = notifica.concat(String.valueOf(numPart));
-				notifica = notifica.concat("\n ");
-			}
-			rs1.close();
-	    }
+		notifica = concatenaNot(rs, 1);
 		rs.close();
         ps.close();
-        ps1.close();
+
 		return notifica;
 	}
 
@@ -194,30 +156,73 @@ public class NotificheDao {
 		String notifica = "";
 		String query = qd.queryPrelevaNotificaPostoLibero(s);
 		ResultSet rs = ps.executeQuery(query);
-		String prendiNot = "";
-		String prendiCod = "";
-		int numPart;
-		ps1 = con.createStatement();
-		while(rs.next()) {	
-			prendiNot = rs.getString(1);
-			prendiCod = String.valueOf(rs.getInt(2));
-			String query2 = qd.queryPrelevaNumPrenotati(prendiCod);
-			ResultSet rs1 = ps1.executeQuery(query2);	
-			rs1.next();
-			numPart = rs1.getInt(1);
-			notifica = notifica.concat(prendiNot);
-			notifica = notifica.concat(" - ");
-			notifica = notifica.concat(prendiCod);
-			notifica = notifica.concat(" - Nuovi Partecipanti: ");
-			notifica = notifica.concat(String.valueOf(numPart));
-			notifica = notifica.concat("\n ");
-			rs1.close();
-	    }
+		
+		notifica = concatenaNot(rs,3);
+
 		rs.close();
 	    ps.close();
-        ps1.close();
+
 		return notifica;
 		
 	}
+	
+	public String concatenaNot(ResultSet rs, String query2, int tipo ) {
+		
+		String notifica = "";
+		String prendiNot = "";
+		String prendiCod = "";
+		int numPart;
+		if(tipo == 1) {
+			ps1= con.createStatement();
+			while(rs.next()) {	
+				prendiNot = rs.getString(1);
+				prendiCod = String.valueOf(rs.getInt(2));
+				String query2 = qd.queryPrelevaNumPrenotati(prendiCod);
+				ResultSet rs1 = ps1.executeQuery(query2);	
+				rs1.next();
+				numPart = rs1.getInt(1);
+				if(numPart>=2) {
+					notifica = notifica.concat(prendiNot);
+					notifica = notifica.concat(" - ");
+					notifica = notifica.concat(prendiCod);
+					notifica = notifica.concat(" - Numero Partecipanti: ");
+					notifica = notifica.concat(String.valueOf(numPart));
+					notifica = notifica.concat("\n ");
+				}
+				rs1.close();
+			}
+			 ps1.close();
+		} else if (tipo == 2) {
 
+			while(rs.next()) {	
+				prendiNot = rs.getString(1);
+				prendiCod = String.valueOf(rs.getInt(2));
+				notifica = notifica.concat(prendiNot);
+				notifica = notifica.concat(" - ");
+				notifica = notifica.concat(" Codice attivita: ");
+				notifica = notifica.concat(prendiCod);
+				notifica = notifica.concat("\n ");
+		    }
+		} else if (tipo == 3) {
+			ps1 = con.createStatement();
+			while(rs.next()) {	
+				prendiNot = rs.getString(1);
+				prendiCod = String.valueOf(rs.getInt(2));
+				String query2 = qd.queryPrelevaNumPrenotati(prendiCod);
+				ResultSet rs1 = ps1.executeQuery(query2);	
+				rs1.next();
+				numPart = rs1.getInt(1);
+				notifica = notifica.concat(prendiNot);
+				notifica = notifica.concat(" - ");
+				notifica = notifica.concat(prendiCod);
+				notifica = notifica.concat(" - Nuovi Partecipanti: ");
+				notifica = notifica.concat(String.valueOf(numPart));
+				notifica = notifica.concat("\n ");
+				rs1.close();
+		    }
+			ps1.close();
+		}
+	
+		 return notifica;
+	}
 }
