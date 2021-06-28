@@ -43,50 +43,15 @@ public class NotificheDao {
 		ps = con.createStatement();
 		ps1 = con.createStatement();
 		String codiceUt = "";
-		if (numero == 1) {
-			String query = qd.ottieniPrenotati(codiceAtt);
-			ResultSet rs = ps.executeQuery(query);
-			while(rs.next()) {
-				codiceUt = rs.getString(1);
-			    String query1 = qd.inserisciNotificaEliminaAttivita(notifica, 1, codiceAtt, codiceUt);
-		        ps1.executeUpdate(query1);
-			}
-			rs.close();
-			
+		String query = qd.ottieniPrenotati(codiceAtt);
+		ResultSet rs = ps.executeQuery(query);
+		while(rs.next()) {
+			codiceUt = rs.getString(1);
+		    String query1 = qd.inserisciNotificaEliminaAttivita(notifica, numero, codiceAtt, codiceUt);
+	        ps1.executeUpdate(query1);
 		}
-		else if (numero == 2) {
-			String query = qd.ottieniPrenotati(codiceAtt);
-			ResultSet rs = ps.executeQuery(query);
-			while(rs.next()) {
-				codiceUt = rs.getString(1);
-			    String query1 = qd.inserisciNotificaEliminaAttivita(notifica, 2, codiceAtt, codiceUt);
-		        ps1.executeUpdate(query1);
-			}
-			rs.close();
-			
-		}
-		else if (numero == 3) {
-			String query = qd.ottieniPrenotati(codiceAtt);
-			ResultSet rs = ps.executeQuery(query);
-			while(rs.next()) {
-				codiceUt = rs.getString(1);
-			    String query1 = qd.inserisciNotificaEliminaAttivita(notifica, 3, codiceAtt, codiceUt);
-			    ps1.executeUpdate(query1);
-			}
-			rs.close();
-			
-		}
-		else if (numero == 4) {
-			String query = qd.ottieniPrenotati(codiceAtt);
-			ResultSet rs = ps.executeQuery(query);
-			while(rs.next()) {
-				codiceUt = rs.getString(1);
-			    String query1 = qd.inserisciNotificaEliminaAttivita(notifica, 4, codiceAtt, codiceUt);
-			    ps1.executeUpdate(query1);
-			}
-			rs.close();
-			
-		}
+		rs.close();
+		
         ps.close();
         ps1.close();
 		
