@@ -146,6 +146,9 @@
             <div class="card-body">
               <h5 class="card-title" style="text-align:center">Inserisci una nuova attività</h5>
               <h1> </h1>
+             <%
+              request.setAttribute("custAddAtt", codice);
+             %>
               <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
