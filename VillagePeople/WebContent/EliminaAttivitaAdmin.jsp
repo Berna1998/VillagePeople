@@ -29,14 +29,14 @@
 	 }
 	
  	 String categoriaCus = " ";
- 	 String giornoCus = " ";
+ 	 String giorniCus = " ";
  	 
  	 if((String)request.getSession().getAttribute("custCateg") !=null){
  		 categoriaCus = (String)request.getSession().getAttribute("custCateg");
  	 }
  	 
  	 if((String)request.getSession().getAttribute("custGiorno") != null){
- 		 giornoCus = (String)request.getSession().getAttribute("custGiorno");
+ 		 giorniCus = (String)request.getSession().getAttribute("custGiorno");
  	 }
 
      if (codiceId == null){
@@ -60,7 +60,7 @@
     	 	request.getSession().setAttribute("custGiorno", giorno);
     	 	request.getSession().setAttribute("custList", l.size());
     	    categoriaCus = (String)request.getSession().getAttribute("custCateg");
-    	    giornoCus = (String)request.getSession().getAttribute("custGiorno");
+    	    giorniCus = (String)request.getSession().getAttribute("custGiorno");
     	 	if (categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	}else if (categoria.equals("Svago e Relax")){
@@ -231,7 +231,7 @@
     			<% 
      			}else{
         	 		%>
-   					 <option value="<%=giornoCus%>"><%=giornoCus%></option>
+   					 <option value="<%=giorniCus%>"><%=giorniCus%></option>
    			        <% 	
      			}
     			 %>    			
