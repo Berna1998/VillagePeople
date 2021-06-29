@@ -27,32 +27,32 @@ import javax.swing.JRadioButton;
 
 public class InvioIntolleranzeGUI implements Subject {
 
-	private JFrame frame;
+	private JFrame frameInvInt;
 	private JCheckBox chckbxMenu1;
 	private JCheckBox chckbxMenu2;
 	private JCheckBox chckbxMenu3;
 	private JLabel erroreIntoll;
 	private JTextPane txtCodiceId;
 	private JRadioButton rdBtnScelta;
-	private List<Observer> ob = new ArrayList<>();
+	private List<Observer> obInvInt = new ArrayList<>();
 	private JTextPane txtIntol;
 	
 	@Override
 	public void attach(Observer o) {
-		this.ob.add(o);
+		this.obInvInt.add(o);
 	}
 		
 	@Override
 	public void notifica(String tipo, String codice) {
-			for (Observer oo: ob) {
+			for (Observer oo: obInvInt) {
 				oo.update(tipo, codice);
 			}
 	}
 	
 	@Override
 	public void detach(Observer o) {
-		if (this.ob.contains(o)) {
-			this.ob.remove(o);
+		if (this.obInvInt.contains(o)) {
+			this.obInvInt.remove(o);
 		}
 	}
 	
@@ -75,25 +75,25 @@ public class InvioIntolleranzeGUI implements Subject {
 		String font = "Georgia Pro Semibold";
 		String font1="Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameInvInt = new JFrame();
+		frameInvInt.setBounds(100, 100, 450, 300);
+		frameInvInt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameInvInt.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameInvInt = new JFrame();
+		frameInvInt.setBounds(100, 100, 517, 700);
+		frameInvInt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelInvInt = new JPanel();
+		panelInvInt.setBackground(new Color(255, 160, 122));
+		frameInvInt.getContentPane().add(panelInvInt, BorderLayout.CENTER);
+		panelInvInt.setLayout(null);
 		
 		txtIntol = new JTextPane();
 		txtIntol.setFont(new Font(font1, Font.BOLD, 18));
 		txtIntol.setBounds(10, 350, 480, 141);
 		txtIntol.setEditable(false);
-		panel.add(txtIntol);
+		panelInvInt.add(txtIntol);
 		
 		JButton azzera = new JButton("Azzera ");
 		azzera.addActionListener((ActionEvent e)-> {
@@ -104,7 +104,7 @@ public class InvioIntolleranzeGUI implements Subject {
 	    });
 		azzera.setFont(new Font(font1, Font.BOLD, 15));
 		azzera.setBounds(10, 525, 206, 33);
-		panel.add(azzera);
+		panelInvInt.add(azzera);
 		
 		JButton invia = new JButton("Invia");
 		invia.addActionListener((ActionEvent e)-> {
@@ -127,12 +127,12 @@ public class InvioIntolleranzeGUI implements Subject {
 	    });
 		invia.setFont(new Font(font1, Font.BOLD, 15));
 		invia.setBounds(284, 525, 206, 33);
-		panel.add(invia);
+		panelInvInt.add(invia);
 		
 		JLabel lblNewLabel = new JLabel("Inserire eventuali intolleranze qui:");
 		lblNewLabel.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel.setBounds(17, 307, 347, 33);
-		panel.add(lblNewLabel);
+		panelInvInt.add(lblNewLabel);
 		
 		chckbxMenu1 = new JCheckBox("Menu 1");
 		chckbxMenu1.addActionListener((ActionEvent e)-> 
@@ -140,7 +140,7 @@ public class InvioIntolleranzeGUI implements Subject {
 		);
 		chckbxMenu1.setFont(new Font(font, Font.BOLD, 15));
 		chckbxMenu1.setBounds(46, 83, 118, 33);
-		panel.add(chckbxMenu1);
+		panelInvInt.add(chckbxMenu1);
 		
 		chckbxMenu2 = new JCheckBox("Menu 2");
 		chckbxMenu2.addActionListener((ActionEvent e)-> 
@@ -149,7 +149,7 @@ public class InvioIntolleranzeGUI implements Subject {
 	    );
 		chckbxMenu2.setFont(new Font(font, Font.BOLD, 15));
 		chckbxMenu2.setBounds(46, 141, 118, 33);
-		panel.add(chckbxMenu2);
+		panelInvInt.add(chckbxMenu2);
 		
 		chckbxMenu3 = new JCheckBox("Menu 3");
 		chckbxMenu3.addActionListener((ActionEvent e)-> 
@@ -157,12 +157,12 @@ public class InvioIntolleranzeGUI implements Subject {
 	    );
 		chckbxMenu3.setFont(new Font(font, Font.BOLD, 15));
 		chckbxMenu3.setBounds(46, 198, 118, 33);
-		panel.add(chckbxMenu3);
+		panelInvInt.add(chckbxMenu3);
 		
 		JLabel lblNewLabel1 = new JLabel("Selezionare Menu:");
 		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel1.setBounds(10, 26, 378, 33);
-		panel.add(lblNewLabel1);
+		panelInvInt.add(lblNewLabel1);
 		
 		JButton indietro = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -175,31 +175,31 @@ public class InvioIntolleranzeGUI implements Subject {
 		});
 		indietro.setFont(new Font(font1, Font.BOLD, 20));
 		indietro.setBounds(135, 594, 229, 44);
-		panel.add(indietro);
+		panelInvInt.add(indietro);
 		
 		erroreIntoll = new JLabel("");
 		erroreIntoll.setHorizontalAlignment(SwingConstants.CENTER);
 		erroreIntoll.setBounds(20, 554, 460, 33);
-		panel.add(erroreIntoll);
+		panelInvInt.add(erroreIntoll);
 		
 		JLabel codiceId = new JLabel("CodiceId: ");
 		codiceId.setVerticalAlignment(SwingConstants.TOP);
 		codiceId.setFont(new Font(font1, Font.BOLD, 11));
 		codiceId.setBounds(10, 18, 54, 14);
-		panel.add(codiceId);
+		panelInvInt.add(codiceId);
 		
 		txtCodiceId = new JTextPane();
 		txtCodiceId.setBackground(new Color(255, 160, 122));
 		txtCodiceId.setEditable(false);
 		txtCodiceId.setFont(new Font(font1, Font.BOLD, 11));
 		txtCodiceId.setBounds(61, 11, 92, 21);
-		panel.add(txtCodiceId);
+		panelInvInt.add(txtCodiceId);
 		
 		JLabel lblCibo = new JLabel("");
 		ImageIcon img=new ImageIcon(this.getClass().getResource("/cibo3.jpeg"));
 		lblCibo.setIcon(img);
 		lblCibo.setBounds(222, 83, 268, 148);
-		panel.add(lblCibo);
+		panelInvInt.add(lblCibo);
 		
 		rdBtnScelta= new JRadioButton("");
 		rdBtnScelta.addActionListener((ActionEvent e)-> 
@@ -207,12 +207,12 @@ public class InvioIntolleranzeGUI implements Subject {
 
 		);
 		rdBtnScelta.setBounds(447, 268, 21, 21);
-		panel.add(rdBtnScelta);
+		panelInvInt.add(rdBtnScelta);
 		
 		JLabel lblNewLabel111 = new JLabel("Seleziona per aggiungere intolleranze sul men\u00F9 scelto");
 		lblNewLabel111.setFont(new Font(font1, Font.BOLD, 16));
 		lblNewLabel111.setBounds(15, 268, 420, 21);
-		panel.add(lblNewLabel111);
+		panelInvInt.add(lblNewLabel111);
 		
    }
 	
@@ -241,7 +241,7 @@ public class InvioIntolleranzeGUI implements Subject {
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frameInvInt;
 	}
 
 
