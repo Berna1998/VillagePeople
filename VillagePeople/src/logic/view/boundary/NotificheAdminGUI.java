@@ -19,7 +19,7 @@ import javax.swing.WindowConstants;
 
 public class NotificheAdminGUI implements Observer {
 
-	private JFrame frame;
+	private JFrame frameNotifAdm;
 	private JTextArea textArea;
 	private JLabel lblError;
 	
@@ -37,7 +37,7 @@ public class NotificheAdminGUI implements Observer {
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frameNotifAdm;
 	}
 
 	/**
@@ -47,112 +47,112 @@ public class NotificheAdminGUI implements Observer {
 		
 		String font = "Georgia Pro Semibold";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 937, 663);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameNotifAdm = new JFrame();
+		frameNotifAdm.setBounds(100, 100, 937, 663);
+		frameNotifAdm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameNotifAdm.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(255, 160, 122));
-		panel.setBounds(0, 0, 929, 656);
-		frame.getContentPane().add(panel);
+		JPanel panelNotifAdm = new JPanel();
+		panelNotifAdm.setLayout(null);
+		panelNotifAdm.setBackground(new Color(255, 160, 122));
+		panelNotifAdm.setBounds(0, 0, 929, 656);
+		frameNotifAdm.getContentPane().add(panelNotifAdm);
 		
-		JLabel lblNewLabel = new JLabel(" VillagePeople ");
-		lblNewLabel.setForeground(new Color(255, 160, 122));
-		lblNewLabel.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
-		lblNewLabel.setBounds(333, 0, 291, 58);
-		panel.add(lblNewLabel);
+		JLabel lblNotifAdm = new JLabel(" VillagePeople ");
+		lblNotifAdm.setForeground(new Color(255, 160, 122));
+		lblNotifAdm.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
+		lblNotifAdm.setBounds(333, 0, 291, 58);
+		panelNotifAdm.add(lblNotifAdm;
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Notifiche");
-		tglbtnNewToggleButton.setEnabled(false);
-		tglbtnNewToggleButton.setSelected(true);
-		tglbtnNewToggleButton.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNewToggleButton.setBounds(780, 150, 149, 33);
-		panel.add(tglbtnNewToggleButton);
+		JToggleButton tglbtnNotifAdm = new JToggleButton("Notifiche");
+		tglbtnNotifAdm.setEnabled(false);
+		tglbtnNotifAdm.setSelected(true);
+		tglbtnNotifAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnNotifAdm.setBounds(780, 150, 149, 33);
+		panelNotifAdm.add(tglbtnNotifAdm);
 		
-		JToggleButton tglbtnPrenotaAttivit = new JToggleButton("Gestisci Attivit\u00E0");
-		tglbtnPrenotaAttivit.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnPrenotaAttivitNotifAdm = new JToggleButton("Gestisci Attivit\u00E0");
+		tglbtnPrenotaAttivitNotifAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoGestisciAttivitaAdmin();
-			frame.setVisible(false);
+			frameNotifAdm.setVisible(false);
 		});
 		
-		tglbtnPrenotaAttivit.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnPrenotaAttivit.setBounds(634, 150, 149, 33);
-		panel.add(tglbtnPrenotaAttivit);
+		tglbtnPrenotaAttivitNotifAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnPrenotaAttivitNotifAdm.setBounds(634, 150, 149, 33);
+		panelNotifAdm.add(tglbtnPrenotaAttivitNotifAdm);
 		
-		JToggleButton tglbtnMenDelGiorno = new JToggleButton("Men\u00F9");
-		tglbtnMenDelGiorno.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnMenDelGiornoNotifAdm = new JToggleButton("Men\u00F9");
+		tglbtnMenDelGiornoNotifAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoMenu();
-			frame.setVisible(false);
+			frameNotifAdm.setVisible(false);
 	    });
 			
-		tglbtnMenDelGiorno.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnMenDelGiorno.setBounds(487, 150, 149, 33);
-		panel.add(tglbtnMenDelGiorno);
+		tglbtnMenDelGiornoNotifAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnMenDelGiornoNotifAdm.setBounds(487, 150, 149, 33);
+		panelNotifAdm.add(tglbtnMenDelGiornoNotifAdm);
 		
-		JToggleButton tglbtnNotifiche = new JToggleButton("Profilo Personale");
-		tglbtnNotifiche.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnHomepageNotifAdm = new JToggleButton("Profilo Personale");
+		tglbtnHomepageNotifAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoHomepage();
-			frame.setVisible(false);
+			frameNotifAdm.setVisible(false);
 		});
 		
-		tglbtnNotifiche.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNotifiche.setBounds(333, 150, 159, 33);
-		panel.add(tglbtnNotifiche);
+		tglbtnHomepageNotifAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnHomepageNotifAdm.setBounds(333, 150, 159, 33);
+		panelNotifAdm.add(tglbtnHomepageNotifAdm);
 		
-		JButton btnNewButton1 = new JButton("Log out");
+		JButton btnLogOutNotifAdm = new JButton("Log out");
 		Image imgLogOut=new ImageIcon(this.getClass().getResource("/logout.png")).getImage().getScaledInstance(17, 17, Image.SCALE_SMOOTH);
-		btnNewButton1.setIcon(new ImageIcon(imgLogOut));
-		btnNewButton1.addActionListener((ActionEvent e) -> 
+		btnLogOutNotifAdm.setIcon(new ImageIcon(imgLogOut));
+		btnLogOutNotifAdm.addActionListener((ActionEvent e) -> 
                            StartApplication.c2.disconnessione(4));
-		btnNewButton1.setFont(new Font(font, Font.BOLD, 10));
-		btnNewButton1.setBackground(Color.LIGHT_GRAY);
-		btnNewButton1.setBounds(827, 37, 102, 21);
-		panel.add(btnNewButton1);
+		btnLogOutNotifAdm.setFont(new Font(font, Font.BOLD, 10));
+		btnLogOutNotifAdm.setBackground(Color.LIGHT_GRAY);
+		btnLogOutNotifAdm.setBounds(827, 37, 102, 21);
+		panelNotifAdm.add(btnLogOutNotifAdm);
 		
-		JLabel lblNewLabel11 = new JLabel("Notifiche");
-		lblNewLabel11.setFont(new Font(font, Font.BOLD, 24));
-		lblNewLabel11.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel11.setBounds(34, 176, 306, 41);
-		panel.add(lblNewLabel11);
+		JLabel lbl2NotifAdm = new JLabel("Notifiche");
+		lbl2NotifAdm.setFont(new Font(font, Font.BOLD, 24));
+		lbl2NotifAdm.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl2NotifAdm.setBounds(34, 176, 306, 41);
+		panelNotifAdm.add(lbl2NotifAdm);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(35, 215, 859, 370);
-		panel.add(scrollPane);
+		JScrollPane scrollPaneNotifAdm = new JScrollPane();
+		scrollPaneNotifAdm.setBounds(35, 215, 859, 370);
+		panelNotifAdm.add(scrollPaneNotifAdm);
 		
 		textArea = new JTextArea();
 		textArea.setBounds(10, 171, 746, 414);
 		textArea.setBackground(new Color(255, 218, 185));
 		textArea.setEditable(false);
-		scrollPane.setViewportView(textArea);
+		scrollPaneNotifAdm.setViewportView(textArea);
 		
 		
-		JLabel lblNotifiche = new JLabel("");
+		JLabel lblNotificheNotifAdm = new JLabel("");
 		ImageIcon imgNotifiche=new ImageIcon(this.getClass().getResource("/notifiche-fb.jpg"));
-		lblNotifiche.setIcon(imgNotifiche);
-		lblNotifiche.setBounds(0, 58, 850, 125);
-		panel.add(lblNotifiche);
+		lblNotificheNotifAdm.setIcon(imgNotifiche);
+		lblNotificheNotifAdm.setBounds(0, 58, 850, 125);
+		panelNotifAdm.add(lblNotificheNotifAdm);
 		
-		JLabel lblNotifiche2 = new JLabel("");
-		lblNotifiche2.setIcon(imgNotifiche);
-		lblNotifiche2.setBounds(848, 58, 81, 125);
-		panel.add(lblNotifiche2);
+		JLabel lblNotifiche2NotifAdm = new JLabel("");
+		lblNotifiche2NotifAdm.setIcon(imgNotifiche);
+		lblNotifiche2NotifAdm.setBounds(848, 58, 81, 125);
+		panelNotifAdm.add(lblNotifiche2NotifAdm);
 		
-		JLabel labell4 = new JLabel("");
+		JLabel lbl3NotifAdm = new JLabel("");
 		Image img7 = new ImageIcon(this.getClass().getResource("/simboloResort.png")).getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH);
-		labell4.setIcon(new ImageIcon(img7));
-		labell4.setBounds(608, -15, 66, 84);
-		panel.add(labell4);
+		lbl3NotifAdm.setIcon(new ImageIcon(img7));
+		lbl3NotifAdm.setBounds(608, -15, 66, 84);
+		panelNotifAdm.add(lbl3NotifAdm);
 		
 		JPanel panel9991 = new JPanel();
 		panel9991.setBackground(Color.BLACK);
 		panel9991.setBounds(0, 0, 929, 58);
-		panel.add(panel9991);
+		panelNotifAdm.add(panel9991);
 		
 		lblError = new JLabel("");
 		lblError.setBounds(99, 589, 537, 21);
-		panel.add(lblError);
+		panelNotifAdm.add(lblError);
 	}
 
 	public JTextArea getTextArea() {
