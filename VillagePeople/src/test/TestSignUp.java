@@ -61,26 +61,26 @@ public class TestSignUp {
 		boolean risultato;
 		boolean risultato2 = false;
 		boolean risultato3 = false;
-		SignUpBean sb = new SignUpBean();
+		SignUpBean sb2 = new SignUpBean();
 		apriConnessione();
-		sb.setNome("Nessuno");
-		sb.setCognome("Niente");
-		sb.setCodiceID("090909");
-		sb.setEmail("Nulla@gmail.com");
-		sb.setPassword("76767");
-		sb.setConfermaPassword("76767");
-		sb.setGiorni(8);
-		sb.setSport(true);
-		sb.setSaluteBenessere(false);
-		sb.setSvagoRelax(true);
-		sb.setBambini(false);
+		sb2.setNome("Nessuno");
+		sb2.setCognome("Niente");
+		sb2.setCodiceID("090909");
+		sb2.setEmail("Nulla@gmail.com");
+		sb2.setPassword("76767");
+		sb2.setConfermaPassword("76767");
+		sb2.setGiorni(8);
+		sb2.setSport(true);
+		sb2.setSaluteBenessere(false);
+		sb2.setSvagoRelax(true);
+		sb2.setBambini(false);
 		SignUpController sc = new SignUpController();
-		risultato = sc.controlloAssociazione(sb, connessione);
+		risultato = sc.controlloAssociazione(sb2, connessione);
 		if(risultato) {
-			risultato2 = sc.aggiungiContatto(sb,connessione);
+			risultato2 = sc.aggiungiContatto(sb2,connessione);
 		}
 		if(risultato2) {
-			risultato3=sc.verificaCategorie(sb, connessione);
+			risultato3=sc.verificaCategorie(sb2, connessione);
 		}
 		chiudiConnessione();
 		assertEquals(false, risultato3);

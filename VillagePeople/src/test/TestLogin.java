@@ -43,12 +43,12 @@ public class TestLogin {
 	@Test
 	public void testLoginAdmin() throws SQLException {
 		int role;
-		LoginBean lb = new LoginBean();
+		LoginBean lb2 = new LoginBean();
 		apriConnessione();
-		lb.setCodiceID("12333");
-		lb.setPassword("ciaociao");
+		lb2.setCodiceID("12333");
+		lb2.setPassword("ciaociao");
 		LogInController cli = new LogInController();
-		role = cli.ritornaRuolo(lb, connessione);
+		role = cli.ritornaRuolo(lb2, connessione);
 		chiudiConnessione();
 		assertEquals(0, role);
 		
@@ -57,12 +57,12 @@ public class TestLogin {
 	@Test
 	public void testLoginFail() throws SQLException {
 		int role;
-		LoginBean lb = new LoginBean();
+		LoginBean lb3 = new LoginBean();
 		apriConnessione();
-		lb.setCodiceID("76543");
-		lb.setPassword("NonEsisto");
+		lb3.setCodiceID("76543");
+		lb3.setPassword("NonEsisto");
 		LogInController cli = new LogInController();
-		role = cli.ritornaRuolo(lb, connessione);
+		role = cli.ritornaRuolo(lb3, connessione);
 		chiudiConnessione();
 		assertEquals(3, role);
 	}
