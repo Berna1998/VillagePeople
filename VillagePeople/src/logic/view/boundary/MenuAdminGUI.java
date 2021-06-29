@@ -22,29 +22,29 @@ import javax.swing.WindowConstants;
 
 public class MenuAdminGUI  implements Subject {
 
-	private JFrame frame;
+	private JFrame frameMenuAdm;
 	private JTextArea textArea;
 	private JTextArea textArea1;
 	private JTextArea textArea2;
 	private JLabel lblErrore;
-	private List<Observer> ob = new ArrayList<>();
+	private List<Observer> obMenuAdm = new ArrayList<>();
 	
 	@Override
 	public void attach(Observer o) {
-		this.ob.add(o);
+		this.obMenuAdm.add(o);
 	}
 		
 	@Override
 	public void notifica(String tipo) {
-			for (Observer oo: ob) {
+			for (Observer oo: obMenuAdm) {
 				oo.update(tipo);
 			}
 	}
 	
 	@Override
 	public void detach(Observer o) {
-		if (this.ob.contains(o)) {
-			this.ob.remove(o);
+		if (this.obMenuAdm.contains(o)) {
+			this.obMenuAdm.remove(o);
 		}
 	}
 
@@ -55,7 +55,7 @@ public class MenuAdminGUI  implements Subject {
 
 
 	public JFrame getFrame() {
-		return frame;
+		return frameMenuAdm;
 	}
 
 	/**
@@ -65,16 +65,16 @@ public class MenuAdminGUI  implements Subject {
 		
 		String font = "Georgia Pro Semibold";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 937, 663);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameMenuAdm = new JFrame();
+		frameMenuAdm.setBounds(100, 100, 937, 663);
+		frameMenuAdm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameMenuAdm.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(255, 160, 122));
-		panel.setBounds(0, 0, 929, 656);
-		frame.getContentPane().add(panel);
+		JPanel panelMenuAdm = new JPanel();
+		panelMenuAdm.setLayout(null);
+		panelMenuAdm.setBackground(new Color(255, 160, 122));
+		panelMenuAdm.setBounds(0, 0, 929, 656);
+		frameMenuAdm.getContentPane().add(panelMenuAdm);
 		
 		JLabel lblNewLabel = new JLabel(" VillagePeople ");
 		lblNewLabel.setForeground(new Color(255, 160, 122));
@@ -82,92 +82,92 @@ public class MenuAdminGUI  implements Subject {
 		lblNewLabel.setBounds(300, 0, 289, 58);
 		panel.add(lblNewLabel);
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Notifiche");
-		tglbtnNewToggleButton.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnNotifMenuAdm = new JToggleButton("Notifiche");
+		tglbtnNotifMenuAdm .addActionListener((ActionEvent e) -> {
 			detach(StartApplication.c1.getWindowNotifiche());
 			lblErrore.setText(" ");
 			lblErrore.setIcon(new ImageIcon());
 			StartApplication.c2.switchtoNotificheAdmin();
-			frame.setVisible(false);
+			frameMenuAdm.setVisible(false);
 	    });
-		tglbtnNewToggleButton.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNewToggleButton.setBounds(780, 166, 149, 33);
-		panel.add(tglbtnNewToggleButton);
+		tglbtnNotifMenuAdm .setFont(new Font(font, Font.BOLD, 14));
+		tglbtnNotifMenuAdm .setBounds(780, 166, 149, 33);
+		panelMenuAdm.add(tglbtnNotifMenuAdm );
 		
-		JToggleButton tglbtnPrenotaAttivit = new JToggleButton("Gestisci Attivit\u00E0");
-		tglbtnPrenotaAttivit.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnPrenotaAttivitMenuAdm = new JToggleButton("Gestisci Attivit\u00E0");
+		tglbtnPrenotaAttivitMenuAdm.addActionListener((ActionEvent e) -> {
 			detach(StartApplication.c1.getWindowNotifiche());
 			lblErrore.setText(" ");
 			lblErrore.setIcon(new ImageIcon());
 			StartApplication.c2.switchtoGestisciAttivitaAdmin();
-			frame.setVisible(false);
+			frameMenuAdm.setVisible(false);
 		
 		});
-		tglbtnPrenotaAttivit.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnPrenotaAttivit.setBounds(634, 166, 149, 33);
-		panel.add(tglbtnPrenotaAttivit);
+		tglbtnPrenotaAttivitMenuAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnPrenotaAttivitMenuAdm.setBounds(634, 166, 149, 33);
+		panelMenuAdm.add(tglbtnPrenotaAttivitMenuAdm);
 		
-		JToggleButton tglbtnMenDelGiorno = new JToggleButton("Men\u00F9");
-		tglbtnMenDelGiorno.setSelected(true);
-		tglbtnMenDelGiorno.setEnabled(false);
-		tglbtnMenDelGiorno.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnMenDelGiorno.setBounds(487, 166, 149, 33);
-		panel.add(tglbtnMenDelGiorno);
+		JToggleButton tglbtnMenDelGiornoMenuAdm = new JToggleButton("Men\u00F9");
+		tglbtnMenDelGiornoMenuAdm.setSelected(true);
+		tglbtnMenDelGiornoMenuAdm.setEnabled(false);
+		tglbtnMenDelGiornoMenuAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnMenDelGiornoMenuAdm.setBounds(487, 166, 149, 33);
+		panelMenuAdm.add(tglbtnMenDelGiornoMenuAdm);
 		
-		JToggleButton tglbtnNotifiche = new JToggleButton("Profilo Personale");
-		tglbtnNotifiche.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnNotificheMenuAdm = new JToggleButton("Profilo Personale");
+		tglbtnNotificheMenuAdm.addActionListener((ActionEvent e) -> {
 			detach(StartApplication.c1.getWindowNotifiche());
 			lblErrore.setText(" ");
 			lblErrore.setIcon(new ImageIcon());
 			StartApplication.c2.switchtoHomepage();
-			frame.setVisible(false);
+			frameMenuAdm.setVisible(false);
 		});
-		tglbtnNotifiche.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNotifiche.setBounds(331, 166, 159, 33);
-		panel.add(tglbtnNotifiche);
+		tglbtnNotificheMenuAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnNotificheMenuAdm.setBounds(331, 166, 159, 33);
+		panelMenuAdm.add(tglbtnNotificheMenuAdm);
 		
-		JButton btnNewButton1 = new JButton("Log out");
+		JButton btnLogOutMenuAdm = new JButton("Log out");
 		Image imgLogOut = new ImageIcon(this.getClass().getResource("/logout.png")).getImage().getScaledInstance(17, 17, Image.SCALE_SMOOTH);
-		btnNewButton1.setIcon(new ImageIcon(imgLogOut));
-		btnNewButton1.addActionListener((ActionEvent e) -> {
+		btnLogOutMenuAdm.setIcon(new ImageIcon(imgLogOut));
+		btnLogOutMenuAdm.addActionListener((ActionEvent e) -> {
 			detach(StartApplication.c1.getWindowNotifiche());
 			lblErrore.setText(" ");
             StartApplication.c2.disconnessione(3);                           
 		});
-		btnNewButton1.setFont(new Font(font, Font.BOLD, 10));
-		btnNewButton1.setBackground(Color.LIGHT_GRAY);
-		btnNewButton1.setBounds(821, 36, 108, 23);
-		panel.add(btnNewButton1);
+		btnLogOutMenuAdm.setFont(new Font(font, Font.BOLD, 10));
+		btnLogOutMenuAdm.setBackground(Color.LIGHT_GRAY);
+		btnLogOutMenuAdm.setBounds(821, 36, 108, 23);
+		panelMenuAdm.add(btnLogOutMenuAdm);
 		
 		JLabel lblNewLabel1 = new JLabel("Menu 1");
 		lblNewLabel1.setFont(new Font(font, Font.BOLD, 24));
 		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel1.setBounds(10, 195, 306, 41);
-		panel.add(lblNewLabel1);
+		panelMenuAdm.add(lblNewLabel1);
 		
 		JLabel lblNewLabel11 = new JLabel("Menu 2");
 		lblNewLabel11.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel11.setFont(new Font(font, Font.BOLD, 24));
 		lblNewLabel11.setBounds(300, 195, 306, 41);
-		panel.add(lblNewLabel11);
+		panelMenuAdm.add(lblNewLabel11);
 		
 		JLabel lblNewLabel12 = new JLabel("Menu 3");
 		lblNewLabel12.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel12.setFont(new Font(font, Font.BOLD, 24));
 		lblNewLabel12.setBounds(644, 195, 235, 41);
-		panel.add(lblNewLabel12);
+		panelMenuAdm.add(lblNewLabel12);
 		
 		textArea = new JTextArea();
 		textArea.setBounds(35, 240, 258, 297);
-		panel.add(textArea);
+		panelMenuAdm.add(textArea);
 		
 		textArea1 = new JTextArea();
 		textArea1.setBounds(331, 240, 258, 297);
-		panel.add(textArea1);
+		panelMenuAdm.add(textArea1);
 		
 		textArea2 = new JTextArea();
 		textArea2.setBounds(633, 240, 258, 297);
-		panel.add(textArea2);
+		panelMenuAdm.add(textArea2);
 		
 		JButton btnNewButton21 = new JButton("Conferma Modifiche");
 		btnNewButton21.addActionListener((ActionEvent e) ->{
@@ -184,7 +184,7 @@ public class MenuAdminGUI  implements Subject {
 		});
 		btnNewButton21.setFont(new Font(font, Font.BOLD, 15));
 		btnNewButton21.setBounds(204, 571, 216, 41);
-		panel.add(btnNewButton21);
+		panelMenuAdm.add(btnNewButton21);
 		
 		JButton btnNewButton211 = new JButton("Menu Prenotati");
 		btnNewButton211.addActionListener((ActionEvent e)-> {
@@ -195,29 +195,29 @@ public class MenuAdminGUI  implements Subject {
 		});
 		btnNewButton211.setFont(new Font(font, Font.BOLD, 15));
 		btnNewButton211.setBounds(494, 571, 216, 41);
-		panel.add(btnNewButton211);
+		panelMenuAdm.add(btnNewButton211);
 		
 		lblErrore = new JLabel("");
 		lblErrore.setFont(new Font("Dialog", Font.BOLD, 14));
 		lblErrore.setBounds(375, 535, 335, 41);
-		panel.add(lblErrore);
+		panelMenuAdm.add(lblErrore);
 		
 		JLabel labell4 = new JLabel("");
 		Image img7 = new ImageIcon(this.getClass().getResource("/simboloResort.png")).getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH);
 		labell4.setIcon(new ImageIcon(img7));
 		labell4.setBounds(573, -13, 66, 84);
-		panel.add(labell4);
+		panelMenuAdm.add(labell4);
 		
 		JLabel lblMenu = new JLabel("");
 		ImageIcon imgMenu = new ImageIcon(this.getClass().getResource("/piatto.jpg"));
 		lblMenu.setIcon(imgMenu);
 		lblMenu.setBounds(0, 59, 929, 140);
-		panel.add(lblMenu);
+		panelMenuAdm.add(lblMenu);
 		
 		JPanel panel81 = new JPanel();
 		panel81.setBackground(new Color(0, 0, 0));
 		panel81.setBounds(0, 0, 929, 71);
-		panel.add(panel81);
+		panelMenuAdm.add(panel81);
 		
 	}
 
