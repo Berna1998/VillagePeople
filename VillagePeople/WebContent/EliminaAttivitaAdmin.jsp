@@ -66,8 +66,8 @@
     	 	}else if (categoria.equals("Svago e Relax")){
     	 		categoria = "Svago&Relax";
     	 	}
-    	 	if(giorni.equals("Lunedi")){
-    	 		giorno = "Lunedi";
+    	 	if(giorni.equals("Lunedì")){
+    	 		giorni = "Lunedi";
     	 	}
 
     		AttivitaBean.setCategoria(categoria);
@@ -238,7 +238,7 @@
    			        <% 	
      			}
     			 %>    			
-   				 <option value="Lunedi">Lunedi</option>
+   				 <option value="Lunedì">Lunedi</option>
     			 <option value="Martedi">Martedi</option>
      			 <option value="Mercoledi">Mercoledi</option>
     			 <option value="Giovedi">Giovedi</option>
