@@ -66,9 +66,12 @@
     	 	}else if (categoria.equals("Svago e Relax")){
     	 		categoria = "Svago&Relax";
     	 	}
+    	 	if(giorni.equals("Lunedi")){
+    	 		giorno = "Lunedi";
+    	 	}
 
     		AttivitaBean.setCategoria(categoria);
-    		AttivitaBean.setGiorno(giorno);
+    		AttivitaBean.setGiorno(giorni);
     	    try {
     	    	ac.ricercaAttivita(AttivitaBean, l, connessione);
     	    } catch (SQLException e){
