@@ -19,73 +19,73 @@ import javax.swing.WindowConstants;
 
 public class HomepageAdminGUI {
 
-	private JFrame frame;
-	private JTextPane textNome;
-	private JTextPane textCognome;
-	private JTextPane textCodice;
-	private JTextPane textEmail;
-	private JTextPane textNumeroUtenti;
-	private JLabel lblError;
+	private JFrame frameHomAdm;
+	private JTextPane textNomeHomAdm;
+	private JTextPane textCognomeHomAdm;
+	private JTextPane textCodiceHomAdm;
+	private JTextPane textEmailHomAdm;
+	private JTextPane textNumeroUtentiHomAdm;
+	private JLabel lblErrorHomAdm;
 	
 	
 	
 	public JLabel getLblError() {
-		return lblError;
+		return lblErrorHomAdm;
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frameHomAdm;
 	}
 
 	public JTextPane getTextNome() {
-		return textNome;
+		return textNomeHomAdm;
 	}
 
 	public JTextPane getTextCognome() {
-		return textCognome;
+		return textCognomeHomAdm;
 	}
 
 	public JTextPane getTextCodice() {
-		return textCodice;
+		return textCodiceHomAdm;
 	}
 
 	public JTextPane getTextEmail() {
-		return textEmail;
+		return textEmailHomAdm;
 	}
 
 	public JTextPane getTextNumeroUtenti() {
-		return textNumeroUtenti;
+		return textNumeroUtentiHomAdm;
 	}
 
 	public HomepageAdminGUI() {
 		
 		String font = "Georgia Pro Semibold";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 943, 693);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameHomAdm = new JFrame();
+		frameHomAdm.setBounds(100, 100, 943, 693);
+		frameHomAdm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameHomAdm.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(255, 160, 122));
-		panel.setBounds(0, 0, 929, 656);
-		frame.getContentPane().add(panel);
+		JPanel panelHomAdm = new JPanel();
+		panelHomAdm.setLayout(null);
+		panelHomAdm.setBackground(new Color(255, 160, 122));
+		panelHomAdm.setBounds(0, 0, 929, 656);
+		frameHomAdm.getContentPane().add(panelHomAdm);
 		
-		JLabel lblNewLabel = new JLabel(" VillagePeople ");
-		lblNewLabel.setForeground(new Color(255, 160, 122));
-		lblNewLabel.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
-		lblNewLabel.setBounds(323, 0, 282, 58);
-		panel.add(lblNewLabel);
+		JLabel lblHomAdm = new JLabel(" VillagePeople ");
+		lblHomAdm.setForeground(new Color(255, 160, 122));
+		lblHomAdm.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
+		lblHomAdm.setBounds(323, 0, 282, 58);
+		panelHomAdm.add(lblHomAdm);
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Notifiche");
-		tglbtnNewToggleButton.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnNotifHomAdm = new JToggleButton("Notifiche");
+		tglbtnNotifHomAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoNotificheAdmin();
 			frame.setVisible(false);
 	    });
-		tglbtnNewToggleButton.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNewToggleButton.setBounds(780, 191, 149, 33);
-		panel.add(tglbtnNewToggleButton);
+		tglbtnNotifHomAdm.setFont(new Font(font, Font.BOLD, 14));
+		tglbtnNotifHomAdm.setBounds(780, 191, 149, 33);
+		panelHomAdm.add(tglbtnNotifHomAdm);
 		
 		JToggleButton tglbtnPrenotaAttivit = new JToggleButton("Gestisci Attivit\u00E0");
 		tglbtnPrenotaAttivit.addActionListener((ActionEvent e) -> {
@@ -95,94 +95,94 @@ public class HomepageAdminGUI {
 		
 		tglbtnPrenotaAttivit.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnPrenotaAttivit.setBounds(637, 191, 149, 33);
-		panel.add(tglbtnPrenotaAttivit);
+		panelHomAdm.add(tglbtnPrenotaAttivit);
 		
 		JToggleButton tglbtnMenDelGiorno = new JToggleButton("Men\u00F9 ");
 		tglbtnMenDelGiorno.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoMenu();
-			frame.setVisible(false);				
+			frameHomAdm.setVisible(false);				
 		
 		});
 		tglbtnMenDelGiorno.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnMenDelGiorno.setBounds(490, 191, 149, 33);
-		panel.add(tglbtnMenDelGiorno);
+		panelHomAdm.add(tglbtnMenDelGiorno);
 		
 		JToggleButton tglbtnNotifiche = new JToggleButton("Profilo Personale");
 		tglbtnNotifiche.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNotifiche.setEnabled(false);
 		tglbtnNotifiche.setSelected(true);
 		tglbtnNotifiche.setBounds(333, 191, 159, 33);
-		panel.add(tglbtnNotifiche);
+		panelHomAdm.add(tglbtnNotifiche);
 		
 		JLabel lblNewLabel2 = new JLabel("Nome:");
 		lblNewLabel2.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel2.setBounds(29, 295, 155, 35);
-		panel.add(lblNewLabel2);
+		panelHomAdm.add(lblNewLabel2);
 		
 		JLabel lblNewLabel21 = new JLabel("Cognome:");
 		lblNewLabel21.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel21.setBounds(29, 356, 155, 35);
-		panel.add(lblNewLabel21);
+		panelHomAdm.add(lblNewLabel21);
 		
 		JLabel lblNewLabel22 = new JLabel("CodiceID:");
 		lblNewLabel22.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel22.setBounds(29, 416, 155, 35);
-		panel.add(lblNewLabel22);
+		panelHomAdm.add(lblNewLabel22);
 		
 		JLabel lblNewLabel23 = new JLabel("E-mail:");
 		lblNewLabel23.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel23.setBounds(501, 295, 155, 35);
-		panel.add(lblNewLabel23);
+		panelHomAdm.add(lblNewLabel23);
 		
-		textNome = new JTextPane();
-		textNome.setFont(new Font(font, Font.BOLD, 24));
-		textNome.setBackground(new Color(255, 160, 122));
-		textNome.setEditable(false);
-		textNome.setBounds(186, 295, 241, 35);
-		panel.add(textNome);
+		textNomeHomAdm = new JTextPane();
+		textNomeHomAdm.setFont(new Font(font, Font.BOLD, 24));
+		textNomeHomAdm.setBackground(new Color(255, 160, 122));
+		textNomeHomAdm.setEditable(false);
+		textNomeHomAdm.setBounds(186, 295, 241, 35);
+		panelHomAdm.add(textNomeHomAdm);
 		
-		textCognome = new JTextPane();
-		textCognome.setFont(new Font(font, Font.BOLD, 24));
-		textCognome.setBackground(new Color(255, 160, 122));
-		textCognome.setEditable(false);
-		textCognome.setBounds(186, 356, 241, 35);
-		panel.add(textCognome);
+		textCognomeHomAdm = new JTextPane();
+		textCognomeHomAdm.setFont(new Font(font, Font.BOLD, 24));
+		textCognomeHomAdm.setBackground(new Color(255, 160, 122));
+		textCognomeHomAdm.setEditable(false);
+		textCognomeHomAdm.setBounds(186, 356, 241, 35);
+		panelHomAdm.add(textCognomeHomAdm);
 		
-		textCodice = new JTextPane();
-		textCodice.setFont(new Font(font, Font.BOLD, 24));
-		textCodice.setBackground(new Color(255, 160, 122));
-		textCodice.setEditable(false);
-		textCodice.setBounds(186, 416, 202, 35);
-		panel.add(textCodice);
+		textCodiceHomAdm = new JTextPane();
+		textCodiceHomAdm.setFont(new Font(font, Font.BOLD, 24));
+		textCodiceHomAdm.setBackground(new Color(255, 160, 122));
+		textCodiceHomAdm.setEditable(false);
+		textCodiceHomAdm.setBounds(186, 416, 202, 35);
+		panelHomAdm.add(textCodiceHomAdm);
 		
-		textEmail = new JTextPane();
-		textEmail.setEditable(false);
-		textEmail.setFont(new Font(font, Font.BOLD, 24));
-		textEmail.setBackground(new Color(255, 160, 122));
-		textEmail.setBounds(580, 295, 339, 35);
-		panel.add(textEmail);
+		textEmailHomAdm = new JTextPane();
+		textEmailHomAdm.setEditable(false);
+		textEmailHomAdm.setFont(new Font(font, Font.BOLD, 24));
+		textEmailHomAdm.setBackground(new Color(255, 160, 122));
+		textEmailHomAdm.setBounds(580, 295, 339, 35);
+		panelHomAdm.add(textEmailHomAdm);
 		
-		JButton btnNewButton1 = new JButton("Log out");
+		JButton btnLogOutHomAdm = new JButton("Log out");
 		Image imgLogOut=new ImageIcon(this.getClass().getResource("/logout.png")).getImage().getScaledInstance(17, 17, Image.SCALE_SMOOTH);
-		btnNewButton1.setIcon(new ImageIcon(imgLogOut));
-		btnNewButton1.addActionListener((ActionEvent e) -> 
+		btnLogOutHomAdm.setIcon(new ImageIcon(imgLogOut));
+		btnLogOutHomAdm.addActionListener((ActionEvent e) -> 
                          StartApplication.c2.disconnessione(1));
-		btnNewButton1.setFont(new Font(font, Font.BOLD, 10));
-		btnNewButton1.setBackground(Color.LIGHT_GRAY);
-		btnNewButton1.setBounds(833, 37, 96, 21);
-		panel.add(btnNewButton1);
+		btnLogOutHomAdm.setFont(new Font(font, Font.BOLD, 10));
+		btnLogOutHomAdm.setBackground(Color.LIGHT_GRAY);
+		btnLogOutHomAdm.setBounds(833, 37, 96, 21);
+		panelHomAdm.add(btnLogOutHomAdm);
 		
 		JLabel lblNewLabel221 = new JLabel("Numero Utenti:");
 		lblNewLabel221.setFont(new Font(font, Font.BOLD, 20));
 		lblNewLabel221.setBounds(490, 356, 248, 35);
-		panel.add(lblNewLabel221);
+		panelHomAdm.add(lblNewLabel221);
 		
-		textNumeroUtenti = new JTextPane();
-		textNumeroUtenti.setEditable(false);
-		textNumeroUtenti.setFont(new Font(font, Font.BOLD, 24));
-		textNumeroUtenti.setBackground(new Color(255, 160, 122));
-		textNumeroUtenti.setBounds(684, 356, 159, 35);
-		panel.add(textNumeroUtenti);
+		textNumeroUtentiHomAdm = new JTextPane();
+		textNumeroUtentiHomAdm.setEditable(false);
+		textNumeroUtentiHomAdm.setFont(new Font(font, Font.BOLD, 24));
+		textNumeroUtentiHomAdm.setBackground(new Color(255, 160, 122));
+		textNumeroUtentiHomAdm.setBounds(684, 356, 159, 35);
+		panelHomAdm.add(textNumeroUtentiHomAdm);
 		
 		
 		JLabel lblPersonale = new JLabel("lblPersonale");
@@ -194,18 +194,18 @@ public class HomepageAdminGUI {
 		JLabel lblNewLabel311 = new JLabel("PROFILO PERSONALE");
 		lblNewLabel311.setFont(new Font("Dialog", Font.BOLD, 30));
 		lblNewLabel311.setBounds(21, 235, 339, 39);
-		panel.add(lblNewLabel311);
+		panelHomAdm.add(lblNewLabel311);
 		
 		JLabel labell4 = new JLabel("");
 		Image img7 = new ImageIcon(this.getClass().getResource("/simboloResort.png")).getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH);
 		labell4.setIcon(new ImageIcon(img7));
 		labell4.setBounds(603, -13, 66, 84);
-		panel.add(labell4);
+		panelHomAdm.add(labell4);
 		
 		JPanel panel22341 = new JPanel();
 		panel22341.setBackground(new Color(0, 0, 0));
 		panel22341.setBounds(0, 0, 929, 58);
-		panel.add(panel22341);
+		panelHomAdm.add(panel22341);
 		
 		JButton btnAggiungi = new JButton("Aggiungi cliente");
 		Image imgAggiungi = new ImageIcon(this.getClass().getResource("/aggiungi.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -216,10 +216,10 @@ public class HomepageAdminGUI {
 	    });
 		btnAggiungi.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
 		btnAggiungi.setBounds(702, 416, 183, 35);
-		panel.add(btnAggiungi);
+		panelHomAdm.add(btnAggiungi);
 		
-		lblError = new JLabel("");
-		lblError.setBounds(292, 462, 248, 60);
-		panel.add(lblError);
+		lblErrorHomAdm = new JLabel("");
+		lblErrorHomAdm.setBounds(292, 462, 248, 60);
+		panelHomAdm.add(lblErrorHomAdm);
 	}
 }
