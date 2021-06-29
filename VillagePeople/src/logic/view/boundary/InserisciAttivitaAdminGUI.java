@@ -22,7 +22,7 @@ import javax.swing.ImageIcon;
 
 public class InserisciAttivitaAdminGUI {
 
-	private JFrame frame;
+	private JFrame frameInsAtt;
 	private JTextField textFieldCodice;
 	private JTextField textFieldNome;
 	private JTextField textFieldOrario;
@@ -80,24 +80,24 @@ public class InserisciAttivitaAdminGUI {
 		String font = "Georgia Pro Semibold";
 		String font1 = "Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameInsAtt = new JFrame();
+		frameInsAtt.setBounds(100, 100, 450, 300);
+		frameInsAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameInsAtt.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameInsAtt = new JFrame();
+		frameInsAtt.setBounds(100, 100, 517, 700);
+		frameInsAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelInsAtt = new JPanel();
+		panelInsAtt.setBackground(new Color(255, 160, 122));
+		frameInsAtt.getContentPane().add(panelInsAtt, BorderLayout.CENTER);
+		panelInsAtt.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Aggiungi un'attivit\u00E0");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(148, 20, 200, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblInsAtt = new JLabel("Aggiungi un'attivit\u00E0");
+		lblInsAtt.setFont(new Font(font, Font.BOLD, 20));
+		lblInsAtt.setBounds(148, 20, 200, 33);
+		panelInsAtt.add(lblInsAtt);
 		
 		JButton indietro = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -110,54 +110,54 @@ public class InserisciAttivitaAdminGUI {
 		});
 		indietro.setFont(new Font(font1, Font.BOLD, 15));
 		indietro.setBounds(39, 606, 171, 33);
-		panel.add(indietro);
+		panelInsAtt.add(indietro);
 		
 		JLabel lblCodice = new JLabel("Codice:");
 		lblCodice.setFont(new Font(font, Font.BOLD, 20));
 		lblCodice.setBounds(10, 82, 200, 33);
-		panel.add(lblCodice);
+		panelInsAtt.add(lblCodice);
 		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font(font, Font.BOLD, 20));
 		lblNome.setBounds(10, 130, 200, 33);
-		panel.add(lblNome);
+		panelInsAtt.add(lblNome);
 		
 		JLabel lblOrario = new JLabel("Orario:");
 		lblOrario.setFont(new Font(font, Font.BOLD, 20));
 		lblOrario.setBounds(10, 178, 200, 33);
-		panel.add(lblOrario);
+		panelInsAtt.add(lblOrario);
 		
 		JLabel lblPrezzo = new JLabel("Prezzo:");
 		lblPrezzo.setFont(new Font(font, Font.BOLD, 20));
 		lblPrezzo.setBounds(10, 226, 200, 33);
-		panel.add(lblPrezzo);
+		panelInsAtt.add(lblPrezzo);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setFont(new Font(font, Font.BOLD, 20));
 		lblCategoria.setBounds(10, 269, 109, 33);
-		panel.add(lblCategoria);
+		panelInsAtt.add(lblCategoria);
 		
 		textFieldCodice = new JTextField();
 		textFieldCodice.setText("0");
 		textFieldCodice.setBounds(131, 82, 200, 33);
-		panel.add(textFieldCodice);
+		panelInsAtt.add(textFieldCodice);
 		textFieldCodice.setColumns(10);
 		
 		textFieldNome = new JTextField();
 		textFieldNome.setColumns(10);
 		textFieldNome.setBounds(131, 130, 200, 33);
-		panel.add(textFieldNome);
+		panelInsAtt.add(textFieldNome);
 		
 		textFieldOrario = new JTextField();
 		textFieldOrario.setColumns(10);
 		textFieldOrario.setBounds(131, 178, 200, 33);
-		panel.add(textFieldOrario);
+		panelInsAtt.add(textFieldOrario);
 		
 		textFieldPrezzo = new JTextField();
 		textFieldPrezzo.setText("0.0");
 		textFieldPrezzo.setColumns(10);
 		textFieldPrezzo.setBounds(131, 226, 200, 33);
-		panel.add(textFieldPrezzo);
+		panelInsAtt.add(textFieldPrezzo);
 		
 		JButton inserisciAttivita = new JButton("Inserisci Attivit\u00E0");
 		Image imgInserisci = new ImageIcon(this.getClass().getResource("/aggiungi.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -180,52 +180,52 @@ public class InserisciAttivitaAdminGUI {
 		});
 		inserisciAttivita.setFont(new Font("Dialog", Font.BOLD, 15));
 		inserisciAttivita.setBounds(261, 606, 200, 33);
-		panel.add(inserisciAttivita);
+		panelInsAtt.add(inserisciAttivita);
 		
 		labelErroreAtt = new JLabel("");
 		labelErroreAtt.setBounds(54, 539, 386, 39);
-		panel.add(labelErroreAtt);
+		panelInsAtt.add(labelErroreAtt);
 		
 		JLabel lblNewLabel = new JLabel("Giorno:");
 		lblNewLabel.setFont(new Font(font1, Font.BOLD, 20));
 		lblNewLabel.setBounds(10, 317, 98, 17);
-		panel.add(lblNewLabel);
+		panelInsAtt.add(lblNewLabel);
 		
 		comboBoxCateg = new JComboBox<>();
 		comboBoxCateg.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
 		comboBoxCateg.setBounds(131, 274, 200, 22);
-		panel.add(comboBoxCateg);
+		panelInsAtt.add(comboBoxCateg);
 		
 		comboBoxGiorno = new JComboBox<>();
 		comboBoxGiorno.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
 		comboBoxGiorno.setBounds(131, 317, 201, 22);
-		panel.add(comboBoxGiorno);
+		panelInsAtt.add(comboBoxGiorno);
 		
 		JLabel lblTipologia = new JLabel("Tipologia:");
 		lblTipologia.setFont(new Font(font1, Font.BOLD, 20));
 		lblTipologia.setBounds(10, 367, 150, 17);
-		panel.add(lblTipologia);
+		panelInsAtt.add(lblTipologia);
 		
 		JLabel lblPartecipanti = new JLabel("Partecipanti:");
 		lblPartecipanti.setFont(new Font(font1, Font.BOLD, 20));
 		lblPartecipanti.setBounds(10, 416, 150, 17);
-		panel.add(lblPartecipanti);
+		panelInsAtt.add(lblPartecipanti);
 		
 		textFieldPartecipanti = new JTextField();
 		textFieldPartecipanti.setText("0");
 		textFieldPartecipanti.setColumns(10);
 		textFieldPartecipanti.setBounds(148, 412, 190, 33);
-		panel.add(textFieldPartecipanti);
+		panelInsAtt.add(textFieldPartecipanti);
 		
 		comboBoxTipologia = new JComboBox<>();
 		comboBoxTipologia.setModel(new DefaultComboBoxModel<>(new String[] {"Singolo", "Gruppo"}));
 		comboBoxTipologia.setBounds(147, 368, 201, 22);
-		panel.add(comboBoxTipologia);
+		panelInsAtt.add(comboBoxTipologia);
 	}
 
 
 	public JFrame getFrame() {
-		return frame;
+		return frameInsAtt;
 	}
 
 
