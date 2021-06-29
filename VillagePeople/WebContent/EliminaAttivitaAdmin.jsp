@@ -32,7 +32,9 @@
     	 codiceId = (String)request.getSession().getAttribute("custIdElimAttAd");
      }
 	 String categoriaCus = request.getParameter("categorie");
+	 String categoriaCus2 = categoriaCus;
 	 String giornoCus = request.getParameter("giorno");
+	 String giornoCus2 = giornoCus;
     
      AttivitaController ac = new AttivitaController();
      EliminaAttivitaController eac = new EliminaAttivitaController();
@@ -198,7 +200,7 @@
     	 				<% 
      			 }else{
          	 		%>
-    				 <option value="<%=categoriaCus%>"><%=categoriaCus%></option>
+    				 <option value="<%=categoriaCus2%>"><%=categoriaCus2%></option>
     			        <% 	
       			}
      			 %>  	 			
@@ -219,7 +221,7 @@
     			<% 
      			}else{
         	 		%>
-   					 <option value="<%=giornoCus%>"><%=giornoCus%></option>
+   					 <option value="<%=giornoCus2%>"><%=giornoCus2%></option>
    			        <% 	
      			}
     			 %>    			
