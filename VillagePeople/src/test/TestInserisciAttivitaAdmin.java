@@ -31,18 +31,18 @@ public class TestInserisciAttivitaAdmin {
 	@Test
 	public void testInserisciAttivitaAdmin() throws SQLException {
 		boolean risultato;
-		AttivitaBean ab = new AttivitaBean();
+		AttivitaBean abIns = new AttivitaBean();
 		apriConnessione();
-		ab.setCategoria("Sport");
-		ab.setPrezzo(12.5);
-		ab.setOrario("15");
-	    ab.setNome("Calciotto");
-		ab.setCodice(97);
-		ab.setGiorno("Domenica");
-		ab.setTipologia("Gruppo");
-		ab.setPartecipantiMax(16);
+		abIns.setCategoria("Sport");
+		abIns.setPrezzo(12.5);
+		abIns.setOrario("15");
+		abIns.setNome("Calciotto");
+		abIns.setCodice(97);
+		abIns.setGiorno("Domenica");
+		abIns.setTipologia("Gruppo");
+		abIns.setPartecipantiMax(16);
 		InserisciAttivitaAdminController iaac = new InserisciAttivitaAdminController();
-	    risultato = iaac.aggiungiAttivita(ab, connessione);
+	    risultato = iaac.aggiungiAttivita(abIns, connessione);
 	    chiudiConnessione();
 	    assertEquals(true, risultato);	
 	}
