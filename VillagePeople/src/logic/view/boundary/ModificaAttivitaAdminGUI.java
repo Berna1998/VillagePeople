@@ -30,61 +30,61 @@ import javax.swing.JTextField;
 
 public class ModificaAttivitaAdminGUI implements Subject {
 
-	private JFrame frame;
-	private JTable table;
-	private JComboBox<String> comboBox;
-	private JComboBox<String> comboBox1;
-	private DefaultTableModel tTabella;
-	private JTextField textFieldCodPren;
-	private JLabel errorLabelPren;
-	private List<Observer> ob = new ArrayList<>();
+	private JFrame frameModifAtt;
+	private JTable tableModifAtt;
+	private JComboBox<String> comboBoxModifAtt;
+	private JComboBox<String> comboBox1ModifAtt;
+	private DefaultTableModel tTabellaModifAtt;
+	private JTextField textFieldCodPrenModifAtt;
+	private JLabel errorLabelPrenModifAtt;
+	private List<Observer> obModifAtt = new ArrayList<>();
 	
 	@Override
 	public void attach(Observer o) {
-		this.ob.add(o);
+		this.obModifAtt.add(o);
 	}
 		
 	@Override
 	public void notifica(String tipo) {
-			for (Observer oo: ob) {
+			for (Observer oo: obModifAtt) {
 				oo.update(tipo);
 			}
 	}
 	
 	@Override
 	public void notifica(String nome, int codice, String categoria) {
-			for (Observer oo: ob) {
+			for (Observer oo: obModifAtt) {
 				oo.update(nome, codice, categoria);
 			}
 	}
 	
 	@Override
 	public void detach(Observer o) {
-		if (this.ob.contains(o)) {
-			this.ob.remove(o);
+		if (this.obModifAtt.contains(o)) {
+			this.obModifAtt.remove(o);
 		}
 	}
 		
 	public JTable getTable() {
-		return table;
+		return tableModifAtt;
 	}
 
 	public JLabel getErrorLabelPren() {
-		return errorLabelPren;
+		return errorLabelPrenModifAtt;
 	}
 
 	public JTextField getTextFieldCodPren() {
-		return textFieldCodPren;
+		return textFieldCodPrenModifAtt;
 	}
 
 
 	public DefaultTableModel getTabella() {
-		return tTabella;
+		return tTabellaModifAtt;
 	}
 
 
 	public JComboBox<String> getComboBox() {
-		return comboBox;
+		return comboBoxModifAtt;
 	}
 
 
@@ -96,78 +96,78 @@ public class ModificaAttivitaAdminGUI implements Subject {
 		String font="Georgia Pro Semibold";
 		String font1="Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameModifAtt = new JFrame();
+		frameModifAtt.setBounds(100, 100, 450, 300);
+		frameModifAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameModifAtt.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frameModifAtt = new JFrame();
+		frameModifAtt.setBounds(100, 100, 517, 700);
+		frameModifAtt.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelModifAtt = new JPanel();
+		panelModifAtt.setBackground(new Color(255, 160, 122));
+		frameModifAtt.getContentPane().add(panelModifAtt, BorderLayout.CENTER);
+		panelModifAtt.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Seleziona l'attivit\u00E0 da modificare: ");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(10, 31, 461, 33);
-		panel.add(lblNewLabel1);
+		JLabel lbl2ModifAtt = new JLabel("Seleziona l'attivit\u00E0 da modificare: ");
+		lbl2ModifAtt.setFont(new Font(font, Font.BOLD, 20));
+		lbl2ModifAtt.setBounds(10, 31, 461, 33);
+		panelModifAtt.add(lbl2ModifAtt);
 		
-		JButton indietro = new JButton("Indietro");
+		JButton indietroModifAtt = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		indietro.setIcon(new ImageIcon(img5));
-		indietro.addActionListener((ActionEvent e) -> {
+		indietroModifAtt.setIcon(new ImageIcon(img5));
+		indietroModifAtt.addActionListener((ActionEvent e) -> {
 		   detach(StartApplication.c1.getWindowNotifiche());
-		   frame.setVisible(false);
-		   errorLabelPren.setText(" ");
-		   errorLabelPren.setIcon(new ImageIcon());
+		   frameModifAtt.setVisible(false);
+		   errorLabelPrenModifAtt.setText(" ");
+		   errorLabelPrenModifAtt.setIcon(new ImageIcon());
 	       StartApplication.c2.switchtoGestisciAttivitaAdmin();
 		});
-		indietro.setFont(new Font(font1, Font.BOLD, 15));
-		indietro.setBounds(131, 595, 229, 44);
-		panel.add(indietro);
+		indietroModifAtt.setFont(new Font(font1, Font.BOLD, 15));
+		indietroModifAtt.setBounds(131, 595, 229, 44);
+		panelModifAtt.add(indietroModifAtt);
 		
-		comboBox = new JComboBox<>();
-		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
-		comboBox.setBounds(30, 94, 155, 21);
-		panel.add(comboBox);
+		comboBoxModifAtt = new JComboBox<>();
+		comboBoxModifAtt.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
+		comboBoxModifAtt.setBounds(30, 94, 155, 21);
+		panelModifAtt.add(comboBoxModifAtt);
 		
-		comboBox1 = new JComboBox<>();
-		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
-		comboBox1.setBounds(269, 93, 157, 22);
-		panel.add(comboBox1);
+		comboBox1ModifAtt = new JComboBox<>();
+		comboBox1ModifAtt.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
+		comboBox1ModifAtt.setBounds(269, 93, 157, 22);
+		panelModifAtt.add(comboBox1ModifAtt);
 		
-		JLabel lblNewLabel = new JLabel("Seleziona categoria attivit\u00E0:");
-		lblNewLabel.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
-		lblNewLabel.setBounds(20, 74, 201, 13);
-		panel.add(lblNewLabel);
+		JLabel lblModifAtt = new JLabel("Seleziona categoria attivit\u00E0:");
+		lblModifAtt.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
+		lblModifAtt.setBounds(20, 74, 201, 13);
+		panelModifAtt.add(lblModifAtt);
 		
-		JLabel lblSelezionaGionoAttivita = new JLabel("Seleziona giorno attivit\u00E0:");
-		lblSelezionaGionoAttivita.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
-		lblSelezionaGionoAttivita.setBounds(259, 75, 180, 13);
-		panel.add(lblSelezionaGionoAttivita);
+		JLabel lblSelezionaGionoAttivitaModifAtt = new JLabel("Seleziona giorno attivit\u00E0:");
+		lblSelezionaGionoAttivitaModifAtt.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
+		lblSelezionaGionoAttivitaModifAtt.setBounds(259, 75, 180, 13);
+		panelModifAtt.add(lblSelezionaGionoAttivitaModifAtt);
 		
 		
-		JButton btnNewButton = new JButton("Cerca");
+		JButton btnCercaModifAtt = new JButton("Cerca");
 		Image imgCerca = new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		btnNewButton.setIcon(new ImageIcon(imgCerca));
-		btnNewButton.addActionListener((ActionEvent e) -> {
+		btnCercaModifAtt.setIcon(new ImageIcon(imgCerca));
+		btnCercaModifAtt.addActionListener((ActionEvent e) -> {
 			String categoria = (comboBox.getSelectedItem().toString());
 			String giorno = (comboBox1.getSelectedItem().toString());
 			StartApplication.c2.controllaCategoriaAttivita(categoria,giorno,1);
 		});
-		btnNewButton.setBounds(173, 136, 94, 21);
-		panel.add(btnNewButton);
+		btnCercaModifAtt.setBounds(173, 136, 94, 21);
+		panelModifAtt.add(btnCercaModifAtt);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 201, 430, 278);
-		panel.add(scrollPane);
+		JScrollPane scrollPaneModifAtt = new JScrollPane();
+		scrollPaneModifAtt.setBounds(30, 201, 430, 278);
+		panelModifAtt.add(scrollPaneModifAtt);
 		
-		table = new JTable();
-		table.setBackground(new Color(255, 218, 185));
-		tTabella=new DefaultTableModel(
+		tableModifAtt = new JTable();
+		tableModifAtt.setBackground(new Color(255, 218, 185));
+		tTabellaModifAtt=new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -186,8 +186,8 @@ public class ModificaAttivitaAdminGUI implements Subject {
 				return columnEditables[column];
 			}
 		};
-		table.setModel(tTabella);
-		scrollPane.setViewportView(table);
+		tableModifAtt.setModel(tTabellaModifAtt);
+		scrollPaneModifAtt.setViewportView(tableModifAtt);
 		
 		
 		JButton btnModifica= new JButton("Salva modifiche");
@@ -215,23 +215,23 @@ public class ModificaAttivitaAdminGUI implements Subject {
 			}
 		});
 		btnModifica.setBounds(329, 483, 131, 23);
-		panel.add(btnModifica);
+		panelModifAtt.add(btnModifica);
 		
-		errorLabelPren = new JLabel("");
-		errorLabelPren.setBounds(30, 517, 430, 67);
-		panel.add(errorLabelPren);
+		errorLabelPrenModifAtt = new JLabel("");
+		errorLabelPrenModifAtt.setBounds(30, 517, 430, 67);
+		panelModifAtt.add(errorLabelPrenModifAtt);
 		
 	}
 	
 
 
 	public JComboBox<String> getComboBox1() {
-		return comboBox1;
+		return comboBox1ModifAtt;
 	}
 
 
 	public JFrame getFrame() {
-		return frame;
+		return frameModifAtt;
 	}
 
 
