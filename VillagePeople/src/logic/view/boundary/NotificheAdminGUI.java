@@ -62,7 +62,7 @@ public class NotificheAdminGUI implements Observer {
 		lblNotifAdm.setForeground(new Color(255, 160, 122));
 		lblNotifAdm.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
 		lblNotifAdm.setBounds(333, 0, 291, 58);
-		panelNotifAdm.add(lblNotifAdm;
+		panelNotifAdm.add(lblNotifAdm);
 		
 		JToggleButton tglbtnNotifAdm = new JToggleButton("Notifiche");
 		tglbtnNotifAdm.setEnabled(false);

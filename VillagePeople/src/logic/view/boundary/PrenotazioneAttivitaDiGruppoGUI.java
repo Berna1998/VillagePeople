@@ -111,7 +111,7 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 		
 		JPanel panelPrenAttGruppo = new JPanel();
 		panelPrenAttGruppo.setBackground(new Color(255, 160, 122));
-		framePrenAttGruppo.getContentPane().add(panel, BorderLayout.CENTER);
+		framePrenAttGruppo.getContentPane().add(panelPrenAttGruppo, BorderLayout.CENTER);
 		panelPrenAttGruppo.setLayout(null);
 		
 		JLabel lblPrenAttGruppo = new JLabel("Seleziona l'attivit\u00E0 da prenotare: ");
@@ -124,7 +124,7 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 		indietroPrenAttGruppo.setIcon(new ImageIcon(img5));
 		indietroPrenAttGruppo.addActionListener((ActionEvent e) -> {
 		   detach(StartApplication.c1.getWindowNotifiche());
-		   errorLabelPren.setText(" ");
+		   errorLabelPrenPrenAttGruppo.setText(" ");
 		   framePrenAttGruppo.setVisible(false);
 	       StartApplication.c1.switchtoGestisciAttivitaClient();
 		});
@@ -170,8 +170,8 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 		Image imgCerca=new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		btnCercaPrenAttGruppo.setIcon(new ImageIcon(imgCerca));
 		btnCercaPrenAttGruppo.addActionListener((ActionEvent e) -> {
-			String categoria = (comboBox.getSelectedItem().toString());
-			String giorno = (comboBox1.getSelectedItem().toString());
+			String categoria = (comboBoxPrenAttGruppo.getSelectedItem().toString());
+			String giorno = (comboBox1PrenAttGruppo.getSelectedItem().toString());
 			StartApplication.c1.controllaCategoriaAttivitaGruppo(categoria, giorno);
 		});
 		btnCercaPrenAttGruppo.setBounds(182, 136, 99, 21);
@@ -218,19 +218,19 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 			int riga = 0;
 			riga = StartApplication.c1.controllaRiga(riga,2);
 			try {
-			    int codice = (Integer.parseInt(table.getValueAt(riga, 0).toString()));
-			    double prezzo = (Double.parseDouble(table.getValueAt(riga, 3).toString()));
-			    int partecipantiAttuali = (Integer.parseInt(table.getValueAt(riga, 4).toString()));
+			    int codice = (Integer.parseInt(tablePrenAttGruppo.getValueAt(riga, 0).toString()));
+			    double prezzo = (Double.parseDouble(tablePrenAttGruppo.getValueAt(riga, 3).toString()));
+			    int partecipantiAttuali = (Integer.parseInt(tablePrenAttGruppo.getValueAt(riga, 4).toString()));
 			    int partecipantiMax = (Integer.parseInt(table.getValueAt(riga, 5).toString()));
 			
 			    int i = StartApplication.c1.controllaPrenotazioneGruppo(codice, prezzo, partecipantiAttuali, partecipantiMax);
 			    if (i == 1) {
-				    notifica("team", codice, comboBox.getSelectedItem().toString());
+				    notifica("team", codice, comboBoxPrenAttGruppo.getSelectedItem().toString());
 			    }
 			} catch (ArrayIndexOutOfBoundsException ac){
-				new TableException().printMessage(1,errorLabelPren);
+				new TableException().printMessage(1,errorLabelPrenPrenAttGruppo);
 				Image img = new ImageIcon(this.getClass().getResource("/errore.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-				errorLabelPren.setIcon(new ImageIcon(img));
+				errorLabelPrenPrenAttGruppo.setIcon(new ImageIcon(img));
 			}
 		});
 		btnPrenotaPrenAttGruppo.setBounds(331, 485, 129, 23);

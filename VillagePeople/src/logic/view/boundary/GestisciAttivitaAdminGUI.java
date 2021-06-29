@@ -50,7 +50,7 @@ public class GestisciAttivitaAdminGUI {
 		JToggleButton tglbtnNewToggleButton= new JToggleButton("Notifiche");
 		tglbtnNewToggleButton.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoNotificheAdmin();
-			frame.setVisible(false);
+			frameGestAttAdm.setVisible(false);
 	    });
 		tglbtnNewToggleButton.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNewToggleButton.setBounds(780, 175, 149, 33);
@@ -66,7 +66,7 @@ public class GestisciAttivitaAdminGUI {
 		JToggleButton tglbtnMenDelGiornoGestAttAdm = new JToggleButton("Men\u00F9");
 		tglbtnMenDelGiornoGestAttAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoMenu();
-			frame.setVisible(false);
+			frameGestAttAdm.setVisible(false);
 		});
 		tglbtnMenDelGiornoGestAttAdm.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnMenDelGiornoGestAttAdm.setBounds(479, 175, 149, 33);
@@ -75,7 +75,7 @@ public class GestisciAttivitaAdminGUI {
 		JToggleButton tglbtnNotificheGestAttAdm = new JToggleButton("Profilo Personale");
 		tglbtnNotificheGestAttAdm.addActionListener((ActionEvent e) -> { 
 			StartApplication.c2.switchtoHomepage();
-			frame.setVisible(false);
+			frameGestAttAdm.setVisible(false);
 		});
 		tglbtnNotificheGestAttAdm.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNotificheGestAttAdm.setBounds(322, 175, 159, 33);
@@ -105,7 +105,7 @@ public class GestisciAttivitaAdminGUI {
 		Image imgAggiungi = new ImageIcon(this.getClass().getResource("/aggiungi.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		aggiungi.setIcon(new ImageIcon(imgAggiungi));
 		aggiungi.addActionListener((ActionEvent e) -> {
-		   frame.setVisible(false);
+		   frameGestAttAdm.setVisible(false);
 	       StartApplication.c2.switchtoSelectCategories();
 		});
 		aggiungi.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
@@ -116,7 +116,7 @@ public class GestisciAttivitaAdminGUI {
 		Image imgCancella=new ImageIcon(this.getClass().getResource("/cancella.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		cancella.setIcon(new ImageIcon(imgCancella));
 		cancella.addActionListener((ActionEvent e) -> {
-		   frame.setVisible(false);
+		   frameGestAttAdm.setVisible(false);
 	       StartApplication.c2.switchtoEliminaAttivita();
 		});
 		cancella.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
@@ -132,7 +132,7 @@ public class GestisciAttivitaAdminGUI {
 		Image imgModifica=new ImageIcon(this.getClass().getResource("/modifica.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		modifica.setIcon(new ImageIcon(imgModifica));
 		modifica.addActionListener((ActionEvent e) -> {
-		   frame.setVisible(false);
+			frameGestAttAdm.setVisible(false);
 	       StartApplication.c2.switchtoModificaAttivita();
 		});
 		modifica.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));

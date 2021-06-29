@@ -169,7 +169,7 @@ public class InvioIntolleranzeGUI implements Subject {
 		indietro.setIcon(new ImageIcon(img5));
 		indietro.addActionListener((ActionEvent e)-> {
 		  detach(StartApplication.c2.getWindowNotificheAdmin());
-		   frame.setVisible(false);
+		   frameInvInt.setVisible(false);
 		   erroreIntoll.setText(" ");
 		   StartApplication.c1.switchtoMenu();
 		});

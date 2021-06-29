@@ -81,7 +81,7 @@ public class HomepageAdminGUI {
 		JToggleButton tglbtnNotifHomAdm = new JToggleButton("Notifiche");
 		tglbtnNotifHomAdm.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchtoNotificheAdmin();
-			frame.setVisible(false);
+			frameHomAdm.setVisible(false);
 	    });
 		tglbtnNotifHomAdm.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNotifHomAdm.setBounds(780, 191, 149, 33);
@@ -90,7 +90,7 @@ public class HomepageAdminGUI {
 		JToggleButton tglbtnPrenotaAttivit = new JToggleButton("Gestisci Attivit\u00E0");
 		tglbtnPrenotaAttivit.addActionListener((ActionEvent e) -> {
 				StartApplication.c2.switchtoGestisciAttivitaAdmin();
-				frame.setVisible(false);
+				frameHomAdm.setVisible(false);
 		});
 		
 		tglbtnPrenotaAttivit.setFont(new Font(font, Font.BOLD, 14));
@@ -189,7 +189,7 @@ public class HomepageAdminGUI {
 		ImageIcon imgPersonale=new ImageIcon(this.getClass().getResource("/cameraResort.jpg"));
 		lblPersonale.setIcon(imgPersonale);
 		lblPersonale.setBounds(0, 57, 929, 167);
-		panel.add(lblPersonale);
+		panelHomAdm.add(lblPersonale);
 		
 		JLabel lblNewLabel311 = new JLabel("PROFILO PERSONALE");
 		lblNewLabel311.setFont(new Font("Dialog", Font.BOLD, 30));
@@ -212,7 +212,7 @@ public class HomepageAdminGUI {
 		btnAggiungi.setIcon(new ImageIcon(imgAggiungi));
 		btnAggiungi.addActionListener((ActionEvent e) -> {
 			StartApplication.c2.switchToAggiungiCliente();
-			frame.setVisible(false);
+			frameHomAdm.setVisible(false);
 	    });
 		btnAggiungi.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
 		btnAggiungi.setBounds(702, 416, 183, 35);

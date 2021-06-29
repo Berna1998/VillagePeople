@@ -63,7 +63,7 @@ public class MenuClientGUI {
 		JToggleButton tglbtnNotifMenuCli = new JToggleButton("Notifiche");
 		tglbtnNotifMenuCli.addActionListener((ActionEvent e) -> {
 			StartApplication.c1.switchtoNotifiche();
-			frame.setVisible(false);
+			frameMenuCli.setVisible(false);
 	    });
 		tglbtnNotifMenuCli.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNotifMenuCli.setBounds(780, 166, 149, 33);

@@ -154,8 +154,8 @@ public class ModificaAttivitaAdminGUI implements Subject {
 		Image imgCerca = new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		btnCercaModifAtt.setIcon(new ImageIcon(imgCerca));
 		btnCercaModifAtt.addActionListener((ActionEvent e) -> {
-			String categoria = (comboBox.getSelectedItem().toString());
-			String giorno = (comboBox1.getSelectedItem().toString());
+			String categoria = (comboBoxModifAtt.getSelectedItem().toString());
+			String giorno = (comboBox1ModifAtt.getSelectedItem().toString());
 			StartApplication.c2.controllaCategoriaAttivita(categoria,giorno,1);
 		});
 		btnCercaModifAtt.setBounds(173, 136, 94, 21);
@@ -196,22 +196,22 @@ public class ModificaAttivitaAdminGUI implements Subject {
 			int riga = 0;
 			riga = StartApplication.c2.controllaRiga();
 			try {
-			    int codice = (Integer.parseInt(table.getValueAt(riga, 0).toString()));
-			    String orario = (table.getValueAt(riga, 2).toString());
-			    double prezzo = (Double.parseDouble(table.getValueAt(riga, 3).toString()));
+			    int codice = (Integer.parseInt(tableModifAtt.getValueAt(riga, 0).toString()));
+			    String orario = (tableModifAtt.getValueAt(riga, 2).toString());
+			    double prezzo = (Double.parseDouble(tableModifAtt.getValueAt(riga, 3).toString()));
 			
 			    int i = StartApplication.c2.controllaModifica(codice, orario, prezzo);
 			    if (i == 1) {
-				   notifica("modifica", codice, comboBox.getSelectedItem().toString());
+				   notifica("modifica", codice, comboBoxModifAtt.getSelectedItem().toString());
 			    }
 			} catch (ArrayIndexOutOfBoundsException ac){
-					new TableException().printMessage(1,errorLabelPren);
+					new TableException().printMessage(1,errorLabelPrenModifAtt);
 					Image img = new ImageIcon(this.getClass().getResource("/errore.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-					errorLabelPren.setIcon(new ImageIcon(img));
+					errorLabelPrenModifAtt.setIcon(new ImageIcon(img));
 		    } catch (NumberFormatException ec) {
-		    	    new FormatException().printMessage(errorLabelPren);				   
+		    	    new FormatException().printMessage(errorLabelPrenModifAtt);				   
 				    Image img = new ImageIcon(this.getClass().getResource("/errore.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-				    errorLabelPren.setIcon(new ImageIcon(img));
+				    errorLabelPrenModifAtt.setIcon(new ImageIcon(img));
 			}
 		});
 		btnModifica.setBounds(329, 483, 131, 23);

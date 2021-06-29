@@ -63,7 +63,7 @@ public class GestisciAttivitaClientGUI {
 		JToggleButton tglbtnNotificheGestAttCli = new JToggleButton("Notifiche");
 		tglbtnNotificheGestAttCli.addActionListener((ActionEvent e) -> {
 			StartApplication.c1.switchtoNotifiche();
-			frame.setVisible(false);
+			frameGestAttCli.setVisible(false);
 	    });
 		tglbtnNotificheGestAttCli.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnNotificheGestAttCli.setBounds(780, 175, 149, 33);
@@ -79,20 +79,20 @@ public class GestisciAttivitaClientGUI {
 		JToggleButton tglbtnMenDelGiornoGestAttCli = new JToggleButton("Men\u00F9");
 		tglbtnMenDelGiornoGestAttCli.addActionListener((ActionEvent e) -> {
 				StartApplication.c1.switchtoMenu();
-				frame.setVisible(false);
+				frameGestAttCli.setVisible(false);
 		});
 		tglbtnMenDelGiornoGestAttCli.setFont(new Font(font, Font.BOLD, 14));
 		tglbtnMenDelGiornoGestAttCli.setBounds(479, 175, 149, 33);
 		panelGestAttCli.add(tglbtnMenDelGiornoGestAttCli);
 		
-		JToggleButton tglbtnNotificheGestAttCli = new JToggleButton("Profilo Personale");
-		tglbtnNotifiche.addActionListener((ActionEvent e) -> {
+		JToggleButton tglbtnHomepageGestAttCli  = new JToggleButton("Profilo Personale");
+		tglbtnHomepageGestAttCli .addActionListener((ActionEvent e) -> {
 				StartApplication.c1.switchtoHomepage();
-				frame.setVisible(false);
+				frameGestAttCli.setVisible(false);
 		});
-		tglbtnNotificheGestAttCli.setFont(new Font(font, Font.BOLD, 14));
-		tglbtnNotificheGestAttCli.setBounds(322, 175, 159, 33);
-		panelGestAttCli.add(tglbtnNotificheGestAttCli);
+		tglbtnHomepageGestAttCli .setFont(new Font(font, Font.BOLD, 14));
+		tglbtnHomepageGestAttCli .setBounds(322, 175, 159, 33);
+		panelGestAttCli.add(tglbtnHomepageGestAttCli );
 		
 		JButton btnLogOutGestAttCli = new JButton("Log out");
 		Image imgLogOut=new ImageIcon(this.getClass().getResource("/logout.png")).getImage().getScaledInstance(17, 17, Image.SCALE_SMOOTH);
@@ -118,7 +118,7 @@ public class GestisciAttivitaClientGUI {
 		Image imgPrenota=new ImageIcon(this.getClass().getResource("/prenotazione2.jpg")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		prenota.setIcon(new ImageIcon(imgPrenota));
 		prenota.addActionListener((ActionEvent e) -> {
-			   frame.setVisible(false);
+			   frameGestAttCli.setVisible(false);
 		       StartApplication.c1.switchToPrenotation(1);
 		});
 		prenota.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
@@ -129,7 +129,7 @@ public class GestisciAttivitaClientGUI {
 		Image imgCancella=new ImageIcon(this.getClass().getResource("/cancella.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		btnNewButton21.setIcon(new ImageIcon(imgCancella));
 		btnNewButton21.addActionListener((ActionEvent e) -> {
-			   frame.setVisible(false);
+			   frameGestAttCli.setVisible(false);
 		       StartApplication.c1.switchtoEliminaPrenotazione();
 		});
 		btnNewButton21.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));
@@ -161,7 +161,7 @@ public class GestisciAttivitaClientGUI {
 		Image imgPrenota1=new ImageIcon(this.getClass().getResource("/prenotazione2.jpg")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		prenota1.setIcon(new ImageIcon(imgPrenota1));
 		prenota1.addActionListener((ActionEvent e) -> {
-			   frame.setVisible(false);
+			   frameGestAttCli.setVisible(false);
 		       StartApplication.c1.switchToPrenotation(2);
 		});
 		prenota1.setFont(new Font(font, Font.BOLD | Font.ITALIC, 15));

@@ -64,7 +64,7 @@ public class EliminaPrenotazioneGUI implements Subject {
 	}
 	
 	public JFrame getFrame() {
-		return frame;
+		return frameElemPren;
 	}
 
 	public JComboBox<String> getComboBox() {
@@ -123,7 +123,7 @@ public class EliminaPrenotazioneGUI implements Subject {
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		indietro.setIcon(new ImageIcon(img5));
 		indietro.addActionListener((ActionEvent e) ->
-		   frame.setVisible(false));
+		   frameElemPren.setVisible(false));
 		   errorLabelPren.setText(" ");
 	       StartApplication.c1.switchtoGestisciAttivitaClient();
 		indietro.setFont(new Font(font1, Font.BOLD, 15));

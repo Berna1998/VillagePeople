@@ -99,7 +99,7 @@ public class MenuPrenotatiGUI {
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		indietro.setIcon(new ImageIcon(img5));
 		indietro.addActionListener((ActionEvent e)-> 
-		   frame.setVisible(false));
+		   frameMenuPren.setVisible(false));
 		indietro.setFont(new Font(font1, Font.BOLD, 20));
 		indietro.setBounds(135, 584, 229, 44);
 		panelMenuPren.add(indietro);

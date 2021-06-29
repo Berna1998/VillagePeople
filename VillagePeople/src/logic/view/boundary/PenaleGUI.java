@@ -90,7 +90,7 @@ public class PenaleGUI implements Subject {
 		
 		framePenale = new JFrame();
 		framePenale.setBounds(100, 100, 450, 300);
-		framev.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		framePenale.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		framePenale.getContentPane().setLayout(null);
 		
 		framePenale = new JFrame();

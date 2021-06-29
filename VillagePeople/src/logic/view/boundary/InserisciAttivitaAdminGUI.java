@@ -103,7 +103,7 @@ public class InserisciAttivitaAdminGUI {
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		indietro.setIcon(new ImageIcon(img5));
 		indietro.addActionListener((ActionEvent e) -> {
-		   frame.setVisible(false);
+		   frameInsAtt.setVisible(false);
 		   labelErroreAtt.setText(" ");
 		   labelErroreAtt.setIcon(new ImageIcon());
 	       StartApplication.c2.switchtoGestisciAttivitaAdmin();

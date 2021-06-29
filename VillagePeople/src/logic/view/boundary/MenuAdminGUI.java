@@ -80,7 +80,7 @@ public class MenuAdminGUI  implements Subject {
 		lblNewLabel.setForeground(new Color(255, 160, 122));
 		lblNewLabel.setFont(new Font("Script MT Bold", Font.PLAIN, 45));
 		lblNewLabel.setBounds(300, 0, 289, 58);
-		panel.add(lblNewLabel);
+		panelMenuAdm.add(lblNewLabel);
 		
 		JToggleButton tglbtnNotifMenuAdm = new JToggleButton("Notifiche");
 		tglbtnNotifMenuAdm .addActionListener((ActionEvent e) -> {

@@ -180,10 +180,10 @@ public class HomepageClientGUI  {
 		lblNewLabel251.setBounds(490, 356, 248, 35);
 		panelHomCli.add(lblNewLabel251);
 		
-		textBudget = new JTextPane();
-		textBudget.setFont(new Font(font, Font.BOLD, 24));
-		textBudget.setBounds(684, 356, 159, 35);
-		panelHomCli.add(textBudget);
+		textBudgetHomCli = new JTextPane();
+		textBudgetHomCli.setFont(new Font(font, Font.BOLD, 24));
+		textBudgetHomCli.setBounds(684, 356, 159, 35);
+		panelHomCli.add(textBudgetHomCli);
 		
 		JLabel lblNewLabel2511 = new JLabel("\u20AC");
 		lblNewLabel2511.setFont(new Font(font, Font.BOLD, 24));
@@ -195,8 +195,8 @@ public class HomepageClientGUI  {
 		btnModificaDati.setIcon(new ImageIcon(imgModificaDati));
 		btnModificaDati.addActionListener((ActionEvent e) -> {
 		
-		        String email = textEmail.getText(); 
-		        String budget = textBudget.getText();
+		        String email = textEmailHomCli.getText(); 
+		        String budget = textBudgetHomCli.getText();
 				StartApplication.c1.modificaDatiPersonali(email, budget);
 		});
 		
@@ -216,10 +216,10 @@ public class HomepageClientGUI  {
 		lblNewLabel51.setBounds(21, 235, 339, 39);
 		panelHomCli.add(lblNewLabel51);
 		
-		lblModifica = new JLabel("");
-		lblModifica.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblModifica.setBounds(416, 464, 503, 52);
-		panel.add(lblModifica);
+		lblModificaHomCli = new JLabel("");
+		lblModificaHomCli.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblModificaHomCli.setBounds(416, 464, 503, 52);
+		panelHomCli.add(lblModificaHomCli);
 		
 		JLabel labell4 = new JLabel("");
 		Image img7 = new ImageIcon(this.getClass().getResource("/simboloResort.png")).getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH);
