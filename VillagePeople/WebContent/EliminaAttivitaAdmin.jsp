@@ -120,7 +120,7 @@
     		String notificaSvagoRelax = "ELIMINATA ATTIVITA DI SVAGO E RELAX CHE HAI PRENOTATO";
     		String notificaSaluteBenessere = "ELIMINATA ATTIVITA DI SALUTE E BENESSERE CHE HAI PRENOTATO";
     		String notificaBambini = "ELIMINATA ATTIVITA DI BAMBINI CHE HAI PRENOTATO";
-    	 	if (categoria.equals("Sport")){
+    	 	if (categoria.equals("Sport")){ 
     			try {
     				nc.comunicaNotificaEliminaAttivita(notificaSport, 1, AttivitaBean.getCodice(), connessione);
     				ac.eliminaPrenotazioni(AttivitaBean.getCodice(), connessione);
