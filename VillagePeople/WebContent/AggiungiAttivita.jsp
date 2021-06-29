@@ -146,11 +146,15 @@
               <h5 class="card-title" style="text-align:center">Inserisci una nuova attività</h5>
               <h1> </h1>
     <%
-    byte[] travB=codice.getBytes();
+    //byte[] travB=codice.getBytes();
 	//byte[] bytes=Base64.getEncoder().encode(travB);
-	String encoded = new String(travB,"UTF-8");
+	//String encoded = new String(travB,"UTF-8");
     %>
-              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice.getBytes()%>">
+        <script>;
+			String encodedName = org.owasp.encoder.Encode.forHtml(codice);
+			codice = encodedName;
+		</script>
+              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
               <h1> </h1>
