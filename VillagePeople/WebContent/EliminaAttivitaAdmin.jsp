@@ -28,6 +28,17 @@
 		request.getSession().setAttribute("custIdElimAttAd", codiceId);
 	 }
 	
+ 	 String categoriaCus = " ";
+ 	 String giornoCus = " ";
+ 	 
+ 	 if((String)request.getSession().getAttribute("custCateg") !=null){
+ 		 categoriaCus = (String)request.getSession().getAttribute("custCateg");
+ 	 }
+ 	 
+ 	 if((String)request.getSession().getAttribute("custGiorno") != null){
+ 		 giornoCus = (String)request.getSession().getAttribute("custGiorno");
+ 	 }
+
      if (codiceId == null){
     	 codiceId = (String)request.getSession().getAttribute("custIdElimAttAd");
      }
@@ -45,6 +56,8 @@
      if (request.getParameter("cerca") != null) {
     	    String categoria = request.getParameter("categorie");
     	    String giorno = request.getParameter("giorno");
+    	    categoriaCus = request.getParameter("categorie");
+    	    giornoCus = request.getParameter("giorno");
     	 	request.getSession().setAttribute("custCateg", categoria);
     	 	request.getSession().setAttribute("custGiorno", giorno);
     	 	request.getSession().setAttribute("custList", l.size());
@@ -197,7 +210,7 @@
     	 				<% 
      			 }else{
          	 		%>
-    				 <option value="<%=request.getParameter("categorie")%>"><%=request.getParameter("categorie")%></option>
+    				 <option value="<%=categoriaCus%>"><%=categoriaCus%></option>
     			        <% 	
       			}
      			 %>  	 			
@@ -218,7 +231,7 @@
     			<% 
      			}else{
         	 		%>
-   					 <option value="<%=request.getParameter("giorno")%>"><%=request.getParameter("giorno")%></option>
+   					 <option value="<%=giornoCus%>"><%=giornoCus%></option>
    			        <% 	
      			}
     			 %>    			
