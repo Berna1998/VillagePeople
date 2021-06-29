@@ -31,11 +31,14 @@
      if (codiceId == null){
     	 codiceId = (String)request.getSession().getAttribute("custIdElimAttAd");
      }
-	 String categoriaCus = request.getParameter("categorie");
-	 String categoriaCus2 = categoriaCus;
-	 String giornoCus = request.getParameter("giorno");
-	 String giornoCus2 = giornoCus;
-    
+     
+     if((String)request.getSession().getAttribute("custCateg")!=null){
+	 	String categoriaCus = (String)request.getSession().getAttribute("custCateg");
+     }
+     
+     if((String)request.getSession().getAttribute("custGiorno")!=null){
+	 	String giornoCus = (String)request.getSession().getAttribute("custGiorno");
+     }
      AttivitaController ac = new AttivitaController();
      EliminaAttivitaController eac = new EliminaAttivitaController();
      NotificheController nc = new NotificheController();
