@@ -1,7 +1,5 @@
 
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!doctype html>
 
  <%@ page import= "logic.controller.InserisciAttivitaAdminController" %>
  <%@ page import= "java.sql.SQLException"%>
@@ -14,7 +12,7 @@
 <!-- mappare gli attributi di un oggetto sui campi della form -->
 <jsp:setProperty name="AttivitaBean" property="*"/>
 
-
+<html lang="en">
 <%  Connection connessione = null;
     String type = "MySql";
     DataBaseFactory dbf = new DataBaseFactory();
@@ -113,12 +111,11 @@
 		<%
 	}
 %>
-<!doctype html>
-<html lang="en">
+
   <head>
 
     <!-- Required meta tags -->
-    <meta charset="ISO-8859-1">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
