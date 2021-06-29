@@ -31,14 +31,7 @@
      if (codiceId == null){
     	 codiceId = (String)request.getSession().getAttribute("custIdElimAttAd");
      }
-     
-     if((String)request.getSession().getAttribute("custCateg")!=null){
-	 	String categoriaCus = (String)request.getSession().getAttribute("custCateg");
-     }
-     
-     if((String)request.getSession().getAttribute("custGiorno")!=null){
-	 	String giornoCus = (String)request.getSession().getAttribute("custGiorno");
-     }
+
      AttivitaController ac = new AttivitaController();
      EliminaAttivitaController eac = new EliminaAttivitaController();
      NotificheController nc = new NotificheController();
@@ -52,14 +45,15 @@
      if (request.getParameter("cerca") != null) {
     	    String categoria = request.getParameter("categorie");
     	    String giorno = request.getParameter("giorno");
+    	 	request.getSession().setAttribute("custCateg", categoria);
+    	 	request.getSession().setAttribute("custGiorno", giorno);
+    	 	request.getSession().setAttribute("custList", l.size());
     	 	if (categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	}else if (categoria.equals("Svago e Relax")){
     	 		categoria = "Svago&Relax";
     	 	}
-    	 	request.getSession().setAttribute("custCateg", categoria);
-    	 	request.getSession().setAttribute("custGiorno", giorno);
-    	 	request.getSession().setAttribute("custList", l.size());
+
     		AttivitaBean.setCategoria(categoria);
     		AttivitaBean.setGiorno(giorno);
     	    try {
@@ -203,7 +197,7 @@
     	 				<% 
      			 }else{
          	 		%>
-    				 <option value="<%=categoriaCus2%>"><%=categoriaCus2%></option>
+    				 <option value="<%=request.getParameter("categorie")%>"><%=request.getParameter("categorie")%></option>
     			        <% 	
       			}
      			 %>  	 			
@@ -224,7 +218,7 @@
     			<% 
      			}else{
         	 		%>
-   					 <option value="<%=giornoCus2%>"><%=giornoCus2%></option>
+   					 <option value="<%=request.getParameter("giorno")%>"><%=request.getParameter("giorno")%></option>
    			        <% 	
      			}
     			 %>    			
