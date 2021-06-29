@@ -148,7 +148,7 @@
               <h5 class="card-title" style="text-align:center">Inserisci una nuova attività</h5>
               <h1> </h1>
 
-              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
+              <input type="text" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
               <h1> </h1>
