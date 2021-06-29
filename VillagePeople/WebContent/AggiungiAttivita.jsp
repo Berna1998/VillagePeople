@@ -150,7 +150,7 @@
 	//byte[] bytes=Base64.getEncoder().encode(travB);
 	String encoded = new String(travB,"UTF-8");
     %>
-              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
+              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=encoded%>">
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
               <h1> </h1>
