@@ -221,7 +221,7 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 			    int codice = (Integer.parseInt(tablePrenAttGruppo.getValueAt(riga, 0).toString()));
 			    double prezzo = (Double.parseDouble(tablePrenAttGruppo.getValueAt(riga, 3).toString()));
 			    int partecipantiAttuali = (Integer.parseInt(tablePrenAttGruppo.getValueAt(riga, 4).toString()));
-			    int partecipantiMax = (Integer.parseInt(table.getValueAt(riga, 5).toString()));
+			    int partecipantiMax = (Integer.parseInt(tablePrenAttGruppo.getValueAt(riga, 5).toString()));
 			
 			    int i = StartApplication.c1.controllaPrenotazioneGruppo(codice, prezzo, partecipantiAttuali, partecipantiMax);
 			    if (i == 1) {

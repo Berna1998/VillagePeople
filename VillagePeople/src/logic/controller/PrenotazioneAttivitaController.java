@@ -26,7 +26,7 @@ public class PrenotazioneAttivitaController extends AttivitaController {
 	
 	/*verificaAttivita cerca le attivita singole della categoria e giorno scelti dall'utente*/
 	public void verificaAttivita(AttivitaBean ab, List<Object> l, UtenteBean ub, Connection con) throws SQLException {
-
+		String categoriaAtt = ab.getCategoria();
 		String giornoAtt= ab.getGiorno();
 		double budget = ub.getBudget();
 		if (categoriaAtt.equals(sport)) {

@@ -50,7 +50,6 @@ public class LogInController {
 		ub.setNome(l2.get(0).toString());
 	    ub.setCognome(l2.get(1).toString());
 	    ub.setEmail(l2.get(2).toString());
-	    ub.setRole((int)l2.get(3));
 		ub.setNumeroUtenti((int)l2.get(4));
 	}
 	
@@ -62,7 +61,6 @@ public class LogInController {
 		ub.setNome(l2.get(0).toString());
 	    ub.setCognome(l2.get(1).toString());
 	    ub.setEmail(l2.get(2).toString());
-	    ub.setRole((int)l2.get(3));
 		ub.setData((Date)l2.get(4));
 		ub.setBudget((double)l2.get(5));
 	}

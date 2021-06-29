@@ -23,7 +23,7 @@ public class NotificheDao {
 		ps = con.createStatement();
 		ResultSet rs = ps.executeQuery(query);
 
-		notifica = concatenaNot(rs,2);
+		notifica = concatenaNot(rs,2,con);
 		rs.close();
         ps.close();
         return notifica;
@@ -53,7 +53,7 @@ public class NotificheDao {
 		String notifica = "";
 		String query = qd.prelevaNotificaEliminaAttivita(s);
 		ResultSet rs = ps.executeQuery(query);
-		notifica = concatenaNot(rs,2);
+		notifica = concatenaNot(rs,2,con);
 
 		rs.close();
         ps.close();
@@ -73,7 +73,7 @@ public class NotificheDao {
 		String notifica = "";
 		String query = qd.queryPrelevaNotificaAttivitaGruppo(s);
 		ResultSet rs = ps.executeQuery(query);
-		notifica = concatenaNot(rs, 1);
+		notifica = concatenaNot(rs, 1, con);
 		rs.close();
         ps.close();
 
@@ -157,7 +157,7 @@ public class NotificheDao {
 		String query = qd.queryPrelevaNotificaPostoLibero(s);
 		ResultSet rs = ps.executeQuery(query);
 		
-		notifica = concatenaNot(rs,3);
+		notifica = concatenaNot(rs,3,con);
 
 		rs.close();
 	    ps.close();
@@ -166,7 +166,7 @@ public class NotificheDao {
 		
 	}
 	
-	public String concatenaNot(ResultSet rs, int tipo ) {
+	public String concatenaNot(ResultSet rs, int tipo, Connection con ) throws SQLException {
 		
 		String notifica = "";
 		String prendiNot = "";

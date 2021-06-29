@@ -227,7 +227,7 @@ public class AttivitaDao {
 		return  budget;
 	}
 	
-	public void riempiLista(ResultSet rs, List<Object> l) {
+	public void riempiLista(ResultSet rs, List<Object> l) throws SQLException {
 		int codice = 0;
 		String nome = "";
 		String orario = "";
