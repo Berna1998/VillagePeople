@@ -407,7 +407,7 @@ public class ControllerGrafico {
 	public int controllaCodicePassword(String codice, String password){
 		lb.setCodiceID(codice);
 		lb.setPassword(password);
-		int role = 3;
+		int role;
 		if (codice.equals("") || password.equals("")) {
 			return 3;
 		}
@@ -418,6 +418,7 @@ public class ControllerGrafico {
 				new DatabaseException().showMessage(1, window.getLabelErrore());
 				Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 				window.getLabelErrore().setIcon(new ImageIcon(img));
+				return 3;
 				
 			}
 			return role;
