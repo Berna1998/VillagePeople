@@ -151,15 +151,15 @@ public class EliminaAttivitaAdminGUI implements Subject {
 		JLabel lblSelezionaGionoAttivita = new JLabel("Seleziona giorno attivit\u00E0:");
 		lblSelezionaGionoAttivita.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
 		lblSelezionaGionoAttivita.setBounds(259, 75, 180, 13);
-		panel.add(lblSelezionaGionoAttivita);
+		panelElemAtt.add(lblSelezionaGionoAttivita);
 		
 		
 		JButton btnCercaElemAtt = new JButton("Cerca");
 		Image imgCerca=new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		btnCercaElemAtt.setIcon(new ImageIcon(imgCerca));
 		btnCercaElemAtt.addActionListener((ActionEvent e) -> {
-			String categoria = (comboBox.getSelectedItem().toString());
-			String giorno = (comboBox1.getSelectedItem().toString());
+			String categoria = (comboBoxElemAtt.getSelectedItem().toString());
+			String giorno = (comboBox1ElemAtt.getSelectedItem().toString());
 			StartApplication.c2.controllaCategoriaAttivita(categoria, giorno,2);
 		});
 		btnCercaElemAtt.setBounds(171, 136, 96, 21);
@@ -200,9 +200,9 @@ public class EliminaAttivitaAdminGUI implements Subject {
 			int riga = 0;
 			riga = StartApplication.c2.controllaRigaElimin();
 			try {
-			    int codice = (Integer.parseInt(table.getValueAt(riga, 0).toString()));
-			    double prezzo = (Double.parseDouble(table.getValueAt(riga, 3).toString()));
-			    String categoria = comboBox.getSelectedItem().toString();
+			    int codice = (Integer.parseInt(tableElemAtt.getValueAt(riga, 0).toString()));
+			    double prezzo = (Double.parseDouble(tableElemAtt.getValueAt(riga, 3).toString()));
+			    String categoria = comboBoxElemAtt.getSelectedItem().toString();
 			
 			    int i = StartApplication.c2.controllaEliminazione(codice, prezzo);
 		
@@ -210,9 +210,9 @@ public class EliminaAttivitaAdminGUI implements Subject {
 				   notifica("elimina", codice, categoria);
 			    }
 			} catch (ArrayIndexOutOfBoundsException ac){
-				new TableException().printMessage(1,errorLabelPren);
+				new TableException().printMessage(1,errorLabelPrenElemAtt);
 				Image img = new ImageIcon(this.getClass().getResource("/errore.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-				errorLabelPren.setIcon(new ImageIcon(img));
+				errorLabelPrenElemAtt.setIcon(new ImageIcon(img));
 			}
 			
 		});
