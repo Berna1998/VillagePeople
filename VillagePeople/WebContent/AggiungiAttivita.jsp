@@ -19,8 +19,10 @@
     connessione = db.openConnection();
 
 	String codice=" ";
-	codice=request.getParameter("custIdGestAdm");
-	if (codice == null) {
+	
+	if (request.getParameter("custIdGestAdm") != null) {
+		codice=request.getParameter("custIdGestAdm");
+	}else if (codice == null) {
 		codice = request.getParameter("custAddAtt");
 	}
     
