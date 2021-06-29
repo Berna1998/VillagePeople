@@ -1,6 +1,5 @@
-
-<!doctype html>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
  <%@ page import= "logic.controller.InserisciAttivitaAdminController" %>
  <%@ page import= "java.sql.SQLException"%>
  <%@ page import= "java.sql.Connection"%>
@@ -12,7 +11,7 @@
 <!-- mappare gli attributi di un oggetto sui campi della form -->
 <jsp:setProperty name="AttivitaBean" property="*"/>
 
-<html lang="en">
+
 <%  Connection connessione = null;
     String type = "MySql";
     DataBaseFactory dbf = new DataBaseFactory();
@@ -23,8 +22,14 @@
 	
 	if (request.getParameter("custIdGestAdm") != null) {
 		codice=request.getParameter("custIdGestAdm");
-	}else if (codice == null) {
-		codice = request.getParameter("custAddAtt");
+	}
+	if (codice!= null){
+		request.getSession().setAttribute("custAddAtt", codice);
+	}
+	
+	
+	if (codice == null) {
+		codice = (String)request.getSession().getAttribute("custAddAtt");
 	}
     
     if (request.getParameter("aggAttivita") != null) {
@@ -111,7 +116,8 @@
 		<%
 	}
 %>
-
+<!doctype html>
+<html lang="en">
   <head>
 
     <!-- Required meta tags -->
@@ -145,16 +151,7 @@
             <div class="card-body">
               <h5 class="card-title" style="text-align:center">Inserisci una nuova attività</h5>
               <h1> </h1>
-    <%
-    //byte[] travB=codice.getBytes();
-	//byte[] bytes=Base64.getEncoder().encode(travB);
-	//String encoded = new String(travB,"UTF-8");
-    %>
-        <script>;
-			String encodedName = org.owasp.encoder.Encode.forHtml(codice);
-			codice = encodedName;
-		</script>
-              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
+
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
               <h1> </h1>
