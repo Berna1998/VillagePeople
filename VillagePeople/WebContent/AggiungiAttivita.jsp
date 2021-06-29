@@ -1,4 +1,4 @@
-<!doctype html>
+
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -14,7 +14,7 @@
 <!-- mappare gli attributi di un oggetto sui campi della form -->
 <jsp:setProperty name="AttivitaBean" property="*"/>
 
-<html lang="en">
+
 <%  Connection connessione = null;
     String type = "MySql";
     DataBaseFactory dbf = new DataBaseFactory();
@@ -113,11 +113,12 @@
 		<%
 	}
 %>
-
+<!doctype html>
+<html lang="en">
   <head>
 
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -148,7 +149,7 @@
               <h5 class="card-title" style="text-align:center">Inserisci una nuova attività</h5>
               <h1> </h1>
 
-              
+              <input type="hidden" id="custAddAtt" name="custAddAtt" value="<%=codice%>">
               <label>Codice:</label>
               <input id="codice" name="codice" type="text" autocomplete="off" size="20" maxlength="20"/>
               <h1> </h1>
