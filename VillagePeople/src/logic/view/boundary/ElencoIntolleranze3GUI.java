@@ -52,7 +52,7 @@ public class ElencoIntolleranze3GUI {
 		
 		JPanel panelElenInt3 = new JPanel();
 		panelElenInt3.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panelElenInt3, BorderLayout.CENTER);
+		frameElenInt3.getContentPane().add(panelElenInt3, BorderLayout.CENTER);
 		panelElenInt3.setLayout(null);
 		
 		JLabel lblElenInt3 = new JLabel("Intolleranza relative al Men\u00F9 3");

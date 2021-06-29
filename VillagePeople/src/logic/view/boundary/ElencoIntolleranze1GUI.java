@@ -60,7 +60,7 @@ public class ElencoIntolleranze1GUI {
 		JLabel lblElenInt1 = new JLabel("Intolleranza relative al Men\u00F9 1");
 		lblElenInt1.setFont(new Font(font, Font.BOLD, 20));
 		lblElenInt1.setBounds(10, 11, 378, 33);
-		panelElenInt1.add(lblNewLabel1);
+		panelElenInt1.add(lblElenInt1);
 		
 		JButton indietroElenInt1 = new JButton("Indietro");
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -80,7 +80,7 @@ public class ElencoIntolleranze1GUI {
 		textAreaElenInt1.setEditable(false);
 		scrollPaneElenInt1.setViewportView(textAreaElenInt1);
 		
-		lblErroElenInt1r = new JLabel("");
+		lblErrorElenInt1 = new JLabel("");
 		lblErrorElenInt1.setBounds(305, 11, 186, 27);
 		panelElenInt1.add(lblErrorElenInt1);
    }

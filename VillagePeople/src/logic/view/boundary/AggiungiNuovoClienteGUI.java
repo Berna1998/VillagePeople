@@ -73,7 +73,7 @@ public class AggiungiNuovoClienteGUI {
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		btnIndietro.setIcon(new ImageIcon(img5));
 		btnIndietro.addActionListener((ActionEvent e) -> {
-		   frame.setVisible(false);
+		   frameAggCli.setVisible(false);
 		   labelErroreUt.setText(" ");
 		   labelErroreUt.setIcon(new ImageIcon());
 	       StartApplication.c2.switchtoHomepage();

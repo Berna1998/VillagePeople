@@ -53,7 +53,7 @@ public class ElencoIntolleranza2GUI {
 		
 		JPanel panelElenInt2 = new JPanel();
 		panelElenInt2.setBackground(new Color(255, 160, 122));
-		frameElenInt2.getContentPane().add(panel, BorderLayout.CENTER);
+		frameElenInt2.getContentPane().add(panelElenInt2, BorderLayout.CENTER);
 		panelElenInt2.setLayout(null);
 		
 		JLabel lblElenInt2= new JLabel("Intolleranza relative al Men\u00F9 2");
@@ -65,7 +65,7 @@ public class ElencoIntolleranza2GUI {
 		Image img5=new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 		indietroElenInt2.setIcon(new ImageIcon(img5));
 		indietroElenInt2.addActionListener((ActionEvent e)->
-		   frame.setVisible(false));
+		  frameElenInt2.setVisible(false));
 		indietroElenInt2.setFont(new Font(font1, Font.BOLD, 20));
 		indietroElenInt2.setBounds(135, 584, 229, 44);
 		panelElenInt2.add(indietroElenInt2);
