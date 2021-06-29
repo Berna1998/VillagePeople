@@ -32,14 +32,14 @@ import javax.swing.JTextField;
 
 public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 
-	private JFrame frame;
-	private JTextPane txtCodiceId;
-	private JTable table;
-	private JComboBox<String> comboBox;
-	private JComboBox<String> comboBox1;
-	private DefaultTableModel tTabella;
-	private JTextField textFieldCodPren;
-	private JLabel errorLabelPren;
+	private JFrame framePrenAttGruppo;
+	private JTextPane txtCodiceIdPrenAttGruppo;
+	private JTable tablePrenAttGruppo;
+	private JComboBox<String> comboBoxPrenAttGruppo;
+	private JComboBox<String> comboBox1PrenAttGruppo;
+	private DefaultTableModel tTabellaPrenAttGruppo;
+	private JTextField textFieldCodPrenPrenAttGruppo;
+	private JLabel errorLabelPrenPrenAttGruppo;
 	private List<Observer> ob = new ArrayList<>();
 
 	
@@ -71,25 +71,25 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 	
 	
 	public JTable getTable() {
-		return table;
+		return tablePrenAttGruppo;
 	}
 
 
 	public JLabel getErrorLabelPren() {
-		return errorLabelPren;
+		return errorLabelPrenPrenAttGruppo;
 	}
 
 
 	public JTextField getTextFieldCodPren() {
-		return textFieldCodPren;
+		return textFieldCodPrenPrenAttGruppo;
 	}
 
 	public DefaultTableModel getTabella() {
-		return tTabella;
+		return tTabellaPrenAttGruppo;
 	}
 
 	public JComboBox<String> getComboBox() {
-		return comboBox;
+		return comboBoxPrenAttGruppo;
 	}
 	
 	/**
@@ -100,94 +100,94 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 		String font="Georgia Pro Semibold";
 		String font1="Dialog";
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		framePrenAttGruppo = new JFrame();
+		framePrenAttGruppo.setBounds(100, 100, 450, 300);
+		framePrenAttGruppo.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		framePrenAttGruppo.getContentPane().setLayout(null);
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 517, 700);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		framePrenAttGruppo = new JFrame();
+		framePrenAttGruppo.setBounds(100, 100, 517, 700);
+		framePrenAttGruppo.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 160, 122));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel panelPrenAttGruppo = new JPanel();
+		panelPrenAttGruppo.setBackground(new Color(255, 160, 122));
+		framePrenAttGruppo.getContentPane().add(panel, BorderLayout.CENTER);
+		panelPrenAttGruppo.setLayout(null);
 		
-		JLabel lblNewLabel1 = new JLabel("Seleziona l'attivit\u00E0 da prenotare: ");
-		lblNewLabel1.setFont(new Font(font, Font.BOLD, 20));
-		lblNewLabel1.setBounds(10, 31, 461, 33);
-		panel.add(lblNewLabel1);
+		JLabel lblPrenAttGruppo = new JLabel("Seleziona l'attivit\u00E0 da prenotare: ");
+		lblPrenAttGruppo.setFont(new Font(font, Font.BOLD, 20));
+		lblPrenAttGruppo.setBounds(10, 31, 461, 33);
+		panelPrenAttGruppo.add(lblPrenAttGruppo);
 		
-		JButton indietro = new JButton("Indietro");
+		JButton indietroPrenAttGruppo = new JButton("Indietro");
 		Image img5 = new ImageIcon(this.getClass().getResource("/indietro.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		indietro.setIcon(new ImageIcon(img5));
-		indietro.addActionListener((ActionEvent e) -> {
+		indietroPrenAttGruppo.setIcon(new ImageIcon(img5));
+		indietroPrenAttGruppo.addActionListener((ActionEvent e) -> {
 		   detach(StartApplication.c1.getWindowNotifiche());
 		   errorLabelPren.setText(" ");
-		   frame.setVisible(false);
+		   framePrenAttGruppo.setVisible(false);
 	       StartApplication.c1.switchtoGestisciAttivitaClient();
 		});
-		indietro.setFont(new Font(font1, Font.BOLD, 15));
-		indietro.setBounds(131, 595, 229, 44);
-		panel.add(indietro);
+		indietroPrenAttGruppo.setFont(new Font(font1, Font.BOLD, 15));
+		indietroPrenAttGruppo.setBounds(131, 595, 229, 44);
+		panelPrenAttGruppo.add(indietroPrenAttGruppo);
 		
-		JLabel codiceId = new JLabel("CodiceId: ");
-		codiceId.setVerticalAlignment(SwingConstants.TOP);
-		codiceId.setFont(new Font(font1, Font.BOLD, 11));
-		codiceId.setBounds(10, 18, 62, 14);
-		panel.add(codiceId);
+		JLabel codiceIdPrenAttGruppo = new JLabel("CodiceId: ");
+		codiceIdPrenAttGruppo.setVerticalAlignment(SwingConstants.TOP);
+		codiceIdPrenAttGruppo.setFont(new Font(font1, Font.BOLD, 11));
+		codiceIdPrenAttGruppo.setBounds(10, 18, 62, 14);
+		panelPrenAttGruppo.add(codiceIdPrenAttGruppo);
 		
-		txtCodiceId = new JTextPane();
-		txtCodiceId.setBackground(new Color(255, 160, 122));
-		txtCodiceId.setEditable(false);
-		txtCodiceId.setFont(new Font(font1, Font.BOLD, 11));
-		txtCodiceId.setBounds(62, 11, 92, 21);
-		panel.add(txtCodiceId);
+		txtCodiceIdPrenAttGruppo = new JTextPane();
+		txtCodiceIdPrenAttGruppo.setBackground(new Color(255, 160, 122));
+		txtCodiceIdPrenAttGruppo.setEditable(false);
+		txtCodiceIdPrenAttGruppo.setFont(new Font(font1, Font.BOLD, 11));
+		txtCodiceIdPrenAttGruppo.setBounds(62, 11, 92, 21);
+		panelPrenAttGruppo.add(txtCodiceIdPrenAttGruppo);
 		
-		comboBox = new JComboBox<>();
-		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
-		comboBox.setBounds(30, 94, 155, 21);
-		panel.add(comboBox);
+		comboBoxPrenAttGruppo = new JComboBox<>();
+		comboBoxPrenAttGruppo.setModel(new DefaultComboBoxModel<>(new String[] {"Sport", "Svago&Relax", "Salute&Benessere", "Bambini"}));
+		comboBoxPrenAttGruppo.setBounds(30, 94, 155, 21);
+		panelPrenAttGruppo.add(comboBoxPrenAttGruppo);
 		
-		comboBox1 = new JComboBox<>();
-		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
-		comboBox1.setBounds(269, 93, 157, 22);
-		panel.add(comboBox1);
+		comboBox1PrenAttGruppo = new JComboBox<>();
+		comboBox1PrenAttGruppo.setModel(new DefaultComboBoxModel<>(new String[] {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}));
+		comboBox1PrenAttGruppo.setBounds(269, 93, 157, 22);
+		panelPrenAttGruppo.add(comboBox1PrenAttGruppo);
 		
-		JLabel lblNewLabel = new JLabel("Seleziona categoria attivit\u00E0:");
-		lblNewLabel.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
-		lblNewLabel.setBounds(20, 74, 229, 21);
-		panel.add(lblNewLabel);
+		JLabel lbl2PrenAttGruppo = new JLabel("Seleziona categoria attivit\u00E0:");
+		lbl2PrenAttGruppo.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
+		lbl2PrenAttGruppo.setBounds(20, 74, 229, 21);
+		panelPrenAttGruppo.add(lbl2PrenAttGruppo);
 		
-		JLabel lblSelezionaGionoAttivita = new JLabel("Seleziona giorno attivit\u00E0:");
-		lblSelezionaGionoAttivita.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
-		lblSelezionaGionoAttivita.setBounds(259, 75, 194, 20);
-		panel.add(lblSelezionaGionoAttivita);
+		JLabel lblSelezionaGionoAttivitaPrenAttGruppo = new JLabel("Seleziona giorno attivit\u00E0:");
+		lblSelezionaGionoAttivitaPrenAttGruppo.setFont(new Font("Georgia Pro Cond Semibold", Font.BOLD, 15));
+		lblSelezionaGionoAttivitaPrenAttGruppo.setBounds(259, 75, 194, 20);
+		panelPrenAttGruppo.add(lblSelezionaGionoAttivitaPrenAttGruppo);
 		
 		
-		JButton btnNewButton = new JButton("Cerca");
+		JButton btnCercaPrenAttGruppo = new JButton("Cerca");
 		Image imgCerca=new ImageIcon(this.getClass().getResource("/search.png")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		btnNewButton.setIcon(new ImageIcon(imgCerca));
-		btnNewButton.addActionListener((ActionEvent e) -> {
+		btnCercaPrenAttGruppo.setIcon(new ImageIcon(imgCerca));
+		btnCercaPrenAttGruppo.addActionListener((ActionEvent e) -> {
 			String categoria = (comboBox.getSelectedItem().toString());
 			String giorno = (comboBox1.getSelectedItem().toString());
 			StartApplication.c1.controllaCategoriaAttivitaGruppo(categoria, giorno);
 		});
-		btnNewButton.setBounds(182, 136, 99, 21);
-		panel.add(btnNewButton);
+		btnCercaPrenAttGruppo.setBounds(182, 136, 99, 21);
+		panelPrenAttGruppo.add(btnCercaPrenAttGruppo);
 		
-		JLabel lblNewLabel11 = new JLabel("Le attivit\u00E0 mostrate nella tabella rientrano nei limiti del budget dichiarato");
-		lblNewLabel11.setBounds(30, 171, 441, 13);
-		panel.add(lblNewLabel11);
+		JLabel lbl3PrenAttGruppo = new JLabel("Le attivit\u00E0 mostrate nella tabella rientrano nei limiti del budget dichiarato");
+		lbl3PrenAttGruppo.setBounds(30, 171, 441, 13);
+		panelPrenAttGruppo.add(lbl3PrenAttGruppo);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 195, 430, 278);
-		panel.add(scrollPane);
+		JScrollPane scrollPanePrenAttGruppo = new JScrollPane();
+		scrollPanePrenAttGruppo.setBounds(30, 195, 430, 278);
+		panelPrenAttGruppo.add(scrollPanePrenAttGruppo);
 		
-		table = new JTable();
-		table.setBackground(new Color(255, 218, 185));
-		tTabella=new DefaultTableModel(
+		tablePrenAttGruppo = new JTable();
+		tablePrenAttGruppo.setBackground(new Color(255, 218, 185));
+		tTabellaPrenAttGruppo=new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -206,15 +206,15 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 				return columnEditables[column];
 			}
 		};
-		table.setModel(tTabella);
-		scrollPane.setViewportView(table);
+		tablePrenAttGruppo.setModel(tTabellaPrenAttGruppo);
+		scrollPanePrenAttGruppo.setViewportView(tablePrenAttGruppo);
 		
 		
-		JButton btnPrenota = new JButton("Prenota");
+		JButton btnPrenotaPrenAttGruppo = new JButton("Prenota");
 		Image imgPrenota = new ImageIcon(this.getClass().getResource("/prenotazione2.jpg")).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		btnPrenota.setIcon(new ImageIcon(imgPrenota));
-		btnPrenota.setEnabled(true);
-		btnPrenota.addActionListener((ActionEvent e) -> {
+		btnPrenotaPrenAttGruppo.setIcon(new ImageIcon(imgPrenota));
+		btnPrenotaPrenAttGruppo.setEnabled(true);
+		btnPrenotaPrenAttGruppo.addActionListener((ActionEvent e) -> {
 			int riga = 0;
 			riga = StartApplication.c1.controllaRiga(riga,2);
 			try {
@@ -233,12 +233,12 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 				errorLabelPren.setIcon(new ImageIcon(img));
 			}
 		});
-		btnPrenota.setBounds(331, 485, 129, 23);
-		panel.add(btnPrenota);
+		btnPrenotaPrenAttGruppo.setBounds(331, 485, 129, 23);
+		panelPrenAttGruppo.add(btnPrenotaPrenAttGruppo);
 		
-		errorLabelPren = new JLabel("");
-		errorLabelPren.setBounds(30, 517, 430, 67);
-		panel.add(errorLabelPren);
+		errorLabelPrenPrenAttGruppo = new JLabel("");
+		errorLabelPrenPrenAttGruppo.setBounds(30, 517, 430, 67);
+		panelPrenAttGruppo.add(errorLabelPrenPrenAttGruppo);
 		
 	
 		
@@ -247,15 +247,15 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 
 
 	public JComboBox<String> getComboBox1() {
-		return comboBox1;
+		return comboBox1PrenAttGruppo;
 	}
 
 	public JTextPane getTxtCodiceId() {
-		return txtCodiceId;
+		return txtCodiceIdPrenAttGruppo;
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return framePrenAttGruppo;
 	}
 
 
