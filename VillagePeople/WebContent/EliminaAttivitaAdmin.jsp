@@ -56,11 +56,11 @@
      if (request.getParameter("cerca") != null) {
     	    String categoria = request.getParameter("categorie");
     	    String giorno = request.getParameter("giorno");
-    	    categoriaCus = request.getParameter("categorie");
-    	    giornoCus = request.getParameter("giorno");
     	 	request.getSession().setAttribute("custCateg", categoria);
     	 	request.getSession().setAttribute("custGiorno", giorno);
     	 	request.getSession().setAttribute("custList", l.size());
+    	    categoriaCus = (String)request.getSession().getAttribute("custCateg");
+    	    giornoCus = (String)request.getSession().getAttribute("custGiorno");
     	 	if (categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	}else if (categoria.equals("Svago e Relax")){
