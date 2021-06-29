@@ -16,7 +16,9 @@
 <%
 
 	String codice = request.getParameter("custIdMenPret");
-
+	if (codice!= null){
+		request.getSession().setAttribute("custIdElenInt3", codice);
+	}
     StringBuilder totale3 = new StringBuilder();	
 	MenuAdminController mac = new MenuAdminController();
 	Connection connessione = null;
@@ -65,7 +67,7 @@
     </nav>
     <h1> </h1>
     <form action="ElencoIntolleranze3.jsp" name="formElencInt3" method="POST">
- 	<input type="hidden" id="custIdElenInt3" name="custIdElenInt3" value="<%=codice%>">   
+  
     <div class="container">
       <div class="row">
         <div class="col-sm">

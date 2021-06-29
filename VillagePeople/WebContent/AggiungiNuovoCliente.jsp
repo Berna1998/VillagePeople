@@ -18,8 +18,12 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 	String codice = request.getParameter("custIdAdm");
+	if (codice!= null){
+		request.getSession().setAttribute("custIdAddCli", codice);
+	}
+	
 	if (codice == null){
-		codice = request.getParameter("custIdAddCli");		
+		codice =(String)request.getSession().getAttribute("custIdAddCli");		
 	}
     if (request.getParameter("Aggiungi utente") != null) {
     	if (request.getParameter("codiceID").equals("") || request.getParameter("nome").equals("") ||
@@ -88,7 +92,6 @@
         <form action="AggiungiNuovoCliente.jsp" name="formAggiungiCliente" method="POST">
 <!-- Questo valore hidden ci serve per avere il codice dell'admin anche quando
  ritorniamo nella scheramata di homepage, altrimenti avremmo valore null come Codice ID  -->  
-    	 <input type="hidden" id="custIdAddCli" name="custIdAddCli" value="<%=codice%>">
     <div class="container">
       <div class="row">
         <div class="col-sm">
