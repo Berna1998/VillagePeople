@@ -9,13 +9,19 @@ public class MySqlDB implements DataBaseClass { //concrete product
 	//private String password="Marchisio97";
 	public Connection openConnection() throws SQLException {
 		Connection con = null;
-		String password="Marchisio97";
+		String encoded = "";
+		String password = "Marchisio97";
 		String url = "jdbc:mysql://localhost:3306/villagepeople?useSSL=false";
+	    byte[] travB=password.getBytes();
+		byte[] bytes=Base64.getEncoder().encode(travB);
 		try {
-			con = DriverManager.getConnection(url,this.username,password);
-		}catch (Exception e) {
-			throw new SQLException();
-		} 
+			encoded = new String(travB,"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		con = DriverManager.getConnection(url,"root",encoded);
+
 		//con = DriverManager.getConnection(url,this.username,this.password);
 		//return DriverManager.getConnection(url,this.username,"Marchisio97");
 		return con;
