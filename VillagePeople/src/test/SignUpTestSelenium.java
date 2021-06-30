@@ -18,7 +18,6 @@ public class SignUpTestSelenium {
   String cognome = "Rossi";
   String codiceId = "12348";
   String email = "marco.rossi@gmail.com";
-  String password = "marcorossi";
   String confermaPass = "marcorossi";
   String giorni = "8";
   
@@ -50,7 +49,7 @@ public class SignUpTestSelenium {
 
     driver.findElement(By.xpath("//*[@id=\"password\"]")).click();
 
-    driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
+    driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("marcorossi");
   
     driver.findElement(By.xpath("//*[@id=\"confermaPassword\"]")).click();
   

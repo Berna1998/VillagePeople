@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 public class PrenotaAttivitaGruppoTestSelenium {
 
   String codiceId = "33003";
-  String password = "client";
+
 	
   @Test
   public void prenotaAttivitaGruppo() {
@@ -27,7 +27,7 @@ public class PrenotaAttivitaGruppoTestSelenium {
     driver.findElement(By.xpath("//*[@id=\"codiceID\"]")).click();
     driver.findElement(By.xpath("//*[@id=\"codiceID\"]")).sendKeys(codiceId);
     driver.findElement(By.xpath("//*[@id=\"password\"]")).click();
-    driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
+    driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("client");
     driver.findElement(By.xpath("/html/body/form/div/div/div[1]/div/div/input[3]")).click();
 
     
