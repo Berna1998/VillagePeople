@@ -30,7 +30,7 @@
 	 	} else if ((String)request.getSession().getAttribute("custIdElenInt2") != null){
 			codice = (String)request.getSession().getAttribute("custIdElenInt2");
 	 	} else if ((String)request.getSession().getAttribute("custIdElenInt3") != null){
-			codice = (String)request.getSession().getAttribute("custIdElenInt3")
+			codice = (String)request.getSession().getAttribute("custIdElenInt3");
 	 	}
 	}
 	int numPret1 = 0;
