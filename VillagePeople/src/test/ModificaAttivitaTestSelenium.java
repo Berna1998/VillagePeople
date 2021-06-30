@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 public class ModificaAttivitaTestSelenium {
 
   String codiceId = "10011";
-  String password = "admin";
+
   String orario = "16:00";
   String prezzo = "10.0";
   String categoria = "//*[@id=\"cateogorie\"]";
@@ -32,7 +32,7 @@ public class ModificaAttivitaTestSelenium {
 	driverModif.findElement(By.xpath("//*[@id=\"codiceID\"]")).click();
     driverModif.findElement(By.xpath("//*[@id=\"codiceID\"]")).sendKeys(codiceId);
     driverModif.findElement(By.xpath("//*[@id=\"password\"]")).click();
-    driverModif.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
+    driverModif.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("admin");
     driverModif.findElement(By.xpath("/html/body/form/div/div/div[1]/div/div/input[3]")).click();
 
     driverModif.findElement(By.xpath("/html/body/form/ul/li[3]/a")).click();
