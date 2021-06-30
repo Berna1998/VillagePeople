@@ -22,8 +22,12 @@
    connessione = db.openConnection();
 	String codiceId = request.getParameter("custIdElimPret");
 
+	if (codiceId!= null){
+		request.getSession().setAttribute("custIdPenale", codice);
+	}
+	
 	if (codiceId == null || codiceId.equals("")) {
-		codiceId = request.getParameter("custIdPenale");
+		codiceId = (String)request.getSession().getAttribute("custIdPenale");
 	}
 
 	String codGen = request.getParameter("custCodPenale");
@@ -36,14 +40,24 @@
 	String codAtt = request.getParameter("custCodAtt");
 	String prezzoAtt = request.getParameter("custPrezzo");
 	
+	if (penale!= null){
+		request.getSession().setAttribute("custPenCosto", penale);
+	}
+	if (codAtt!= null){
+		request.getSession().setAttribute("custAttPenale", codAtt);
+	}
+	if (prezzoAtt!= null){
+		request.getSession().setAttribute("custPrezPenale", prezzoAtt);
+	}
+	
 	if (penale == null){
-		penale = request.getParameter("custPenCosto");
+		penale = (String)request.getSession().getAttribute("custPenCosto");
 	}
 	if (codAtt == null){
-		codAtt = request.getParameter("custAttPenale");
+		codAtt = (String)request.getSession().getAttribute("custAttPenale");
 	}
 	if (prezzoAtt == null){
-		prezzoAtt = request.getParameter("custPrezPenale");		
+		prezzoAtt = (String)request.getSession().getAttribute("custPrezPenale");		
 	}
 	
 
