@@ -21,17 +21,26 @@
 
 	String codice = request.getParameter("custIdAdm");
 
+	if (codice!= null){
+		request.getSession().setAttribute("custIdNotAdm", codice);
+	}
+	
 	if (codice == null){
 	 	if (request.getParameter("custIdGestAdm") != null){
 			codice = request.getParameter("custIdGestAdm");
 		} else if (request.getParameter("custIdMenuAdm") != null){
 			codice = request.getParameter("custIdMenuAdm");
-		} else if (request.getParameter("custIdNotAdm") != null){
-			codice = request.getParameter("custIdNotAdm");
+		} else if ((String)request.getSession().getAttribute("custId") != null){
+			codice = (String)request.getSession().getAttribute("custId");
 		} else if (request.getParameter("codiceH") != null){
 	    	codice = request.getParameter("codiceH");
 	    }
 	}
+	
+	if (codice.equals("")){
+		codice = "Errore";
+	}
+	
 	NotificheController nc = new NotificheController();
 	String notifica = "";
 	String notificaIntolleranze = "";
@@ -100,7 +109,7 @@
     <label for="codice">Codice ID: </label>
 	<label for="codice"><%=codice%></label>
     <form action="NotificheAdmin.jsp" name="formNotificheAdm" method="POST">
-    <input type="hidden" id="custIdNotAdm" name="custIdNotAdm" value="<%=codice%>">   
+ 
     <ul class="nav" style="background-color: #ffffff;";>
       <li class="nav-item">
         <a class="nav-link" href="./HomepageAdmin.jsp?codiceH=<%=codice%>">Area Personale</a>

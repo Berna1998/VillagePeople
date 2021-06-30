@@ -19,18 +19,28 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
     String codice = request.getParameter("custId");
+    
+	if (codice!= null){
+		request.getSession().setAttribute("custIdNot", codice);
+	}
+	
 	NotificheController nc = new NotificheController();
 	if(codice == null){
 	 	if (request.getParameter("custIdGest") != null){
 			codice = request.getParameter("custIdGest");
 		} else if (request.getParameter("custIdMenu") != null){
 			codice = request.getParameter("custIdMenu");
-		} else if (request.getParameter("custIdNot") != null){
-			codice = request.getParameter("custIdNot");
+		} else if ((String)request.getSession().getAttribute("custIdNot") != null){
+			codice = (String)request.getSession().getAttribute("custIdNot");
 		} else if (request.getParameter("codiceH") != null){
 	    	codice=request.getParameter("codiceH");
 	    }
 	}
+	
+	if (codice.equals("")){
+		codice = "Errore";
+	}
+	
 	String notifica = "";
 	String notificaModificaAttivita = "";
 	String notificaEliminaAttivita = "";
@@ -94,7 +104,7 @@
     <label for="codice">Codice ID: </label>
 	<label for="codice"><%=codice%></label>
     <form action="NotificheClient.jsp" name="formNotificheClient" method="POST">
-    <input type="hidden" id="custIdNot" name="custIdNot" value="<%=codice%>">   
+ 
     <ul class="nav" style="background-color: #ffffff;";>
       <li class="nav-item">
         <a class="nav-link" href="./HomepageClient.jsp?codiceH=<%=codice%>">Area Personale</a>
