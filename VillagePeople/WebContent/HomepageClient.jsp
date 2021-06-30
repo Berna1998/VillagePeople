@@ -60,7 +60,7 @@
 
   	if (request.getParameter("modificaDati") != null){
   		email = request.getParameter("email");
-  		budget = request.getParameter("budget");
+  		budget = request.getParameter("budgetCli");
   		if (email.equals("") || email == null){
   	    	%> 	        	    	
         	<p style="color: red">Compila i campi</p>			
@@ -170,7 +170,7 @@
               <input id="email" name="email" type="text" autocomplete="off" size="30" maxlength="30" value="<%=email%>"/>
               <h1> </h1>
               <h4>Budget:</h4>
-              <input id="budget" type="number" maxlength="30" size="30" name="budget" value="<%=budget%>" />
+              <input id="budgetCli" type="number" maxlength="30" size="30" name="budgetCli" value="<%=budget%>" />
               <h1> </h1>
                <input type="submit" name="modificaDati" value="Modifica Dati">
             </div>
