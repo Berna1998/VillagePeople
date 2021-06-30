@@ -10,6 +10,11 @@ public class MySqlDB implements DataBaseClass { //concrete product
 	public Connection openConnection() throws SQLException {
 		//Connection con = null;
 		String url = "jdbc:mysql://localhost:3306/villagepeople?useSSL=false";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}catch (ClassNotFoundException e) {
+			throw new SQLException();
+		} 
 		//con = DriverManager.getConnection(url,this.username,this.password);
 		return DriverManager.getConnection(url,this.username,this.password);
 		//return con;
