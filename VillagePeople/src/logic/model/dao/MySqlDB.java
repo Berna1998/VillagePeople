@@ -16,7 +16,9 @@ public class MySqlDB implements DataBaseClass { //concrete product
 	}
 	
 	private String getPassword() {
-		return "Marchisio97";
+		String pass;
+		pass = "Marchisio97";
+		return pass;
 	}
 
 }
