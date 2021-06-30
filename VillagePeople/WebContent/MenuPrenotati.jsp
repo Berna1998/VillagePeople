@@ -20,6 +20,10 @@
     connessione = db.openConnection();
 	String codice = request.getParameter("custIdMenuAdm");
 
+	if (codice!= null){
+		request.getSession().setAttribute("custIdMenPret", codice);
+	}
+	
 	if (codice == null||codice.equals("")){
 		if(request.getParameter("custIdElenInt1") != null){				
 			codice = request.getParameter("custIdElenInt1");
@@ -98,7 +102,7 @@
     </nav>
     <h1> </h1>
     <form action="MenuPrenotati.jsp" name="formMenuPrenotati" method="POST">
-	<input type="hidden" id="custIdMenPret" name="custIdMenPret" value="<%=codice%>">  
+ 
     <div class="container">
       <div class="row">
         <div class="col-sm">
