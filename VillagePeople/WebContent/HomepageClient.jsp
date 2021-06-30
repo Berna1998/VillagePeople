@@ -57,17 +57,13 @@
   	String email = String.valueOf(listaDati.get(3));
   	String budget = String.valueOf(listaDati.get(4));
 
-	if (email.equals("")){
-		email = "Errore";
-	}
-	if (budget.equals("")){
-		budget = "Errore";
-	}
 	
   	if (request.getParameter("modificaDati") != null){
   		email = request.getParameter("email");
   		budget = request.getParameter("budget");
   		if (email.equals("") || email == null || budget.equals("") || budget == null){
+  			email = "Errore";
+  			budget = "Errore";
   	    	%> 	        	    	
         	<p style="color: red">Compila i campi</p>			
   	        <% 
