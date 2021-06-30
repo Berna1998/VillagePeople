@@ -32,8 +32,12 @@
 
 	String codGen = request.getParameter("custCodPenale");
 
+	if (codGen!= null){
+		request.getSession().setAttribute("custGenerato", codGen);
+	}
+	
 	if(codGen == null){
-		codGen = "";
+		codGen = (String)request.getSession().getAttribute("custGenerato");
 	}
 
 	String penale = request.getParameter("custPenale");
@@ -127,11 +131,7 @@
     </nav>
     <h1> </h1>
     <form action="Pagamento Penale.jsp" name="formPenale" method="POST">
-	<input type="hidden" id="custIdPenale" name="custIdPenale" value="<%=codiceId%>">
-	<input type="hidden" id="custPenCosto" name="custPenCosto" value="<%=penale%>">
-	<input type="hidden" id="custPrezPenale" name="custPrezPenale" value="<%=prezzoAtt%>">
-	<input type="hidden" id="custAttPenale" name="custAttPenale" value="<%=codAtt%>">
-	<input type="hidden" id="custGenerato" name="custGenerato" value="<%=codGen%>">
+  
     <div class="container">
       <div class="row">
         <div class="col-sm">
