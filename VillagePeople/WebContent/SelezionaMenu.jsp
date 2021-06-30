@@ -26,10 +26,13 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 	String codice = request.getParameter("custIdMenu");
+	if (codice!= null){
+		request.getSession().setAttribute("custIdSelMen", codice);
+	}
     MenuClientController mcc = new MenuClientController();
     NotificheController nc = new NotificheController();
 	if (codice == null){
-		codice = request.getParameter("custIdSelMen");
+		codice = (String)request.getSession().getAttribute("custIdSelMen");
 	}
     if (request.getParameter("Invia") != null) {
 
@@ -153,7 +156,7 @@
     </nav>
     <h1> </h1>
     <form action="SelezionaMenu.jsp" name="formSelezionaMenu" method="POST">
-    <input type="hidden" id="custIdSelMen" name="custIdSelMen" value="<%=codice%>">
+ 
     <div class="container">
       <div class="row">
         <div class="col-sm">
