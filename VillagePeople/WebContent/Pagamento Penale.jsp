@@ -64,6 +64,18 @@
 		prezzoAtt = (String)request.getSession().getAttribute("custPrezPenale");		
 	}
 	
+	if (codGen.equals("")){
+		codGen = "Errore";
+	}
+	if (penale.equals("")){
+		penale = "Errore";
+	}
+	if (codAtt.equals("")){
+		codAtt = "Errore";
+	}
+	if (prezzoAtt.equals("")){
+		prezzoAtt = "Errore";
+	}
 
 	EliminaPrenotazioneController epc = new EliminaPrenotazioneController();
 	NotificheController nc = new NotificheController();
