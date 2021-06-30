@@ -57,7 +57,13 @@
   	String email = String.valueOf(listaDati.get(3));
   	String budget = String.valueOf(listaDati.get(4));
 
-
+	if (email.equals("")){
+		email = "Errore";
+	}
+	if (budget.equals("")){
+		budget = "Errore";
+	}
+	
   	if (request.getParameter("modificaDati") != null){
   		email = request.getParameter("email");
   		budget = request.getParameter("budget");
