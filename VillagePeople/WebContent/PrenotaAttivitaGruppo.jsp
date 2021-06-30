@@ -76,6 +76,9 @@
     	 	}else if(categoria.equals("Svago e Relax")){
     	 		categoria = "Svago&Relax";
     	 	}
+    	 	if(giorno.equals("Lunedì")){
+    	 		giorno = "Lunedi";
+    	 	}
     		AttivitaBean.setCategoria(categoria);
     		AttivitaBean.setGiorno(giorno);
     	    try {
@@ -109,9 +112,6 @@
     	 		categoria = "Salute&Benessere";
     	 	} else if (categoria.equals("Svago e Relax")){
     	 		categoria = "Svago&Relax";
-    	 	}
-    	 	if(giorno.equals("Lunedì")){
-    	 		giorno = "Lunedi";
     	 	}
 
     		AttivitaBean.setCategoria(categoria);
