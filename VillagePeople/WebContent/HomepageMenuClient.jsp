@@ -38,6 +38,10 @@
 	    }
 	}
 	
+	if (codice.equals("")){
+		codice = "Errore";
+	}
+	
 	MenuClientController mcc = new MenuClientController();
 	try {
 		connessione = db.openConnection();

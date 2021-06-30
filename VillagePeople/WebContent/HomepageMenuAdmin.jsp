@@ -41,6 +41,10 @@
 
 	}
 	
+	if (codice.equals("")){
+		codice = "Errore";
+	}
+	
 	MenuAdminController mac = new MenuAdminController();
 	NotificheController nc = new NotificheController();
 	try {
