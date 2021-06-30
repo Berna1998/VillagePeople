@@ -6,10 +6,13 @@
 <%
 
 	String codice = request.getParameter("custIdAdm");
-
+	
+	if(codice != null){
+		request.getSession().setAttribute("custIdGestAdm", codice);
+	}
 	if(codice == null){
-	 	if (request.getParameter("custIdGestAdm") != null){
-			codice = request.getParameter("custIdGestAdm");
+	 	if ((String)request.getSession().getAttribute("custAddAtt") != null){
+			codice = (String)request.getSession().getAttribute("custAddAtt");
 		} else if (request.getParameter("custIdMenuAdm") != null){
 			codice = request.getParameter("custIdMenuAdm");
 		} else if (request.getParameter("custIdNotAdm") != null){
@@ -73,8 +76,8 @@
         </div>
     </nav>
     <form action="GestisciAttivitaAdmin.jsp" name="formGestisciAttivitaAdm" method="POST">
-    <input type="hidden" id="custIdGestAdm" name="custIdGestAdm" value="<%=codice%>">
-    <ul class="nav" style="background-color: #ffffff;";>
+
+    <ul class="nav" style="background-color: #ffffff;">
       <li class="nav-item">
         <a class="nav-link" href="./HomepageAdmin.jsp?codiceH=<%=codice%>">Area Personale</a>
       </li>
