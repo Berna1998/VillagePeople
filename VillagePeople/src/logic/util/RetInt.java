@@ -1,10 +1,10 @@
 package logic.util;
 
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.concurrent.Callable;
 
 public class RetInt implements Callable<Integer> {
-	private Random random = new Random();
+	private SecureRandom random = new SecureRandom();
     public  RetInt() {//COSTRUTTORE
     }
  
