@@ -40,15 +40,24 @@
      double penale = 0.0;
      String codiceAtt = "";
      String codiceId = request.getParameter("custIdGest");
+     
+ 	 if (codiceId!= null){
+		request.getSession().setAttribute("custIdElimPret", codiceId);
+	 }
+ 	 
      if(codiceId == null || codiceId.equals("")){
- 	 	if (request.getParameter("custIdElimPret") != null) {
- 	 		 codiceId = request.getParameter("custIdElimPret");
- 		} else if (request.getParameter("custIdPenale") != null) {
+  	 	if ((String)request.getSession().getAttribute("custIdElimPret") !=null) {
+	 		 codiceId = (String)request.getSession().getAttribute("custIdElimPret");
+		} else if (request.getParameter("custIdPenale") != null) {
     	 codiceId = request.getParameter("custIdPenale");
      	}
      }
      
-	 String categoriaCus = request.getParameter("categorie");
+	 String categoriaCus = " ";
+	 if((String)request.getSession().getAttribute("custCateg") !=null){
+		 categoriaCus = (String)request.getSession().getAttribute("custCateg");
+	 }
+	 
 	 String giornoCus = request.getParameter("giorno");
     
      EliminaPrenotazioneController epc = new EliminaPrenotazioneController();
@@ -62,7 +71,9 @@
      }
      
      if(request.getParameter("cerca") != null){
-    	    String categoria = request.getParameter("categorie");
+ 	    	String categoria = request.getParameter("categorie");
+ 	    	request.getSession().setAttribute("custCateg", categoria);
+ 	    	categoriaCus = (String)request.getSession().getAttribute("custCateg");
     	    int catN = 0;
     	    if (categoria.equals("Sport")) {
     	    	catN = 1;
@@ -92,7 +103,7 @@
         	 <p style="color: red">Seleziona una delle attivita mostrate</p>
         	 <%
     	 }else{
- 	   		 String categoria=request.getParameter("custCateg");
+ 	   		 String categoria=(String)request.getSession().getAttribute("custCateg");
  	    	 int catN = 0;
  	    	 if(categoria.equals("Sport")){
  	    		catN = 1;
@@ -268,8 +279,7 @@
     </nav>
     <h1> </h1>
    <form action="EliminaPrenotazione.jsp" name="formEliminaPrenotazione" method="POST">
-   <input type="hidden" id="custIdElimPret" name="custIdElimPret" value="<%=codiceId%>">
-   <input type="hidden" id="custCateg" name="custCateg" value="<%=categoriaCus%>">
+
     <div class="container">
       <div class="row">
         <div class="col-sm">

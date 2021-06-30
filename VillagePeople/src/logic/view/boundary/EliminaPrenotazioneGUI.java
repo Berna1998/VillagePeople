@@ -168,7 +168,7 @@ public class EliminaPrenotazioneGUI implements Subject {
 			riga = StartApplication.c1.controllaRiga(riga,3);
 			try {
 				int codice = (Integer.parseInt(table.getValueAt(riga, 0).toString()));
-				String giorno = (table.getValueAt(riga, 5).toString());
+				String giorno = (table.getValueAt(riga, 4).toString());
 				double prezzo = (Double.parseDouble(table.getValueAt(riga, 3).toString()));
 				String categoria = (comboBox.getSelectedItem().toString());
 			
