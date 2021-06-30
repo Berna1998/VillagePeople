@@ -116,7 +116,7 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Area Personale</a>
       </li>
       <li class="nav-item">
-      	<form action="HomepageMenuClient.jsp" name="formHomepageCli" method="POST">
+      	<form action="HomepageClient.jsp" name="formHomepageCli" method="POST">
 
         <a class="nav-link" href="./HomepageMenuClient.jsp?codiceH=<%=codice%>" >Menu</a>
         </form>
@@ -165,7 +165,7 @@
               <input id="email" name="email" type="text" autocomplete="off" size="30" maxlength="30" value="<%=email%>"/>
               <h1> </h1>
               <h4>Budget:</h4>
-              <input id="budget" type="number" maxlength="30" size="30" name="budget" value="<%=budget%>" />
+              <input id="budget" type="number" autocomplete="off" maxlength="30" size="30" name="budget" value="<%=budget%>" />
               <h1> </h1>
                <input type="submit" name="modificaDati" value="Modifica Dati">
             </div>
