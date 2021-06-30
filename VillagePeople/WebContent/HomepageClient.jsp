@@ -22,9 +22,13 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 	String codice = request.getParameter("codiceID");
+	if (codice!= null){
+		request.getSession().setAttribute("custId", codice);
+	}
+	
 	if (codice == null){
-		if (request.getParameter("custId") != null){
-			codice = request.getParameter("custId");
+		if ((String)request.getSession().getAttribute("custId") != null){
+			codice = (String)request.getSession().getAttribute("custId");
 		} else if (request.getParameter("custIdMenu") != null){
 			codice = request.getParameter("custIdMenu");
 		} else if (request.getParameter("custIdGest") != null){
@@ -35,6 +39,11 @@
 	    	codice = request.getParameter("codiceH");
 	    }
 	}
+	
+	if (codice.equals("")){
+		codice = "Errore";
+	}
+	
 	LogInController lc = new LogInController();
 	ArrayList<Object> listaDati= new ArrayList<>();
 	try {
@@ -108,7 +117,7 @@
       </li>
       <li class="nav-item">
       	<form action="HomepageMenuClient.jsp" name="formHomepageCli" method="POST">
-      	<input type="hidden" id="custId" name="custId" value="<%=codice%>">
+
         <a class="nav-link" href="./HomepageMenuClient.jsp?codiceH=<%=codice%>" >Menu</a>
         </form>
       </li>

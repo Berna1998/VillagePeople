@@ -22,10 +22,15 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 	String codice = request.getParameter("codiceID");
+	if (codice!= null){
+		request.getSession().setAttribute("custIdAdm", codice);
+	}
+	
+	
 	//utile nel processamento della pagina, pochè senza questo controllo si perderebbe il valore del codice
 	if(codice == null || codice.equals("")){
-		if(request.getParameter("custIdAdm") != null){
-			codice = request.getParameter("custIdAdm");
+		if((String)request.getSession().getAttribute("custIdAdm") != null){
+			codice = (String)request.getSession().getAttribute("custIdAdm");
 		} else if (request.getParameter("custIdMenuAdm") != null){
 			codice = request.getParameter("custIdMenuAdm");
 		} else if (request.getParameter("custIdGestAdm") != null){
@@ -37,6 +42,10 @@
 		} else if (request.getParameter("codiceH") != null){
 	    	codice = request.getParameter("codiceH");
 	    }
+	}
+	
+	if (codice.equals("")){
+		codice = "Errore";
 	}
 	LogInController lc = new LogInController();
 	ArrayList<Object> listaDati = new ArrayList<>();
@@ -87,7 +96,7 @@
         </div>
     </nav>
     <form action="HomepageAdmin.jsp" name="formHomepageAd" method="POST">
-	<input type="hidden" id="custIdAdm" name="custIdAdm" value="<%=codice%>">    
+   
     <ul class="nav" style="background-color: #ffffff;";>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Area Personale</a>
