@@ -60,19 +60,15 @@
 
   	if (request.getParameter("modificaDati") != null){
   		email = request.getParameter("email");
-  		budget = request.getParameter("budgetCli");
-  		if (email.equals("") || email == null){
+  		budget = request.getParameter("budget");
+  		if (email.equals("") || email == null || budget.equals("") || budget == null){
   	    	%> 	        	    	
         	<p style="color: red">Compila i campi</p>			
   	        <% 
-  		} else if( budget.equals("") || budget == null){
-  	    	%> 	        	    	
-        	<p style="color: red">Compila i campi</p>			
-  	        <% 	
-  		}else {
-  		
+  		} else {
+  			double budgetD = Double.parseDouble(budget);
   			UtenteBean.setEmail(email);
-  			UtenteBean.setBudget(Double.parseDouble(budget));
+  			UtenteBean.setBudget(budgetD);
   			try {
 				lc.setNewInfo(email,budget, connessione); 
   	 	 	%>
@@ -151,10 +147,10 @@
               <input id="nome" name="nome" type="text" autocomplete="off" size="30" maxlength="30" value="<%=nome%>" readonly/>
               <h1> </h1>
               <h4>Cognome:</h4>
-              <input id="cognome" type="cognome" maxlength="30" size="30" name="cognome" value="<%=cognome%>" readonly/>
+              <input id="cognome" type="text" maxlength="30" size="30" name="cognome" value="<%=cognome%>" readonly/>
               <h1> </h1>
               <h4>CodiceID:</h4>
-              <input id="codice" type="codice" maxlength="30" size="30" name="codiceID" value="<%=codice%>" readonly />
+              <input id="codice" type="text" maxlength="30" size="30" name="codiceID" value="<%=codice%>" readonly />
               <h1> </h1>
             </div>
           </div>
@@ -170,7 +166,7 @@
               <input id="email" name="email" type="text" autocomplete="off" size="30" maxlength="30" value="<%=email%>"/>
               <h1> </h1>
               <h4>Budget:</h4>
-              <input id="budgetCli" type="number" maxlength="30" size="30" name="budgetCli" value="<%=budget%>" />
+              <input id="budget" type="number" maxlength="30" size="30" name="budget" value="<%=budget%>" />
               <h1> </h1>
                <input type="submit" name="modificaDati" value="Modifica Dati">
             </div>
