@@ -19,11 +19,16 @@
     connessione = db.openConnection();
 	String codice = request.getParameter("custId");
 	
+	if (codice!= null){
+		request.getSession().setAttribute("custIdMenu", codice);
+	}
+	
+	
 	if (codice == null || codice.equals("")){
  		if (request.getParameter("custIdGest")!=null){
 			codice = request.getParameter("custIdGest");
-		} else if (request.getParameter("custIdMenu")!=null){
-			codice = request.getParameter("custIdMenu");
+		} else if ((String)request.getSession().getAttribute("custIdMenu")!=null){
+			codice = (String)request.getSession().getAttribute("custIdMenu");
 		} else if (request.getParameter("custIdNot")!=null){
 			codice = request.getParameter("custIdNot");
 		} else if (request.getParameter("custIdSelMen")!=null){

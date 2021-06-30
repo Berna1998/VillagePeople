@@ -22,9 +22,13 @@
     connessione = db.openConnection();
 	String codice = request.getParameter("custIdAdm");
 
+	if (codice!= null){
+		request.getSession().setAttribute("custIdMenuAdm", codice);
+	}
+	
 	if(codice == null||codice.equals("")){
-		if(request.getParameter("custIdMenuAdm") != null){
-			codice = request.getParameter("custIdMenuAdm");
+		if((String)request.getSession().getAttribute("custIdMenuAdm") != null){
+			codice = (String)request.getSession().getAttribute("custIdMenuAdm");
 		} else if (request.getParameter("custIdGestAdm") != null){
 			codice = request.getParameter("custIdGestAdm");
 		} else if (request.getParameter("custIdNotAdm") != null){
@@ -117,7 +121,7 @@
         </div>
     </nav>
     <form action="HomepageMenuAdmin.jsp" name="formHomepageMenuAdm" method="POST">
-     <input type="hidden" id="custIdMenuAdm" name="custIdMenuAdm" value="<%=codice%>">
+ 
     <label for="codice">Codice ID: </label>
     <label for="codice"><%=codice%></label>
     <ul class="nav" style="background-color: #ffffff;";>
