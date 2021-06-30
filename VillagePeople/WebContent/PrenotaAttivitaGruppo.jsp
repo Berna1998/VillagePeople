@@ -34,11 +34,24 @@
      int j = 0;
      double budget = 0.0;
      String codiceId = request.getParameter("custIdGest");
-     if(codiceId == null){
-    	 codiceId = request.getParameter("custIdPrenAttGr");
+ 	 if (codiceId!= null){
+		request.getSession().setAttribute("custIdPrenAttGr", codiceId);
+	 }
+	
+ 	 String categoriaCus = " ";
+ 	 String giornoCus = " ";
+ 	 
+ 	 if((String)request.getSession().getAttribute("custCateg") !=null){
+ 		 categoriaCus = (String)request.getSession().getAttribute("custCateg");
+ 	 }
+ 	 
+ 	 if((String)request.getSession().getAttribute("custGiorno") != null){
+ 		 giornoCus = (String)request.getSession().getAttribute("custGiorno");
+ 	 }
+
+     if (codiceId == null){
+    	 codiceId = (String)request.getSession().getAttribute("custIdPrenAttGr");
      }
-	 String categoriaCus = request.getParameter("categorie");
-	 String giornoCus = request.getParameter("giorno");
     
      PrenotazioneAttivitaController pac = new PrenotazioneAttivitaController();
      NotificheController nc = new NotificheController();
@@ -54,6 +67,10 @@
     	    UtenteBean.setBudget(budget);
     	    String categoria = request.getParameter("categorie");
     	    String giorno = request.getParameter("giorno");
+    	 	request.getSession().setAttribute("custCateg", categoria);
+    	 	request.getSession().setAttribute("custGiorno", giorno);
+    	    categoriaCus = (String)request.getSession().getAttribute("custCateg");
+    	    giornoCus = (String)request.getSession().getAttribute("custGiorno");
     	 	if(categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	}else if(categoria.equals("Svago e Relax")){
@@ -81,6 +98,8 @@
     	 }else {
     		boolean responso = false;
     		int m = Integer.parseInt(request.getParameter("scelta"));
+    		String categoria = (String)request.getSession().getAttribute("custCateg");
+    	 	String giorno = (String)request.getSession().getAttribute("custGiorno");
     	 	int index = m*6;
  	     	budget = pac.cercaBudget(codiceId, connessione);
  	     	UtenteBean.setBudget(budget);
@@ -207,9 +226,7 @@
     </nav>
     <h1> </h1>
     <form action="PrenotaAttivitaGruppo.jsp" name="formPrenotaAttGruppo" method="POST">
-    <input type="hidden" id="custIdPrenAttGr" name="custIdPrenAttGr" value="<%=codiceId%>">
-    <input type="hidden" id="custCateg" name="custCateg" value="<%=categoriaCus%>">
-    <input type="hidden" id="custGiorno" name="custGiorno" value="<%=giornoCus%>">  
+ 
     <div class="container">
       <div class="row">
         <div class="col-sm">
