@@ -9,9 +9,10 @@ public class MySqlDB implements DataBaseClass { //concrete product
 	//private String password="Marchisio97";
 	public Connection openConnection() throws SQLException {
 		Connection con = null;
+		String password="Marchisio97";
 		String url = "jdbc:mysql://localhost:3306/villagepeople?useSSL=false";
 		try {
-			con = DriverManager.getConnection(url,this.username,"Marchisio97");
+			con = DriverManager.getConnection(url,this.username,password);
 		}catch (Exception e) {
 			throw new SQLException();
 		} 
