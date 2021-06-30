@@ -49,6 +49,10 @@
     	<jsp:forward page="PrenotaAttivitaGruppo.jsp"/>
 		<%		
 	}
+	
+	if(codice.equals("")){
+		codice = "Errore";
+	}
 
 %>
    
