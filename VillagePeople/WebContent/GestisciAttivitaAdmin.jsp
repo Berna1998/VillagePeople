@@ -79,16 +79,16 @@
 
     <ul class="nav" style="background-color: #ffffff;">
       <li class="nav-item">
-        <a class="nav-link" href="./HomepageAdmin.jsp?codiceH=<%=codice%>">Area Personale</a>
+        <a class="nav-link" href="./HomepageAdmin.jsp?codH=<%=codice%>">Area Personale</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./HomepageMenuAdmin.jsp?codiceH=<%=codice%>">Menu</a>
+        <a class="nav-link" href="./HomepageMenuAdmin.jsp?codH=<%=codice%>">Menu</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Gestisci Attività </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./NotificheAdmin.jsp?codiceH=<%=codice%>">Notifiche</a>
+        <a class="nav-link" href="./NotificheAdmin.jsp?codH=<%=codice%>">Notifiche</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="./Login.jsp">LogOut</a>
