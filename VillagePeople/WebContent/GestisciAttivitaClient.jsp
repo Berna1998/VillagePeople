@@ -13,9 +13,12 @@
 
 	String codice = request.getParameter("custId");
 
+	if(codice != null){
+		request.getSession().setAttribute("custIdGest", codice);
+	}
 	if(codice == null){
- 		if (request.getParameter("custIdGest") != null){
-			codice = request.getParameter("custIdGest");
+ 		if ((String)request.getSession().getAttribute("custIdGest") != null){
+			codice = (String)request.getSession().getAttribute("custIdGest");
 		} else if (request.getParameter("custIdMenu") != null){
 			codice = request.getParameter("custIdMenu");
 		} else if (request.getParameter("custIdNot") != null){
@@ -82,7 +85,7 @@
     <label for="codice">Codice ID: </label>
 	<label for="codice"><%=codice%></label>
     <form action="GestisciAttivitaClient.jsp" name="formGestAttCli" method="POST">
-        <input type="hidden" id="custIdGest" name="custIdGest" value="<%=codice%>">
+ 
     <ul class="nav" style="background-color: #ffffff;";>
       <li class="nav-item">
         <a class="nav-link" href="./HomepageClient.jsp?codiceH=<%=codice%>">Area Personale</a>
