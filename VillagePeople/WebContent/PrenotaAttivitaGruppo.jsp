@@ -33,7 +33,7 @@
      int n = 0;
      int j = 0;
      double budget = 0.0;
-     String codiceId = request.getParameter("custIdGest");
+     String codiceId = (String)request.getSession().getAttribute("custIdGest");
  	 if (codiceId!= null){
 		request.getSession().setAttribute("custIdPrenAttGr", codiceId);
 	 }

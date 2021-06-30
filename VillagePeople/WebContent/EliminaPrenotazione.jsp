@@ -39,7 +39,7 @@
      double prezzo = 0.0;
      double penale = 0.0;
      String codiceAtt = "";
-     String codiceId = request.getParameter("custIdGest");
+     String codiceId = (String)request.getSession().getAttribute("custIdGest");
      
  	 if (codiceId!= null){
 		request.getSession().setAttribute("custIdElimPret", codiceId);
@@ -48,8 +48,8 @@
      if(codiceId == null || codiceId.equals("")){
   	 	if ((String)request.getSession().getAttribute("custIdElimPret") !=null) {
 	 		 codiceId = (String)request.getSession().getAttribute("custIdElimPret");
-		} else if (request.getParameter("custIdPenale") != null) {
-    	 codiceId = request.getParameter("custIdPenale");
+		} else if ((String)request.getSession().getAttribute("custIdPenale") != null) {
+    	 codiceId = (String)request.getSession().getAttribute("custIdPenale");
      	}
      }
      

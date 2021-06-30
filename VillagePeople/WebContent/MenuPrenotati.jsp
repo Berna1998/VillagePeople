@@ -18,19 +18,19 @@
     DataBaseFactory dbf = new DataBaseFactory();
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
-	String codice = request.getParameter("custIdMenuAdm");
+	String codice = (String)request.getSession().getAttribute("custIdMenuAdm");
 
 	if (codice!= null){
 		request.getSession().setAttribute("custIdMenPret", codice);
 	}
 	
 	if (codice == null||codice.equals("")){
-		if(request.getParameter("custIdElenInt1") != null){				
-			codice = request.getParameter("custIdElenInt1");
-	 	} else if (request.getParameter("custIdElenInt2") != null){
-			codice = request.getParameter("custIdElenInt2");
-	 	} else if (request.getParameter("custIdElenInt3") != null){
-			codice = request.getParameter("custIdElenInt3");
+		if((String)request.getSession().getAttribute("custIdElenInt1") != null){				
+			codice = (String)request.getSession().getAttribute("custIdElenInt1");
+	 	} else if ((String)request.getSession().getAttribute("custIdElenInt2") != null){
+			codice = (String)request.getSession().getAttribute("custIdElenInt2");
+	 	} else if ((String)request.getSession().getAttribute("custIdElenInt3") != null){
+			codice = (String)request.getSession().getAttribute("custIdElenInt3")
 	 	}
 	}
 	int numPret1 = 0;

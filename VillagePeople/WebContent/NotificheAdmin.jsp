@@ -19,22 +19,15 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 
-	String codice = request.getParameter("custIdAdm");
+	String codice = request.getParameter("codiceH");
 
 	if (codice!= null){
 		request.getSession().setAttribute("custIdNotAdm", codice);
 	}
 	
 	if (codice == null){
-	 	if (request.getParameter("custIdGestAdm") != null){
-			codice = request.getParameter("custIdGestAdm");
-		} else if (request.getParameter("custIdMenuAdm") != null){
-			codice = request.getParameter("custIdMenuAdm");
-		} else if ((String)request.getSession().getAttribute("custId") != null){
-			codice = (String)request.getSession().getAttribute("custId");
-		} else if (request.getParameter("codiceH") != null){
-	    	codice = request.getParameter("codiceH");
-	    }
+		codice = (String)request.getSession().getAttribute("custIdNotAdm");
+		
 	}
 	
 	if (codice.equals("")){

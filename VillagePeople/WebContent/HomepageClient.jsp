@@ -29,12 +29,6 @@
 	if (codice == null){
 		if ((String)request.getSession().getAttribute("custId") != null){
 			codice = (String)request.getSession().getAttribute("custId");
-		} else if (request.getParameter("custIdMenu") != null){
-			codice = request.getParameter("custIdMenu");
-		} else if (request.getParameter("custIdGest") != null){
-			codice = request.getParameter("custIdGest");
-		} else if (request.getParameter("custIdNot") != null){
-			codice = request.getParameter("custIdNot");
 		} else if (request.getParameter("codiceH") != null){
 	    	codice = request.getParameter("codiceH");
 	    }

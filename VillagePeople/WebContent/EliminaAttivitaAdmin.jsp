@@ -23,7 +23,7 @@
      int i = 0;
      int j = 0;
      double budget = 0.0;
-     String codiceId = request.getParameter("custIdGestAdm");
+     String codiceId = (String)request.getSession().getAttribute("custIdGestAdm");
  	 if (codiceId!= null){
 		request.getSession().setAttribute("custIdElimAttAd", codiceId);
 	 }

@@ -18,7 +18,7 @@
     DataBaseFactory dbf = new DataBaseFactory();
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
-    String codice = request.getParameter("custId");
+    String codice = request.getParameter("codiceH");
     
 	if (codice!= null){
 		request.getSession().setAttribute("custIdNot", codice);
@@ -26,15 +26,8 @@
 	
 	NotificheController nc = new NotificheController();
 	if(codice == null){
-	 	if (request.getParameter("custIdGest") != null){
-			codice = request.getParameter("custIdGest");
-		} else if (request.getParameter("custIdMenu") != null){
-			codice = request.getParameter("custIdMenu");
-		} else if ((String)request.getSession().getAttribute("custIdNot") != null){
-			codice = (String)request.getSession().getAttribute("custIdNot");
-		} else if (request.getParameter("codiceH") != null){
-	    	codice=request.getParameter("codiceH");
-	    }
+		odice = (String)request.getSession().getAttribute("custIdNot");
+		
 	}
 	
 	if (codice.equals("")){

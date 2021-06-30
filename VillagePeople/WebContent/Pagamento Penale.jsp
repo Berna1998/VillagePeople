@@ -20,7 +20,7 @@
    DataBaseFactory dbf = new DataBaseFactory();
    DataBaseClass db = dbf.getConnessione(type);
    connessione = db.openConnection();
-	String codiceId = request.getParameter("custIdElimPret");
+	String codiceId = (String)request.getSession().getAttribute("custIdElimPret");
 
 	if (codiceId!= null){
 		request.getSession().setAttribute("custIdPenale", codice);

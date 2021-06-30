@@ -14,7 +14,7 @@
 
 <%
 
-	String codice = request.getParameter("custIdMenPret");
+	String codice = (String)request.getSession().getAttribute("custIdMenPret");
 	if(codice!=null){
 		request.getSession().setAttribute("custIdElenInt1", codice);
 	

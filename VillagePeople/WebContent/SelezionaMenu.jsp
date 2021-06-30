@@ -25,7 +25,7 @@
     DataBaseFactory dbf = new DataBaseFactory();
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
-	String codice = request.getParameter("custIdMenu");
+	String codice = (String)request.getSession().getAttribute("custIdlMenu");
 	if (codice!= null){
 		request.getSession().setAttribute("custIdSelMen", codice);
 	}

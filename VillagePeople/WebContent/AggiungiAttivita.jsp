@@ -18,11 +18,8 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 
-	String codice=" ";
-	
-	if (request.getParameter("custIdGestAdm") != null) {
-		codice=request.getParameter("custIdGestAdm");
-	}
+	String codice = (String)request.getSession().getAttribute("custIdGestAdm");
+
 	if (codice!= null){
 		request.getSession().setAttribute("custAddAtt", codice);
 	}

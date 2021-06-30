@@ -31,14 +31,8 @@
 	if(codice == null || codice.equals("")){
 		if((String)request.getSession().getAttribute("custIdAdm") != null){
 			codice = (String)request.getSession().getAttribute("custIdAdm");
-		} else if (request.getParameter("custIdMenuAdm") != null){
-			codice = request.getParameter("custIdMenuAdm");
-		} else if (request.getParameter("custIdGestAdm") != null){
-			codice = request.getParameter("custIdGestAdm");
-		} else if (request.getParameter("custIdNotAdm") != null){
-			codice = request.getParameter("custIdNotAdm");
-		} else if (request.getParameter("custIdAddCli") != null){
-			codice = request.getParameter("custIdAddCli");
+		} else if ((String)request.getSession().getAttribute("custIdAddCli") != null){
+			codice = (String)request.getSession().getAttribute("custIdAddCli");
 		} else if (request.getParameter("codiceH") != null){
 	    	codice = request.getParameter("codiceH");
 	    }

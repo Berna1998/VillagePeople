@@ -11,7 +11,7 @@
 
 <%
 
-	String codice = request.getParameter("custId");
+	String codice = request.getParameter("codiceH");
 
 	if(codice != null){
 		request.getSession().setAttribute("custIdGest", codice);
@@ -19,20 +19,16 @@
 	if(codice == null){
  		if ((String)request.getSession().getAttribute("custIdGest") != null){
 			codice = (String)request.getSession().getAttribute("custIdGest");
-		} else if (request.getParameter("custIdMenu") != null){
-			codice = request.getParameter("custIdMenu");
-		} else if (request.getParameter("custIdNot") != null){
-			codice = request.getParameter("custIdNot");
-		} else if(request.getParameter("custIdElimPret") != null){
-			 codice = request.getParameter("custIdElimPret");
-	    } else if(request.getParameter("custIdPrenAtt") != null){
-			 codice = request.getParameter("custIdPrenAtt");
-	    } else if(request.getParameter("custIdPrenAttGr") != null){
-			 codice = request.getParameter("custIdPrenAttGr");
-	    } else if (request.getParameter("codiceH") != null){
-	    	codice = request.getParameter("codiceH");
-	    }
-
+		} else if((String)request.getSession().getAttribute("custIdElimPret") != null){
+			
+			 codice = (String)request.getSession().getAttribute("custIdElimPret");
+	    } else if((String)request.getSession().getAttribute("custIdPrenAtt") != null){
+	    	
+			 codice = (String)request.getSession().getAttribute("custIdPrenAtt");
+	    } else if((String)request.getSession().getAttribute("custIdPrenAttGr")!= null){
+	    	
+			 codice = (String)request.getSession().getAttribute("custIdPrenAttGr");
+	    } 
 	}
 	
 	if(request.getParameter("AggiungiPrenotazione")!=null){

@@ -5,7 +5,7 @@
 
 <%
 
-	String codice = request.getParameter("custIdAdm");
+	String codice = request.getParameter("codiceH");
 	
 	if(codice != null){
 		request.getSession().setAttribute("custIdGestAdm", codice);
@@ -13,19 +13,13 @@
 	if(codice == null){
 	 	if ((String)request.getSession().getAttribute("custAddAtt") != null){
 			codice = (String)request.getSession().getAttribute("custAddAtt");
-		} else if (request.getParameter("custIdMenuAdm") != null){
-			codice = request.getParameter("custIdMenuAdm");
-		} else if (request.getParameter("custIdNotAdm") != null){
-			codice = request.getParameter("custIdNotAdm");
-		} else if (request.getParameter("custIdModAttAd") != null){
-			codice = request.getParameter("custIdModAttAd");
-		} else if (request.getParameter("custIdElimAttAd") != null){
-			codice = request.getParameter("custIdElimAttAd");
-		}else if (request.getParameter("custAddAtt") != null){
-			codice = request.getParameter("custAddAtt");
-		} else if (request.getParameter("codiceH") != null){
-	    	codice=request.getParameter("codiceH");
-	    }
+		} else if ((String)request.getSession().getAttribute("custIdModAtt") != null){
+			codice = (String)request.getSession().getAttribute("custIdModAtt");
+		} else if ((String)request.getSession().getAttribute("custIdElimAttAd") != null){
+			codice = (String)request.getSession().getAttribute("custIdElimAttAd");
+		}else if ((String)request.getSession().getAttribute("custIdGestAdm"); != null){
+			codice = (String)request.getSession().getAttribute("custIdGestAdm");
+		} 
  	
 	}
 	

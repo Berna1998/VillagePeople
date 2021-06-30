@@ -17,7 +17,7 @@
     DataBaseFactory dbf = new DataBaseFactory();
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
-	String codice = request.getParameter("custIdAdm");
+	String codice = (String)request.getSession().getAttribute("custIdAdm");
 	if (codice!= null){
 		request.getSession().setAttribute("custIdAddCli", codice);
 	}
