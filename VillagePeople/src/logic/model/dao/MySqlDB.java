@@ -10,7 +10,7 @@ public class MySqlDB implements DataBaseClass { //concrete product
 	public Connection openConnection() throws SQLException {
 		Connection con = null;
 		String encoded = "";
-		String password = "Marchisio97";
+		String password = getPassword();
 		String url = "jdbc:mysql://localhost:3306/villagepeople?useSSL=false";
 	    byte[] travB=password.getBytes();
 		byte[] bytes=Base64.getEncoder().encode(travB);
@@ -25,6 +25,10 @@ public class MySqlDB implements DataBaseClass { //concrete product
 		//con = DriverManager.getConnection(url,this.username,this.password);
 		//return DriverManager.getConnection(url,this.username,"Marchisio97");
 		return con;
+	}
+	
+	private String getPassword() {
+		return "Marchisio97";
 	}
 
 }
