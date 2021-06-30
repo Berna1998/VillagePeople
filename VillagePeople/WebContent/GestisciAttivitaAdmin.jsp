@@ -28,6 +28,10 @@
 	    }
  	
 	}
+	
+	if(codice.equals("")){
+		codice = "Errore";
+	}
 
 	
 	if(request.getParameter("AggiungiAttivita")!=null){
