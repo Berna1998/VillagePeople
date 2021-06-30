@@ -61,11 +61,16 @@
   	if (request.getParameter("modificaDati") != null){
   		email = request.getParameter("email");
   		budget = request.getParameter("budget");
-  		if (email.equals("") || email == null || budget.equals("") || budget == null){
+  		if (email.equals("") || email == null){
   	    	%> 	        	    	
         	<p style="color: red">Compila i campi</p>			
   	        <% 
-  		} else {
+  		} else if( budget.equals("") || budget == null){
+  	    	%> 	        	    	
+        	<p style="color: red">Compila i campi</p>			
+  	        <% 	
+  		}else {
+  		
   			UtenteBean.setEmail(email);
   			UtenteBean.setBudget(Double.parseDouble(budget));
   			try {
@@ -165,7 +170,7 @@
               <input id="email" name="email" type="text" autocomplete="off" size="30" maxlength="30" value="<%=email%>"/>
               <h1> </h1>
               <h4>Budget:</h4>
-              <input id="budget" type="number" autocomplete="off" maxlength="30" size="30" name="budget" value="<%=budget%>" />
+              <input id="budget" type="number" maxlength="30" size="30" name="budget" value="<%=budget%>" />
               <h1> </h1>
                <input type="submit" name="modificaDati" value="Modifica Dati">
             </div>
