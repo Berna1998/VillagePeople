@@ -25,14 +25,25 @@
      int j = 0;
      double budget = 0.0;
      String codiceId = request.getParameter("custIdGestAdm");
-     if (codiceId == null) {
-    	 codiceId = request.getParameter("custIdModAttAd");
-     }
-	 String categoriaCus = " ";
-	 String giornoCus = " ";
+ 	 if (codiceId!= null){
+		request.getSession().setAttribute("custIdModAttAd", codiceId);
+	 }
+	
+ 	 String categoriaCus = " ";
+ 	 String giorniCus = " ";
+ 	 
+ 	 if((String)request.getSession().getAttribute("custCateg") !=null){
+ 		 categoriaCus = (String)request.getSession().getAttribute("custCateg");
+ 	 }
+ 	 
+ 	 if((String)request.getSession().getAttribute("custGiorno") != null){
+ 		 giorniCus = (String)request.getSession().getAttribute("custGiorno");
+ 	 }
 
-	 categoriaCus = request.getParameter("categorie");
-	 giornoCus = request.getParameter("giorno");
+     if (codiceId == null) {
+    	 codiceId = (String)request.getSession().getAttribute("custIdModAttAd");
+     }
+
      AttivitaController ac = new AttivitaController();
      ModificaAttivitaAdminController maac = new ModificaAttivitaAdminController();
      NotificheController nc = new NotificheController();     
@@ -47,6 +58,11 @@
      if (request.getParameter("cerca") != null){
     	    String categoria = request.getParameter("categorie");
     	    String giorno = request.getParameter("giorno");
+    	 	request.getSession().setAttribute("custCateg", categoria);
+    	 	request.getSession().setAttribute("custGiorno", giorni);
+    	 	request.getSession().setAttribute("custList", l.size());
+    	    categoriaCus = (String)request.getSession().getAttribute("custCateg");
+    	    giorniCus = (String)request.getSession().getAttribute("custGiorno");
     	 	if (categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	}else if (categoria.equals("Svago e Relax")){
@@ -78,7 +94,9 @@
      		int m = Integer.parseInt(request.getParameter("scelta"));
     	 	int index = m*4; 	
 	 	    int cond = 0;
-    		boolean risultato = false;   	 	
+    		boolean risultato = false;  
+    		String categoria = (String)request.getSession().getAttribute("custCateg");
+    	 	String giorno = (String)request.getSession().getAttribute("custGiorno");
     		String categoria = request.getParameter("custCateg");
     	 	String giorno = request.getParameter("custGiorno");
     	 	if(categoria.equals("Salute e Benessere")){
@@ -178,10 +196,7 @@
     </nav>
     <h1> </h1>
     <form action="ModificaAttivitaAdmin.jsp" name="formModificaAttAdmin" method="POST">
-    <input type="hidden" id="custIdModAttAd" name="custIdModAttAd" value="<%=codiceId%>">
-    <input type="hidden" id="custCateg" name="custCateg" value="<%=categoriaCus%>">
-    <input type="hidden" id="custGiorno" name="custGiorno" value="<%=giornoCus%>">  
-
+ 
     <div class="container">
       <div class="row">
         <div class="col-sm">
