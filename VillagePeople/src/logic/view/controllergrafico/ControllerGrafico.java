@@ -947,7 +947,6 @@ public class ControllerGrafico {
 				epc.ricercaPrenotazioni(codiceId, l, 1, connessione);
 				creaTabella(l, 2);
 			} catch (SQLException e) {
-				e.printStackTrace();
 				new DatabaseException().showMessage(1, windowEliminaPrenotazione.getErrorLabelPren());
 				Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 				windowEliminaPrenotazione.getErrorLabelPren().setIcon(new ImageIcon(img));
