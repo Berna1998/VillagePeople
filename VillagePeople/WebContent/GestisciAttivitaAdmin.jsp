@@ -17,7 +17,7 @@
 			codice = (String)request.getSession().getAttribute("custIdModAtt");
 		} else if ((String)request.getSession().getAttribute("custIdElimAttAd") != null){
 			codice = (String)request.getSession().getAttribute("custIdElimAttAd");
-		}else if ((String)request.getSession().getAttribute("custIdGestAdm"); != null){
+		}else if ((String)request.getSession().getAttribute("custIdGestAdm") != null){
 			codice = (String)request.getSession().getAttribute("custIdGestAdm");
 		} 
  	
