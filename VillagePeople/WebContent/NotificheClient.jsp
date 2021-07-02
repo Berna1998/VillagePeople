@@ -26,7 +26,7 @@
 	
 	NotificheController nc = new NotificheController();
 	if(codice == null){
-		odice = (String)request.getSession().getAttribute("custIdNot");
+		codice = (String)request.getSession().getAttribute("custIdNot");
 		
 	}
 	

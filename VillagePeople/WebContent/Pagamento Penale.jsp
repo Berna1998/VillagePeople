@@ -23,7 +23,7 @@
 	String codiceId = (String)request.getSession().getAttribute("custIdElimPret");
 
 	if (codiceId!= null){
-		request.getSession().setAttribute("custIdPenale", codice);
+		request.getSession().setAttribute("custIdPenale", codiceId);
 	}
 	
 	if (codiceId == null || codiceId.equals("")) {

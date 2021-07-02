@@ -106,8 +106,6 @@
     	 	int index = m*6;
  	     	budget = pac.cercaBudget(codiceId, connessione);
  	     	UtenteBean.setBudget(budget);
-    		String categoria = request.getParameter("custCateg");
-    	 	String giorno = request.getParameter("custGiorno");
     	 	if (categoria.equals("Salute e Benessere")){
     	 		categoria = "Salute&Benessere";
     	 	} else if (categoria.equals("Svago e Relax")){
