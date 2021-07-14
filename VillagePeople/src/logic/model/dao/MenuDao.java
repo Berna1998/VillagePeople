@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import logic.model.entity.IntolleranzeEntity;
 import logic.model.entity.MenuEntity;
 
 public class MenuDao {
@@ -13,6 +14,7 @@ public class MenuDao {
 	private MenuEntity m1 = new MenuEntity();
 	private MenuEntity m2 = new MenuEntity();
 	private MenuEntity m3 = new MenuEntity();
+	private IntolleranzeEntity ie = new IntolleranzeEntity();
 	private String comunicato = "comunicato";
 
 	
@@ -25,9 +27,11 @@ public class MenuDao {
 	}
 	
 	
-	public void associaIntolleranza(String codiceCliente, String intolleranza, int numeroMenu, Connection con) throws SQLException{
-    
-		String query = qd.queryAssociaIntolleranze(codiceCliente, intolleranza,numeroMenu);
+	public void associaIntolleranza(String codiceCliente, String intolleranza, int numeroMenu, Connection con) throws SQLException {
+		ie.setCodiceCliente(codiceCliente);
+		ie.setIntolleranza(intolleranza);
+		ie.setNumeroMenu(numeroMenu);
+		String query = qd.queryAssociaIntolleranze(ie.getCodiceCliente(), ie.getIntolleranza(), ie.getNumeroMenu());
 		ps = con.createStatement();
 		ps.executeUpdate(query);
         ps.close();
@@ -42,7 +46,7 @@ public class MenuDao {
 		m2.setCodice(2);
 		m3.setDescrizione(menu3);
 		m3.setCodice(3);
-		String query=qd.queryCancellaMenu(1);
+		String query = qd.queryCancellaMenu(1);
 		ps = con.createStatement();
 		ps.executeUpdate(query);
 		query = qd.queryAggiungiMenu(1, m1.getDescrizione());
