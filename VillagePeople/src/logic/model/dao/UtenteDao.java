@@ -9,6 +9,7 @@ import java.util.List;
 
 
 import logic.model.entity.Cliente;
+import logic.model.entity.PreferenzeUtente;
 import logic.model.entity.Utente;
 
 public class UtenteDao {
@@ -16,6 +17,7 @@ public class UtenteDao {
 	private QueryDB qd = new QueryDB();
 	private Cliente c = new Cliente();
 	private Utente u = new Utente();
+	private PreferenzeUtente pu = new PreferenzeUtente();
 	
 	public void verificaAssociazione(List<Object> l, String nome, String cognome, String codice, Connection con) throws SQLException{
 		String nomequery = "";
@@ -47,10 +49,10 @@ public class UtenteDao {
 		c.setGiorniPermanenza(giorni);
 		ps = con.createStatement();
 		
-		String query2=qd.queryAggiungiUtente(c.getNome(), c.getCognome(), c.getCodiceID(), c.getEmail(), c.getPassword(), c.getGiorniPermanenza());
+		String query2 = qd.queryAggiungiUtente(c.getNome(), c.getCognome(), c.getCodiceID(), c.getEmail(), c.getPassword(), c.getGiorniPermanenza());
 		
 	    ps.executeUpdate(query2);
-	    String query3=qd.queryEliminaCodiceDisponibile(c.getCodiceID());
+	    String query3 = qd.queryEliminaCodiceDisponibile(c.getCodiceID());
 	    ps.executeUpdate(query3);
         ps.close();
 	}
@@ -70,19 +72,9 @@ public class UtenteDao {
 	}
 	
 	public void inserisciPreferenze(String codiceCliente, String numeroAttivita, Connection con) throws SQLException {
-		 if (numeroAttivita.equals("1")) {
-			 c.setSport(true);
-		 }
-         if (numeroAttivita.equals("2")) {
-        	 c.setSaluteBenessere(true);
-		 }
-         if (numeroAttivita.equals("3")) {
-        	 c.setSvagoRelax(true);
-         }
-         if (numeroAttivita.equals("4")) {
-        	 c.setBambini(true);
-         }
-	     String query = qd.queryInserisciPreferenze(codiceCliente, numeroAttivita);
+		 pu.setCodiceAttivitaPreferita(numeroAttivita);
+		 pu.setCodiceUtente(codiceCliente);
+	     String query = qd.queryInserisciPreferenze(pu.getCodiceUtente(),  pu.getCodiceAttivitaPreferita());
 	     ps = con.createStatement();
          ps.executeUpdate(query);
     	 ps.close();
