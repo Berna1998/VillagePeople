@@ -334,7 +334,7 @@
 		    	String nomeAtt = l.get(i+1).toString();
 		   	 	String orarioAtt = l.get(i+2).toString();
 		    	String prezzoAtt = l.get(i+3).toString();
-		    	String giorno = l.get(i+5).toString();
+		    	String giorno = l.get(i+4).toString();
 		    %>
 		    <td><input type="radio" id="scelta" name="scelta" value="<%=j%>"> </td>
 			<td style="width: 50%"><strong><%=codAtt%></strong></td>
