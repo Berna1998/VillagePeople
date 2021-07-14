@@ -1,36 +1,28 @@
 package logic.model.entity;
 
-public class MenuEntity{
-	private String menu1;
-	private String menu2;
-	private String menu3;
+public class MenuEntity {
+	private int codice;
+	private String descrizione;
 	private String statoMenu = "Non comunicato";
 
-		
-	public String getMenu1() {
-		return menu1;
-	}
 	
-	public void setMenu1(String menu1) {
-		this.menu1 = menu1;
-	}
-		
-	public String getMenu2() {
-		return menu2;
-	}
 	
-	public void setMenu2(String menu2) {
-		this.menu2 = menu2;
+	public int getCodice() {
+		return codice;
 	}
-		
-	public String getMenu3() {
-		return menu3;
+
+	public void setCodice(int codice) {
+		this.codice = codice;
 	}
-	
-	public void setMenu3(String menu3) {
-		this.menu3 = menu3;
+
+	public String getDescrizione() {
+		return descrizione;
 	}
-	
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
 	public String getStatoMenu() {
 		return statoMenu;
 	}
