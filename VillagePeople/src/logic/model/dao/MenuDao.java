@@ -10,7 +10,9 @@ import logic.model.entity.MenuEntity;
 public class MenuDao {
 	private Statement ps = null;
 	private QueryDB qd = new QueryDB();
-	private MenuEntity m = new MenuEntity();
+	private MenuEntity m1 = new MenuEntity();
+	private MenuEntity m2 = new MenuEntity();
+	private MenuEntity m3 = new MenuEntity();
 	private String comunicato = "comunicato";
 
 	
@@ -34,23 +36,28 @@ public class MenuDao {
 
 	
 	public void aggiungiMenu(String menu1, String menu2, String menu3, Connection con) throws SQLException {
-		m.setMenu1(menu1);
-		m.setMenu2(menu2);
-		m.setMenu3(menu3);
+		m1.setDescrizione(menu1);
+		m1.setCodice(1);
+		m2.setDescrizione(menu2);
+		m2.setCodice(2);
+		m3.setDescrizione(menu3);
+		m3.setCodice(3);
 		String query=qd.queryCancellaMenu(1);
 		ps = con.createStatement();
 		ps.executeUpdate(query);
-		query = qd.queryAggiungiMenu(1, m.getMenu1());
+		query = qd.queryAggiungiMenu(1, m1.getDescrizione());
 		ps.executeUpdate(query);
 		query=qd.queryCancellaMenu(2);
 		ps.executeUpdate(query);
-		query = qd.queryAggiungiMenu(2, m.getMenu2());
+		query = qd.queryAggiungiMenu(2, m2.getDescrizione());
 		ps.executeUpdate(query);
 		query = qd.queryCancellaMenu(3);
 		ps.executeUpdate(query);
-		query = qd.queryAggiungiMenu(3, m.getMenu3());
+		query = qd.queryAggiungiMenu(3, m3.getDescrizione());
 		ps.executeUpdate(query);
-		m.setStatoMenu(comunicato);
+		m1.setStatoMenu(comunicato);
+		m2.setStatoMenu(comunicato);
+		m3.setStatoMenu(comunicato);
         ps.close();
 		
 	}
