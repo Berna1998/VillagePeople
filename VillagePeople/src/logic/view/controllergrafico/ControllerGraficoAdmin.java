@@ -110,7 +110,7 @@ public class ControllerGraficoAdmin {
 			}
 			else {
 				int n = 0;
-				n = sc.controllaCodiceCliente(codice, connessioneAdm);
+				n = sc.controllaCodiceCliente(sb, connessioneAdm);
 				if( n == 1) {
 					throw new DatabaseException();
 				}
@@ -475,7 +475,8 @@ public class ControllerGraficoAdmin {
 			windowHomepageAdmin = new HomepageAdminGUI();
 			windowHomepageAdmin.getFrame().setVisible(true);
 			ArrayList<Object> l = new ArrayList<>();
-			cli.setInfoAdmin(codice, ub, connessioneAdm);
+			ub.setCodiceID(codice);
+			cli.setInfoAdmin(ub, connessioneAdm);
 			cli.getInformazioniAdmin(l, ub);
 			modificaInterfacciaAdmin(windowHomepageAdmin, l);
 		} catch (Exception e) {

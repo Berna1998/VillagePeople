@@ -169,10 +169,11 @@ public class ControllerGrafico {
 		String notificaSvagoRelax = "ELIMINATA ATTIVITA DI SVAGO E RELAX CHE HAI PRENOTATO";
 		String notificaSaluteBenessere = "ELIMINATA ATTIVITA DI SALUTE E BENESSERE CHE HAI PRENOTATO";
 		String notificaBambini = "ELIMINATA ATTIVITA DI BAMBINI CHE HAI PRENOTATO";
+		ab.setCodice(cod);
 		if (categoria.equals(sport)) {
 			try {
 				nc.comunicaNotificaEliminaAttivita(notificaSport, 1, cod, connessione);
-				ac.eliminaPrenotazioni(cod, connessione); /*Cancelliamo le prenotazioni dopo l'inserimento della notifica così che si possa associare 
+				ac.eliminaPrenotazioni(ab, connessione); /*Cancelliamo le prenotazioni dopo l'inserimento della notifica così che si possa associare 
                 la notifica ai clienti che si sono prenotati alla determinata attività che si sta cancellando */
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowNotifiche.getLblMsgNotifiche());
@@ -184,7 +185,7 @@ public class ControllerGrafico {
 		else if (categoria.equals(saluteBenessere)) {
 			try {
 				nc.comunicaNotificaEliminaAttivita(notificaSvagoRelax, 2, cod, connessione);
-				ac.eliminaPrenotazioni(cod, connessione);
+				ac.eliminaPrenotazioni(ab, connessione);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowNotifiche.getLblMsgNotifiche());
 				Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
@@ -195,7 +196,7 @@ public class ControllerGrafico {
 		else if (categoria.equals(svagoRelax)) {
 			try {
 				nc.comunicaNotificaEliminaAttivita(notificaSaluteBenessere, 3, cod, connessione);
-				ac.eliminaPrenotazioni(cod, connessione);
+				ac.eliminaPrenotazioni(ab, connessione);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowNotifiche.getLblMsgNotifiche());
 				Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
@@ -206,7 +207,7 @@ public class ControllerGrafico {
 		else if (categoria.equals(bambini)) {
 			try {
 				nc.comunicaNotificaEliminaAttivita(notificaBambini, 4, cod, connessione);
-				ac.eliminaPrenotazioni(cod, connessione);
+				ac.eliminaPrenotazioni(ab, connessione);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowNotifiche.getLblMsgNotifiche());
 				Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
@@ -872,9 +873,11 @@ public class ControllerGrafico {
 			Image img = new ImageIcon(this.getClass().getResource(errore)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			windowHomepage.getLblModifica().setIcon(new ImageIcon(img));
 	
-		} else {		
+		} else {
+			ub.setEmail(email);
+			ub.setBudget(Double.parseDouble(budget));
 			try {
-				cli.setNewInfo(email, budget, connessione);
+				cli.setNewInfo(ub, connessione);
 				ub.setEmail(email);
 				double budgetD = Double.parseDouble(budget);
 				ub.setBudget(budgetD);
@@ -942,9 +945,10 @@ public class ControllerGrafico {
 	 * l'elenco delle prenotazioni del cliente invocando un metodo del controller di eliminazione delle prenotazioni */ 
 	public void ricercaPrenotazioni(String categoria) {
 		ArrayList<Object> l = new ArrayList<>();
+		ub.setCodiceID(codiceId);
 		if (categoria.equals(sport)) {
 			try {
-				epc.ricercaPrenotazioni(codiceId, l, 1, connessione);
+				epc.ricercaPrenotazioni(ub, l, 1, connessione);
 				creaTabella(l, 2);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowEliminaPrenotazione.getErrorLabelPren());
@@ -955,7 +959,7 @@ public class ControllerGrafico {
 		}
 		else if (categoria.equals(saluteBenessere)) {
 			try {
-				epc.ricercaPrenotazioni(codiceId, l, 2, connessione);
+				epc.ricercaPrenotazioni(ub, l, 2, connessione);
 				creaTabella(l, 2);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowEliminaPrenotazione.getErrorLabelPren());
@@ -966,7 +970,7 @@ public class ControllerGrafico {
 		}
 		else if (categoria.equals(svagoRelax)) {
 			try {
-				epc.ricercaPrenotazioni(codiceId, l, 3, connessione);
+				epc.ricercaPrenotazioni(ub, l, 3, connessione);
 				creaTabella(l, 2);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowEliminaPrenotazione.getErrorLabelPren());
@@ -977,7 +981,7 @@ public class ControllerGrafico {
 		}
 		else if (categoria.equals(bambini)) {
 			try {
-				epc.ricercaPrenotazioni(codiceId, l, 4, connessione);
+				epc.ricercaPrenotazioni(ub, l, 4, connessione);
 				creaTabella(l, 2);
 			} catch (SQLException e) {
 				new DatabaseException().showMessage(1, windowEliminaPrenotazione.getErrorLabelPren());
@@ -1026,7 +1030,8 @@ public class ControllerGrafico {
 			windowHomepage.getFrame().setVisible(true);
 			this.codiceId = codice;
 			ArrayList<Object> listaDati = new ArrayList<>();
-			cli.setInfoCliente(codice, ub, connessione);
+			ub.setCodiceID(codice);
+			cli.setInfoCliente(ub, connessione);
 			cli.getInformazioni(listaDati, ub);
 			modificaInterfacciaUtente(windowHomepage, listaDati);
 		} catch (Exception e) {
