@@ -51,8 +51,9 @@ public class SignUpController {
 		return (codicequery.equals(codice) && nomequery.equals(nome) && cognomequery.equals(cognome));		
 	}
 
-	public int controllaCodiceCliente(String codice, Connection con) throws SQLException {
+	public int controllaCodiceCliente(SignUpBean sb, Connection con) throws SQLException {
 		int cod = 0;
+		String codice = sb.getCodiceID();
 		cod = ud.vediCodiceCliente(codice, con);
 		return cod;
 	}

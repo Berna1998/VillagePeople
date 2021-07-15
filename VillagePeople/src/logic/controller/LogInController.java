@@ -43,10 +43,10 @@ public class LogInController {
 		return role;
 	}
 	
-	public void setInfoAdmin(String codice, UtenteBean ub, Connection con) throws SQLException {
+	public void setInfoAdmin(UtenteBean ub, Connection con) throws SQLException {
+		String codice = ub.getCodiceID();
 		ArrayList<Object> l2 = new ArrayList<>();
 		ud.prelevaInfoAdmin(l2, codice, con);
-		ub.setCodiceID(codice);
 		ub.setNome(l2.get(0).toString());
 	    ub.setCognome(l2.get(1).toString());
 	    ub.setEmail(l2.get(2).toString());
@@ -54,10 +54,10 @@ public class LogInController {
 	}
 	
 	/*Questo metodo setta le informazion del cliente che vediamo nella homepage*/
-	public void setInfoCliente(String codice, UtenteBean ub, Connection con) throws SQLException {
+	public void setInfoCliente(UtenteBean ub, Connection con) throws SQLException {
+		String codice = ub.getCodiceID();
 		ArrayList<Object> l2 = new ArrayList<>();
 		ud.prelevaInfoCliente(l2, codice, con);
-		ub.setCodiceID(codice);
 		ub.setNome(l2.get(0).toString());
 	    ub.setCognome(l2.get(1).toString());
 	    ub.setEmail(l2.get(2).toString());
@@ -66,7 +66,9 @@ public class LogInController {
 	}
 
 	/*Questo metodo serve per settare i nuovi valori di email o password modificati dal client con l'apposito bottone*/
-	public void setNewInfo(String email, String budget, Connection con) throws SQLException {
+	public void setNewInfo(UtenteBean ub, Connection con) throws SQLException {
+		String email = ub.getEmail();
+		String budget = String.valueOf(ub.getBudget());
 		ud.aggiornaInfo(email, budget, con);
 	}
 

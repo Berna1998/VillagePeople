@@ -13,7 +13,8 @@ public class EliminaPrenotazioneController extends AttivitaController {
 	
     /* Il seguente metodo viene invocato dal controller grafico nel metodo "ricercaPrenotazioni" permette la ricerca 
      * nel database delle prenotazioni effettuate dal cliente */
-	 public void ricercaPrenotazioni(String codice, List<Object> l, int categoria, Connection con) throws SQLException {
+	 public void ricercaPrenotazioni(UtenteBean ub, List<Object> l, int categoria, Connection con) throws SQLException {
+		   String codice = ub.getCodiceID();
 		   ad.ricercaPrenotazioni(codice, l, categoria, con);
 	 }
 		

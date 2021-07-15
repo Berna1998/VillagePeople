@@ -33,7 +33,8 @@ public class AttivitaController {
 	
 	/* Tale metodo serve per cancellare le prenotazioni dopo l'inserimento della notifica così che si possa associare 
     la notifica ai clienti che si sono prenotati alla determinata attività che si sta cancellando */
-	public void eliminaPrenotazioni(int cod, Connection con) throws SQLException {
+	public void eliminaPrenotazioni(AttivitaBean ab, Connection con) throws SQLException {
+		int cod = ab.getCodice();
 		ad.eliminaPrenotazioni(cod, con);
 	}
 	
