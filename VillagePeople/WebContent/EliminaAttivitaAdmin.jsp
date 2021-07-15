@@ -123,14 +123,14 @@
     	 	if (categoria.equals("Sport")){ 
     			try {
     				nc.comunicaNotificaEliminaAttivita(notificaSport, 1, AttivitaBean.getCodice(), connessione);
-    				ac.eliminaPrenotazioni(AttivitaBean.getCodice(), connessione);
+    				ac.eliminaPrenotazioni(AttivitaBean, connessione);
     			} catch (SQLException e) {
     				e.printStackTrace();
     			}
 	 		}else if (categoria.equals("Salute&Benessere")){
 				try {
 					nc.comunicaNotificaEliminaAttivita(notificaSaluteBenessere, 2, AttivitaBean.getCodice(), connessione);
-					ac.eliminaPrenotazioni(AttivitaBean.getCodice(), connessione);
+					ac.eliminaPrenotazioni(AttivitaBean, connessione);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -138,14 +138,14 @@
 	 		}else if (categoria.equals("Svago&Relax")){
 				try {
 					nc.comunicaNotificaEliminaAttivita(notificaSvagoRelax, 3, AttivitaBean.getCodice(), connessione);
-					ac.eliminaPrenotazioni(AttivitaBean.getCodice(), connessione);
+					ac.eliminaPrenotazioni(AttivitaBean, connessione);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 	 		}else if (categoria.equals("Bambini")){
 				try {
 					nc.comunicaNotificaEliminaAttivita(notificaBambini, 4, AttivitaBean.getCodice(), connessione);
-					ac.eliminaPrenotazioni(AttivitaBean.getCodice(), connessione);
+					ac.eliminaPrenotazioni(AttivitaBean, connessione);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

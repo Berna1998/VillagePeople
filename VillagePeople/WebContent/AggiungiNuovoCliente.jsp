@@ -37,7 +37,7 @@
 			try {
 				Class.forName("com.mysql.jdbc.Driver");	
 				connessione = db.openConnection();
-	        	n = sc.controllaCodiceCliente(SignUpBean.getCodiceID(), connessione);
+	        	n = sc.controllaCodiceCliente(SignUpBean, connessione);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}

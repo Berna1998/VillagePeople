@@ -40,8 +40,9 @@
 	
 	LogInController lc = new LogInController();
 	ArrayList<Object> listaDati= new ArrayList<>();
+	UtenteBean.setCodiceID(codice);
 	try {
-		lc.setInfoCliente(codice, UtenteBean, connessione);
+		lc.setInfoCliente(UtenteBean, connessione);
 		lc.getInformazioni(listaDati, UtenteBean);
 	}catch (SQLException e){
 		e.printStackTrace();
@@ -66,7 +67,7 @@
   			UtenteBean.setEmail(email);
   			UtenteBean.setBudget(budgetD);
   			try {
-				lc.setNewInfo(email,budget, connessione); 
+				lc.setNewInfo(UtenteBean, connessione); 
   	 	 	%>
 				<p style="color: green">Modifica dati effettuata</p>
 

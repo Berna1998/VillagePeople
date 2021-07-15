@@ -84,8 +84,9 @@
     	    }else {
     	    	catN = 4;
     	    }
+    	    UtenteBean.setCodiceID(codiceId);
     	    try {
-    	   		epc.ricercaPrenotazioni(codiceId, l, catN, connessione);
+    	   		epc.ricercaPrenotazioni(UtenteBean, l, catN, connessione);
     	    }catch (SQLException e){
     			e.printStackTrace();
     		}
@@ -114,8 +115,9 @@
  	    	 }else{
  	    		catN = 4;
  	   			 }
+ 	    	 UtenteBean.setCodiceID(codiceId);
  	    	 try {
- 	   			epc.ricercaPrenotazioni(codiceId, l, catN, connessione);
+ 	   			epc.ricercaPrenotazioni( UtenteBean, l, catN, connessione);
  	    	 }catch (SQLException e){
  				e.printStackTrace();
  			 }

@@ -43,8 +43,9 @@
 	}
 	LogInController lc = new LogInController();
 	ArrayList<Object> listaDati = new ArrayList<>();
+	UtenteBean.setCodiceID(codice);
 	try {
-		lc.setInfoAdmin(codice,UtenteBean, connessione);
+		lc.setInfoAdmin(UtenteBean, connessione);
 		lc.getInformazioniAdmin(listaDati,UtenteBean);
 	}catch (SQLException e){
 		e.printStackTrace();
