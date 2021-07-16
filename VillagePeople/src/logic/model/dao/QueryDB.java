@@ -248,7 +248,7 @@ public class QueryDB {
 	}
 
 	public String queryPrelevaNotificaPostoLibero(String codice) {
-		query = "SELECT DISTINCT n.Notifiche,n.codiceAttivita FROM notifiche AS n JOIN preferenzeutente AS p ON n.idCategoria=p.CodiceAttivitaPreferita WHERE p.CodiceUtente='"+codice+"' AND n.tipoNotifica=8 AND n.data>=SUBDATE(CURDATE(), INTERVAL 3 DAY)";
+		query = "SELECT DISTINCT n.Notifiche,n.codiceAttivita FROM attivita AS a JOIN notifiche AS n ON a.CodiceAttivita = n.codiceAttivita JOIN preferenzeutente AS p ON n.idCategoria=p.CodiceAttivitaPreferita WHERE p.CodiceUtente=12344 AND n.tipoNotifica=8 AND a.tipologia = 2 AND n.data>=SUBDATE(CURDATE(), INTERVAL 3 DAY)";
 	    return query;
 	}
 
