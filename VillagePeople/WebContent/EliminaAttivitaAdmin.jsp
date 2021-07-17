@@ -48,9 +48,9 @@
      NotificheController nc = new NotificheController();
      ArrayList<Object> l = new ArrayList<>();
      int lenList = l.size();
-     if (request.getSession().getAttribute("custList") != null) {
+     if (request.getParameter("custList") != null) {
          if(lenList == 0){
-        	 lenList = Integer.valueOf((request.getSession().getAttribute("custList")).toString());
+        	 lenList = Integer.parseInt(request.getParameter("custList"));
          }
      }
      if (request.getParameter("cerca") != null) {
@@ -58,7 +58,6 @@
     	    String giorni = request.getParameter("giorno");
     	 	request.getSession().setAttribute("custCateg", categoria);
     	 	request.getSession().setAttribute("custGiorno", giorni);
-    	 	request.getSession().setAttribute("custList", l.size());
     	    categoriaCus = (String)request.getSession().getAttribute("custCateg");
     	    giorniCus = (String)request.getSession().getAttribute("custGiorno");
     	 	if (categoria.equals("Salute e Benessere")){
@@ -79,7 +78,7 @@
     		}
      }
      if (request.getParameter("elimina") != null){
-    	 lenList = Integer.valueOf((request.getSession().getAttribute("custList")).toString());
+    	 lenList = Integer.parseInt(request.getParameter("custList"));
     	 if (lenList == 0){
            	 %>
         	 <p style="color: red">Devi prima cercare le attivita'</p>
@@ -280,7 +279,7 @@
 			}
 			%>
 		</table>
-
+		<input type="hidden" id="custList" name="custList" value="<%=l.size()%>"> 
 		<h1></h1>
           <input type="submit" name="elimina" value="Elimina">
           <h1></h1>

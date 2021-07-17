@@ -128,7 +128,7 @@
     		 prezzo = Double.parseDouble(l.get(index+3).toString());   	 
     		 double budgetN = budget+prezzo;
     		 codiceAtt = l.get(index).toString();
-    		 String giornoAtt = l.get(index+5).toString();
+    		 String giornoAtt = l.get(index+4).toString();
     		 String giorno = "";
     		 String giornoDopo = "";
     		 int tipoPenale = 0;
