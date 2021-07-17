@@ -39,7 +39,9 @@
 				connessione = db.openConnection();
 	        	n = sc.controllaCodiceCliente(SignUpBean, connessione);
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+	 			%>
+	 			<p style="color: red">Codice già esistente</p>
+				<%	
 			}
 
         	if(n == 0) {  
@@ -48,11 +50,6 @@
  				<p style="color: green">Aggiunta Effettuata</p>
  
  			<%	
-        	} else{
- 			%>
- 			<p style="color: red">Codice già esistente</p>
-			<%	
-        	}
         	connessione.close();
     	}
     }
