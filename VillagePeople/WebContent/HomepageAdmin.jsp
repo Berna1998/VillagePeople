@@ -22,7 +22,7 @@
     DataBaseClass db = dbf.getConnessione(type);
     connessione = db.openConnection();
 	String codice = request.getParameter("codiceID");
-	if (codice!= null){
+	if (codice!= null && codice!=""){
 		request.getSession().setAttribute("custIdAdm", codice);
 	}
 	
