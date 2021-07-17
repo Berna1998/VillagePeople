@@ -35,12 +35,12 @@ public class TestInserisciAttivitaAdmin {
 		apriConnessione();
 		abIns.setCategoria("Sport");
 		abIns.setPrezzo(12.5);
-		abIns.setOrario("15");
-		abIns.setNome("Calciotto");
-		abIns.setCodice(97);
+		abIns.setOrario("17");
+		abIns.setNome("Pallavolo");
+		abIns.setCodice(98);
 		abIns.setGiorno("Domenica");
 		abIns.setTipologia("Gruppo");
-		abIns.setPartecipantiMax(16);
+		abIns.setPartecipantiMax(18);
 		InserisciAttivitaAdminController iaac = new InserisciAttivitaAdminController();
 	    risultato = iaac.aggiungiAttivita(abIns, connessione);
 	    chiudiConnessione();

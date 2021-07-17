@@ -32,23 +32,25 @@ public class TestEliminazionePrenotazione {
 	
 	@Test
 	public void testEliminazionePrenotazione() throws SQLException {
-	   boolean risultato;
+	   boolean risultato = false;
 	   apriConnessione();
 	   AttivitaBean ab = new AttivitaBean();
 	   UtenteBean ub = new UtenteBean();
 	   double prezzo = 10;
 	   ab.setCodice(97);
-	   ab.setPrezzo(prezzo );
+	   ab.setPrezzo(prezzo);
 	   
-	   ub.setCodiceID("12356");
+	   ub.setCodiceID("12344");
 	   double budgetN = 60 + prezzo;
 	   ub.setBudget(budgetN);
 	   EliminaPrenotazioneController epc = new EliminaPrenotazioneController();
+	  
 	   risultato = epc.eliminaPrenotazione(ub, ab, connessione);
 	   epc.aggiornaBudget(ub, connessione);
-	  
+     
 	   chiudiConnessione();
 	   assertEquals(true, risultato);
+
 	}
 	
 	@Test

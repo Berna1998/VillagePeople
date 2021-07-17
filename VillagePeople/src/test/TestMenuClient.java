@@ -32,7 +32,7 @@ public class TestMenuClient {
 		boolean risultato;
 		IntolleranzeBean ib = new IntolleranzeBean();
 		apriConnessione();
-		ib.setCodiceId("12347");
+		ib.setCodiceId("12344");
 		ib.setMenu1(true);
 		ib.setMenu2(false);
 		ib.setMenu3(false);
@@ -47,7 +47,7 @@ public class TestMenuClient {
 		int risultato;
 		IntolleranzeBean ib = new IntolleranzeBean();
 		apriConnessione();
-		ib.setCodiceId("12347");
+		ib.setCodiceId("12344");
 		ib.setMenu1(true);
 		ib.setMenu2(false);
 		ib.setMenu3(false);
