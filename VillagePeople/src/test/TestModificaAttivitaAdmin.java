@@ -1,5 +1,6 @@
 package test;
 
+//Bernardini Francesco
 import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
