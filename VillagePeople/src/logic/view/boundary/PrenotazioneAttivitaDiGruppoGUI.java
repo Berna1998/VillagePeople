@@ -26,6 +26,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
+import logic.StartApplication;
 import logic.exceptions.TableException;
 
 import javax.swing.JTextField;
@@ -142,7 +143,7 @@ public class PrenotazioneAttivitaDiGruppoGUI implements Subject  {
 		txtCodiceIdPrenAttGruppo.setBackground(new Color(255, 160, 122));
 		txtCodiceIdPrenAttGruppo.setEditable(false);
 		txtCodiceIdPrenAttGruppo.setFont(new Font(font1, Font.BOLD, 11));
-		txtCodiceIdPrenAttGruppo.setBounds(62, 11, 92, 21);
+		txtCodiceIdPrenAttGruppo.setBounds(62, 15, 92, 21);
 		panelPrenAttGruppo.add(txtCodiceIdPrenAttGruppo);
 		
 		comboBoxPrenAttGruppo = new JComboBox<>();

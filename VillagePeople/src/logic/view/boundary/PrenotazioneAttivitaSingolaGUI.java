@@ -23,6 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
+import logic.StartApplication;
 import logic.exceptions.TableException;
 
 import javax.swing.JTextField;
@@ -111,7 +112,7 @@ public class PrenotazioneAttivitaSingolaGUI {
 		txtCodiceId.setBackground(new Color(255, 160, 122));
 		txtCodiceId.setEditable(false);
 		txtCodiceId.setFont(new Font(font1, Font.BOLD, 11));
-		txtCodiceId.setBounds(62, 11, 92, 21);
+		txtCodiceId.setBounds(62, 15, 92, 21);
 		panel.add(txtCodiceId);
 		
 		comboBox = new JComboBox<>();

@@ -13,6 +13,7 @@ import logic.exceptions.AddClientException;
 import logic.exceptions.DatabaseException;
 import logic.exceptions.ManageActivityAdminException;
 import logic.exceptions.MenuException;
+import logic.StartApplication;
 import logic.bean.AttivitaBean;
 import logic.bean.MenuBean;
 import logic.bean.SignUpBean;
@@ -37,7 +38,6 @@ import logic.view.boundary.MenuAdminGUI;
 import logic.view.boundary.MenuPrenotatiGUI;
 import logic.view.boundary.ModificaAttivitaAdminGUI;
 import logic.view.boundary.NotificheAdminGUI;
-import logic.view.boundary.StartApplication;
 
 public class ControllerGraficoAdmin {
 	private SignUpController sc = new SignUpController();
@@ -231,7 +231,9 @@ public class ControllerGraficoAdmin {
 				risultato = iaac.aggiungiAttivita(ab, connessioneAdm);
 			}
 			if (risultato) {
-			windowCategorieAdmin.getLabelErroreAtt().setText("Attività inserita correttamente");
+				windowCategorieAdmin.getLabelErroreAtt().setText("Attività inserita correttamente");
+				Image img = new ImageIcon(this.getClass().getResource(spuntaVerde)).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+				windowCategorieAdmin.getLabelErroreAtt().setIcon(new ImageIcon(img));
 			}
 		} catch(AddActivityException aae) {
 			aae.printMessage(windowCategorieAdmin.getLabelErroreAtt());
