@@ -1,4 +1,4 @@
-package logic.view.boundary;
+package logic;
 
 import logic.view.controllergrafico.ControllerGrafico;
 import logic.view.controllergrafico.ControllerGraficoAdmin;
