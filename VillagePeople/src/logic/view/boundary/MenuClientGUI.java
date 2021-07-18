@@ -13,6 +13,9 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.Border;
+
+import logic.StartApplication;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
@@ -160,7 +163,7 @@ public class MenuClientGUI {
 		codiceId.setForeground(new Color(255, 160, 122));
 		codiceId.setVerticalAlignment(SwingConstants.TOP);
 		codiceId.setFont(new Font(font1, Font.BOLD, 11));
-		codiceId.setBounds(10, 44, 61, 14);
+		codiceId.setBounds(10, 39, 61, 14);
 		panelMenuCli.add(codiceId);
 		
 		txtCodiceIdMenuCli = new JTextPane();
@@ -168,7 +171,7 @@ public class MenuClientGUI {
 		txtCodiceIdMenuCli.setBackground(new Color(0, 0, 0));
 		txtCodiceIdMenuCli.setEditable(false);
 		txtCodiceIdMenuCli.setFont(new Font(font1, Font.BOLD, 11));
-		txtCodiceIdMenuCli.setBounds(71, 37, 92, 21);
+		txtCodiceIdMenuCli.setBounds(71, 36, 92, 22);
 		panelMenuCli.add(txtCodiceIdMenuCli);
 		
 		JLabel lblMenu = new JLabel("");

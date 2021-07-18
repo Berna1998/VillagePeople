@@ -15,6 +15,9 @@ import javax.swing.JTextPane;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+
+import logic.StartApplication;
+
 import javax.swing.ImageIcon;
 
 public class NotificheClientGUI implements Observer {
@@ -164,7 +167,7 @@ public class NotificheClientGUI implements Observer {
 		txtCodiceId.setBackground(new Color(0, 0, 0));
 		txtCodiceId.setEditable(false);
 		txtCodiceId.setFont(new Font(font1, Font.BOLD, 11));
-		txtCodiceId.setBounds(62, 26, 92, 21);
+		txtCodiceId.setBounds(62, 30, 92, 21);
 		panelNotifCli.add(txtCodiceId);
 		
 		
