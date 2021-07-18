@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MySqlDB implements DataBaseClass { //concrete product
+public class MySqlDB implements DataBaseClass { 
 
 	public Connection openConnection() throws SQLException {
 		Connection con = null;
