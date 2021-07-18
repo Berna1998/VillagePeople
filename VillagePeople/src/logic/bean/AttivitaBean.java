@@ -20,7 +20,7 @@ public class AttivitaBean {
 		this.partecipantiAttualiBean = partecipantiAttuali;
 	}
 
-	public int getPartecipantiMax() {
+	public int getPartecipantiMax() { 
 		return partecipantiMaxBean;
 	}
 
